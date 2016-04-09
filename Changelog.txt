@@ -1,2 +1,3 @@
-##04/09/2016
+# 04/09/2016
 1. Initial project setup.
+2. Changed asset serialization mode to force text and enabled Visible Meta Files in Editor.
