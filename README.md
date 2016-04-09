@@ -1,4 +1,4 @@
-# vr-project-4
+# Procrastination VR
 This repository holds the final project for the Virtual Reality course at the University of Florida - Spring 2016. The team consists of 3 graduate students:
 
 1. Izhar Shaikh (https://github.com/its-izhar)
