@@ -1,3 +1,8 @@
 # 04/09/2016
 1. Initial project setup.
 2. Changed asset serialization mode to force text and enabled Visible Meta Files in Editor.
+
+# 04/11/2016
+1. Created folders for Models, Animations, Audio, Textures and Scripts.
+2. Created Scene 2.unity for the home scene. Added terrain and house in the scene. Added skybox. Lighting changes.
+3. Updated README.md
