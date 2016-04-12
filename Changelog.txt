@@ -9,4 +9,7 @@
 
 # 04/11/2016
 1. Created initial design of the classroom scene.
+2. Imported Cardboard SDK.
+3. Changed FirstPersonController.cs to provide volume option for Walk and Jump.
+4. Created CardboardMain + FPSController hybrid game object to Scene 2.
 
