@@ -22,4 +22,4 @@ This repository holds the final project for the Virtual Reality course at the Un
 11. Books: https://3dwarehouse.sketchup.com/model.html?id=e2a848ecd16b16857d3aa3bae1f7b494
 12. Notebook paper: https://3dwarehouse.sketchup.com/model.html?id=3ec8e454858a6aed2513f3510eefb345
 13. Pen: https://3dwarehouse.sketchup.com/model.html?id=b2498de78580c5daadce4978a51b7c68
-14. Pencils: 
+14. Pencils: https://3dwarehouse.sketchup.com/model.html?id=98ec0daf3fc57f4776901e2784d30f9b
