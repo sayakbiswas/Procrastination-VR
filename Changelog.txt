@@ -13,3 +13,5 @@
 3. Changed FirstPersonController.cs to provide volume option for Walk and Jump.
 4. Created CardboardMain + FPSController hybrid game object to Scene 2.
 
+# 04/12/2016
+1. Removed house in Scene 2 and started creating house from scratch.
