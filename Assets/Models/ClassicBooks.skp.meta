@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: d44e0f4bcc4655144ab9e69186fe3535
+timeCreated: 1460494913
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e000000
+  assetHash:
+    serializedVersion: 2
+    Hash: d36c8c06864bc76705726460754e55d9
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -0.21483374, y: 0.4548385, z: -0.11185979}
+      lookAt: {x: 0.10361401, y: 0.08131209, z: 0.1119056}
+      up: {x: 0.56654453, y: 0.72148883, z: 0.39809692}
+      fov: 30
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Herodotus
+    100004: Herodotus 1
+    100006: Homer
+    100008: Homer 1
+    100010: The Aeneid
+    100012: The Aeneid 1
+    100014: The History
+    100016: The History#1
+    100018: The Odyssey
+    100020: The Odyssey 1
+    100022: Theaeneid
+    100024: thehistories
+    100026: TheOdyssey
+    100028: Virgil
+    100030: Virgil 1
+    400000: //RootNode
+    400002: Herodotus
+    400004: Herodotus 1
+    400006: Homer
+    400008: Homer 1
+    400010: The Aeneid
+    400012: The Aeneid 1
+    400014: The History
+    400016: The History#1
+    400018: The Odyssey
+    400020: The Odyssey 1
+    400022: Theaeneid
+    400024: thehistories
+    400026: TheOdyssey
+    400028: Virgil
+    400030: Virgil 1
+    2300000: Herodotus
+    2300002: Herodotus 1
+    2300004: Homer
+    2300006: Homer 1
+    2300008: The Aeneid
+    2300010: The Aeneid 1
+    2300012: The History
+    2300014: The History#1
+    2300016: The Odyssey
+    2300018: The Odyssey 1
+    2300020: Theaeneid
+    2300022: thehistories
+    2300024: TheOdyssey
+    2300026: Virgil
+    2300028: Virgil 1
+    3300000: Herodotus
+    3300002: Herodotus 1
+    3300004: Homer
+    3300006: Homer 1
+    3300008: The Aeneid
+    3300010: The Aeneid 1
+    3300012: The History
+    3300014: The History#1
+    3300016: The Odyssey
+    3300018: The Odyssey 1
+    3300020: Theaeneid
+    3300022: thehistories
+    3300024: TheOdyssey
+    3300026: Virgil
+    3300028: Virgil 1
+    4300000: Mesh thehistories
+    4300002: Mesh The History
+    4300004: Mesh Herodotus
+    4300006: Mesh The History#1
+    4300008: Mesh Theaeneid
+    4300010: Mesh Virgil
+    4300012: Mesh The Aeneid
+    4300014: Mesh TheOdyssey
+    4300016: Mesh The Odyssey
+    4300018: Mesh Homer
+    6400000: Herodotus
+    6400002: Herodotus 1
+    6400004: Homer
+    6400006: Homer 1
+    6400008: The Aeneid
+    6400010: The Aeneid 1
+    6400012: The History
+    6400014: The History#1
+    6400016: The Odyssey
+    6400018: The Odyssey 1
+    6400020: Theaeneid
+    6400022: thehistories
+    6400024: TheOdyssey
+    6400026: Virgil
+    6400028: Virgil 1
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
