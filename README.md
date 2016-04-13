@@ -23,3 +23,12 @@ This repository holds the final project for the Virtual Reality course at the Un
 12. Notebook paper: https://3dwarehouse.sketchup.com/model.html?id=3ec8e454858a6aed2513f3510eefb345
 13. Pen: https://3dwarehouse.sketchup.com/model.html?id=b2498de78580c5daadce4978a51b7c68
 14. Pencils: https://3dwarehouse.sketchup.com/model.html?id=98ec0daf3fc57f4776901e2784d30f9b
+15. LED TV Cabinet: https://3dwarehouse.sketchup.com/model.html?id=d061d2b6c934d0cc8b4b5227fac4401
+16. Sofa: https://3dwarehouse.sketchup.com/model.html?id=u98cc2d81-cefa-4a38-a462-9cfba53ea7ff
+17. XBox: https://3dwarehouse.sketchup.com/model.html?id=521c3cf3580a4f6c238fa8c13331602e
+18. Controller: https://3dwarehouse.sketchup.com/model.html?id=acb901a62720cd6c5bf164495d68b279
+19. Refrigerator: https://3dwarehouse.sketchup.com/model.html?id=e53a87d486aed0644fc9d44d6fa66ef
+20. Kitchen Table: https://3dwarehouse.sketchup.com/model.html?id=d21d09400554b9035f695a1243ca35d4
+21. Dining Table: https://3dwarehouse.sketchup.com/model.html?id=1fcc70eca69c2e8b1bb088904f7cb154
+22. Door: https://3dwarehouse.sketchup.com/model.html?id=aa089f43226aabcdc7764a04d03e8e1a
+23. Door2: https://3dwarehouse.sketchup.com/model.html?id=ufdc840a0-27eb-4daf-9453-62e9e1484d97

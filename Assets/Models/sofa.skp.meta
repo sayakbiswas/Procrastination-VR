@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: 5a3d48a1a8fd68448ac245d1aa7d193d
+timeCreated: 1460581553
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000120000001300000014000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 4b7b3ba34fa4061cb34e506362af94eb
+  longitude: -47.917
+  latitude: -15.783
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 3.1296594, y: 1.8415095, z: -3.2418478}
+      lookAt: {x: 1.3175784, y: 0.6532435, z: 1.1324857}
+      up: {x: -0.093158595, y: 0.9699222, z: 0.22488332}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes:
+    - camera:
+        position: {x: 0.7778251, y: 2.1862519, z: -2.2886362}
+        lookAt: {x: 2.1066773, y: -0.5146705, z: 3.0437536}
+        up: {x: 0.106658585, y: 0.8974644, z: 0.42799726}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Cena1
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Group 11
+    100002: Group 13
+    100004: Group 15
+    100006: Group 17
+    100008: Group 19
+    100010: Group 2
+    100012: Group 3
+    100014: Group 4
+    100016: Group 6
+    100018: Group 8
+    100020: Group 9
+    100022: //RootNode
+    400000: Group 11
+    400002: Group 13
+    400004: Group 15
+    400006: Group 17
+    400008: Group 19
+    400010: Group 2
+    400012: Group 3
+    400014: Group 4
+    400016: Group 6
+    400018: Group 8
+    400020: Group 9
+    400022: //RootNode
+    2300000: Group 11
+    2300002: Group 13
+    2300004: Group 15
+    2300006: Group 17
+    2300008: Group 19
+    2300010: Group 4
+    2300012: Group 6
+    2300014: Group 9
+    2300016: //RootNode
+    3300000: Group 11
+    3300002: Group 13
+    3300004: Group 15
+    3300006: Group 17
+    3300008: Group 19
+    3300010: Group 4
+    3300012: Group 6
+    3300014: Group 9
+    3300016: //RootNode
+    4300000: Mesh sofa
+    4300002: Mesh Group 4
+    4300004: Mesh Group 6
+    4300006: Mesh Group 9
+    4300008: Mesh Group 13
+    4300010: Mesh Group 15
+    4300012: Mesh Group 17
+    4300014: Mesh Group 19
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
