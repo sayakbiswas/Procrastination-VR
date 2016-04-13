@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: ece31223d497613459510f0759842685
+timeCreated: 1460583730
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f00000030000000
+  assetHash:
+    serializedVersion: 2
+    Hash: c2ede5f7e8af970c8db0af3cc29b5c8c
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 4.878062, y: 4.2753644, z: 3.4052436}
+      lookAt: {x: 1.1080942, y: 0.40610683, z: 1.6872734}
+      up: {x: -0.621104, y: 0.73083526, z: -0.2830364}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Component#1
+    100002: Component#1 1
+    100004: Component#1 2
+    100006: Component#1 3
+    100008: Component#2
+    100010: Component#2 1
+    100012: Component#2 2
+    100014: Component#2 3
+    100016: //RootNode
+    100018: Tie
+    100020: Tie 1
+    100022: Tie 2
+    100024: Tie 3
+    100026: WE _ Terra _ Bench
+    100028: WE _ Terra _ Bench 1
+    100030: WE _ Terra _ Bench with Braided Jute Cushion
+    100032: WE _ Terra _ Bench with Braided Jute Cushion 1
+    100034: WE _ Terra _ Dining Table
+    100036: WE _ Terra _ Woven Braided Jute Bench Cushion
+    100038: WE _ Terra _ Woven Braided Jute Bench Cushion 1
+    100040: WE _ Tilt _ Woven Seat Cushion with Straps
+    100042: WE _ Tilt _ Woven Seat Cushion with Straps 1
+    100044: WE _ Tilt _ Woven Seat no Straps
+    100046: WE _ Tilt _ Woven Seat no Straps 1
+    100048: WE _ Tilt Chair
+    100050: WE _ Tilt Chair 1
+    100052: WE _ Tilt Chair _ with Woven Seat Cushion
+    100054: WE _ Tilt Chair _ with Woven Seat Cushion 1
+    400000: Component#1
+    400002: Component#1 1
+    400004: Component#1 2
+    400006: Component#1 3
+    400008: Component#2
+    400010: Component#2 1
+    400012: Component#2 2
+    400014: Component#2 3
+    400016: //RootNode
+    400018: Tie
+    400020: Tie 1
+    400022: Tie 2
+    400024: Tie 3
+    400026: WE _ Terra _ Bench
+    400028: WE _ Terra _ Bench 1
+    400030: WE _ Terra _ Bench with Braided Jute Cushion
+    400032: WE _ Terra _ Bench with Braided Jute Cushion 1
+    400034: WE _ Terra _ Dining Table
+    400036: WE _ Terra _ Woven Braided Jute Bench Cushion
+    400038: WE _ Terra _ Woven Braided Jute Bench Cushion 1
+    400040: WE _ Tilt _ Woven Seat Cushion with Straps
+    400042: WE _ Tilt _ Woven Seat Cushion with Straps 1
+    400044: WE _ Tilt _ Woven Seat no Straps
+    400046: WE _ Tilt _ Woven Seat no Straps 1
+    400048: WE _ Tilt Chair
+    400050: WE _ Tilt Chair 1
+    400052: WE _ Tilt Chair _ with Woven Seat Cushion
+    400054: WE _ Tilt Chair _ with Woven Seat Cushion 1
+    2300000: Component#1
+    2300002: Component#1 1
+    2300004: Component#1 2
+    2300006: Component#1 3
+    2300008: Component#2
+    2300010: Component#2 1
+    2300012: Component#2 2
+    2300014: Component#2 3
+    2300016: Tie
+    2300018: Tie 1
+    2300020: Tie 2
+    2300022: Tie 3
+    2300024: WE _ Terra _ Bench
+    2300026: WE _ Terra _ Bench 1
+    2300028: WE _ Terra _ Dining Table
+    2300030: WE _ Terra _ Woven Braided Jute Bench Cushion
+    2300032: WE _ Terra _ Woven Braided Jute Bench Cushion 1
+    2300034: WE _ Tilt _ Woven Seat no Straps
+    2300036: WE _ Tilt _ Woven Seat no Straps 1
+    2300038: WE _ Tilt Chair
+    2300040: WE _ Tilt Chair 1
+    3300000: Component#1
+    3300002: Component#1 1
+    3300004: Component#1 2
+    3300006: Component#1 3
+    3300008: Component#2
+    3300010: Component#2 1
+    3300012: Component#2 2
+    3300014: Component#2 3
+    3300016: Tie
+    3300018: Tie 1
+    3300020: Tie 2
+    3300022: Tie 3
+    3300024: WE _ Terra _ Bench
+    3300026: WE _ Terra _ Bench 1
+    3300028: WE _ Terra _ Dining Table
+    3300030: WE _ Terra _ Woven Braided Jute Bench Cushion
+    3300032: WE _ Terra _ Woven Braided Jute Bench Cushion 1
+    3300034: WE _ Tilt _ Woven Seat no Straps
+    3300036: WE _ Tilt _ Woven Seat no Straps 1
+    3300038: WE _ Tilt Chair
+    3300040: WE _ Tilt Chair 1
+    4300000: Mesh WE _ Terra _ Dining Table
+    4300002: Mesh Component#2
+    4300004: Mesh Tie
+    4300006: Mesh Component#1
+    4300008: Mesh WE _ Tilt _ Woven Seat no Straps
+    4300010: Mesh WE _ Tilt Chair
+    4300012: Mesh WE _ Terra _ Woven Braided Jute Bench Cushion
+    4300014: Mesh WE _ Terra _ Bench
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
