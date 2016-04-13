@@ -1,0 +1,186 @@
+fileFormatVersion: 2
+guid: ed45740704bddfc4886be955b1e1a9e9
+timeCreated: 1460583362
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f00000020000000210000002200000023000000240000002500000026000000270000002800000029000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 3d1aa49ba6077ef637d826fa44c17e54
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 4.801868, y: 1.8656946, z: -3.6298516}
+      lookAt: {x: -11.180063, y: -4.884911, z: 13.724917}
+      up: {x: -0.18635154, y: 0.9614177, z: 0.20235902}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bowlfruit.dxf
+    100002: burner
+    100004: burner 1
+    100006: burner 2
+    100008: burner 3
+    100010: Fruit bowl
+    100012: GooseNeck
+    100014: GooseNeck 1
+    100016: Group 1
+    100018: Group 3
+    100020: Group 7
+    100022: Handle01
+    100024: Handle01 1
+    100026: Handle01 2
+    100028: Handle01 3
+    100030: //RootNode
+    100032: knob#1
+    100034: knob#1 1
+    100036: knob#1 2
+    100038: knob#1 3
+    100040: Plant_Potted_Fern
+    100042: Range_Countertop
+    100044: Sink_Utility_Counter
+    100046: Sink_Utility_Counter 1
+    400000: bowlfruit.dxf
+    400002: burner
+    400004: burner 1
+    400006: burner 2
+    400008: burner 3
+    400010: Fruit bowl
+    400012: GooseNeck
+    400014: GooseNeck 1
+    400016: Group 1
+    400018: Group 3
+    400020: Group 7
+    400022: Handle01
+    400024: Handle01 1
+    400026: Handle01 2
+    400028: Handle01 3
+    400030: //RootNode
+    400032: knob#1
+    400034: knob#1 1
+    400036: knob#1 2
+    400038: knob#1 3
+    400040: Plant_Potted_Fern
+    400042: Range_Countertop
+    400044: Sink_Utility_Counter
+    400046: Sink_Utility_Counter 1
+    2300000: bowlfruit.dxf
+    2300002: GooseNeck
+    2300004: GooseNeck 1
+    2300006: Group 1
+    2300008: Group 3
+    2300010: Group 7
+    2300012: Handle01
+    2300014: Handle01 1
+    2300016: Handle01 2
+    2300018: Handle01 3
+    2300020: knob#1
+    2300022: knob#1 1
+    2300024: knob#1 2
+    2300026: knob#1 3
+    2300028: Plant_Potted_Fern
+    2300030: Range_Countertop
+    2300032: Sink_Utility_Counter
+    2300034: Sink_Utility_Counter 1
+    3300000: bowlfruit.dxf
+    3300002: GooseNeck
+    3300004: GooseNeck 1
+    3300006: Group 1
+    3300008: Group 3
+    3300010: Group 7
+    3300012: Handle01
+    3300014: Handle01 1
+    3300016: Handle01 2
+    3300018: Handle01 3
+    3300020: knob#1
+    3300022: knob#1 1
+    3300024: knob#1 2
+    3300026: knob#1 3
+    3300028: Plant_Potted_Fern
+    3300030: Range_Countertop
+    3300032: Sink_Utility_Counter
+    3300034: Sink_Utility_Counter 1
+    4300000: Mesh Group 1
+    4300002: Mesh Group 3
+    4300004: Mesh Plant_Potted_Fern
+    4300006: Mesh Group 7
+    4300008: Mesh Range_Countertop
+    4300010: Mesh knob#1
+    4300012: Mesh knob#1
+    4300014: Mesh Sink_Utility_Counter
+    4300016: Mesh GooseNeck
+    4300018: Mesh Handle01
+    4300020: Mesh bowlfruit.dxf
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
