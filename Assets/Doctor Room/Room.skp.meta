@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 6db1284c791c0324089b0ad5ef088677
+timeCreated: 1460588386
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f0000002000000021000000220000002300000024000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 15b08b4ba3868ead8572524379e50e6a
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 4.915599, y: 2.186092, z: -2.812878}
+      lookAt: {x: -2.2500517, y: -0.21382655, z: 3.7461047}
+      up: {x: -0.17691644, y: 0.9708124, z: 0.1619381}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Castor_Whe
+    100002: Castors
+    100004: Component#1
+    100006: Component#2
+    100008: Component#3
+    100010: Component#4
+    100012: Component#5
+    100014: Component#6
+    100016: Component#7
+    100018: Frame01
+    100020: Frame02
+    100022: Frame03
+    100024: Frame04
+    100026: Frame06
+    100028: Group 2
+    100030: Head_Board
+    100032: Mattress
+    100034: Mattress#1
+    100036: //RootNode
+    400000: Castor_Whe
+    400002: Castors
+    400004: Component#1
+    400006: Component#2
+    400008: Component#3
+    400010: Component#4
+    400012: Component#5
+    400014: Component#6
+    400016: Component#7
+    400018: Frame01
+    400020: Frame02
+    400022: Frame03
+    400024: Frame04
+    400026: Frame06
+    400028: Group 2
+    400030: Head_Board
+    400032: Mattress
+    400034: Mattress#1
+    400036: //RootNode
+    2300000: Castor_Whe
+    2300002: Castors
+    2300004: Component#1
+    2300006: Component#2
+    2300008: Component#3
+    2300010: Component#4
+    2300012: Component#5
+    2300014: Component#6
+    2300016: Component#7
+    2300018: Frame01
+    2300020: Frame02
+    2300022: Frame03
+    2300024: Frame04
+    2300026: Frame06
+    2300028: Head_Board
+    2300030: Mattress
+    2300032: Mattress#1
+    2300034: //RootNode
+    3300000: Castor_Whe
+    3300002: Castors
+    3300004: Component#1
+    3300006: Component#2
+    3300008: Component#3
+    3300010: Component#4
+    3300012: Component#5
+    3300014: Component#6
+    3300016: Component#7
+    3300018: Frame01
+    3300020: Frame02
+    3300022: Frame03
+    3300024: Frame04
+    3300026: Frame06
+    3300028: Head_Board
+    3300030: Mattress
+    3300032: Mattress#1
+    3300034: //RootNode
+    4300000: Mesh Room
+    4300002: Mesh Castor_Whe
+    4300004: Mesh Castors
+    4300006: Mesh Frame04
+    4300008: Mesh Frame03
+    4300010: Mesh Frame02
+    4300012: Mesh Frame01
+    4300014: Mesh Mattress
+    4300016: Mesh Head_Board
+    4300018: Mesh Frame06
+    4300020: Mesh Mattress#1
+    4300022: Mesh Component#2
+    4300024: Mesh Component#3
+    4300026: Mesh Component#4
+    4300028: Mesh Component#1
+    4300030: Mesh Component#5
+    4300032: Mesh Component#6
+    4300034: Mesh Component#7
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
