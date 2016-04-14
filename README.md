@@ -32,3 +32,4 @@ This repository holds the final project for the Virtual Reality course at the Un
 21. Dining Table: https://3dwarehouse.sketchup.com/model.html?id=1fcc70eca69c2e8b1bb088904f7cb154
 22. Door: https://3dwarehouse.sketchup.com/model.html?id=aa089f43226aabcdc7764a04d03e8e1a
 23. Door2: https://3dwarehouse.sketchup.com/model.html?id=ufdc840a0-27eb-4daf-9453-62e9e1484d97
+24. Doctor's Room: https://3dwarehouse.sketchup.com/model.html?id=6924b1d08b0113b4f57e189f705eecb1
