@@ -33,3 +33,12 @@ This repository holds the final project for the Virtual Reality course at the Un
 22. Door: https://3dwarehouse.sketchup.com/model.html?id=aa089f43226aabcdc7764a04d03e8e1a
 23. Door2: https://3dwarehouse.sketchup.com/model.html?id=ufdc840a0-27eb-4daf-9453-62e9e1484d97
 24. Doctor's Room: https://3dwarehouse.sketchup.com/model.html?id=6924b1d08b0113b4f57e189f705eecb1
+25. Superman Poster: https://3dwarehouse.sketchup.com/model.html?id=uc6771e25-2a3a-4323-bab4-8f787f343ead
+26. Props for the Classroom: https://www.assetstore.unity3d.com/en/#!/content/5977
+27. Play Games poster: https://3dwarehouse.sketchup.com/model.html?id=u3e8b9f26-62b7-43fa-a758-f3ccc40db790
+28. Window: https://3dwarehouse.sketchup.com/model.html?id=dee0bfbfc4b5f4d43df325aac2f73830
+29. Low Poly tree: https://3dwarehouse.sketchup.com/model.html?id=6c92b70f473b814f9e8cd846ef13776
+30. Wardrobe: https://3dwarehouse.sketchup.com/model.html?id=bb107ee3998642ee7ac6ce513ae497d3
+31. Pile of Clothes: https://3dwarehouse.sketchup.com/model.html?id=u0d7ce1a0-bf47-4afd-90a0-27b9403a2009
+32. School Bag: https://3dwarehouse.sketchup.com/model.html?id=9296663dcefe3f6d9830ee784de3bbf2
+33. Ambient noise: https://www.youtube.com/watch?v=TlGr5AFZ0Y4
