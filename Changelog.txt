@@ -28,3 +28,4 @@
 2. Generated colliders in scene 2.
 3. Moved classroom and doctor's room assets into Models folder
 4. Deleted Salsa folder
+5. Added more stuff in the bedroom.
