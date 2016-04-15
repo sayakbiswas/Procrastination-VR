@@ -22,3 +22,9 @@
 1. Changes to Scene 2. Added stuff in house.
 2. Added terrain and skybox back.
 3. Added Doctor's Room Scene
+
+# 04/14/2016
+1. Added RogoDigital Lipsync plugin.
+2. Generated colliders in scene 2.
+3. Moved classroom and doctor's room assets into Models folder
+4. Deleted Salsa folder

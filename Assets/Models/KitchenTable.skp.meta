@@ -120,6 +120,24 @@ SketchUpImporter:
     4300016: Mesh GooseNeck
     4300018: Mesh Handle01
     4300020: Mesh bowlfruit.dxf
+    6400000: bowlfruit.dxf
+    6400002: GooseNeck
+    6400004: GooseNeck 1
+    6400006: Group 1
+    6400008: Group 3
+    6400010: Group 7
+    6400012: Handle01
+    6400014: Handle01 1
+    6400016: Handle01 2
+    6400018: Handle01 3
+    6400020: knob#1
+    6400022: knob#1 1
+    6400024: knob#1 2
+    6400026: knob#1 3
+    6400028: Plant_Potted_Fern
+    6400030: Range_Countertop
+    6400032: Sink_Utility_Counter
+    6400034: Sink_Utility_Counter 1
   materials:
     importMaterials: 1
     materialName: 2
@@ -146,7 +164,7 @@ SketchUpImporter:
     lODScreenPercentages: []
     globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

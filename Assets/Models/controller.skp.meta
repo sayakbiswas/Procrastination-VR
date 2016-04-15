@@ -49,6 +49,9 @@ SketchUpImporter:
     4300000: Mesh controller
     4300002: Mesh Group 2
     4300004: Mesh 2D_Woman_Standing_Sandra
+    6400000: 2D_Woman_Standing_Sandra
+    6400002: //RootNode
+    6400004: Group 2
   materials:
     importMaterials: 1
     materialName: 2
@@ -75,7 +78,7 @@ SketchUpImporter:
     lODScreenPercentages: []
     globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

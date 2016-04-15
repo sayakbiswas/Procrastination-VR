@@ -48,6 +48,11 @@ SketchUpImporter:
     4300000: Mesh TV
     4300002: Mesh Demon_Speaker
     4300004: Mesh Demon_Speaker
+    6400000: Demon_Speaker
+    6400002: Demon_Speaker 1
+    6400004: Image 4
+    6400006: Image 7
+    6400008: //RootNode
   materials:
     importMaterials: 1
     materialName: 2
@@ -74,7 +79,7 @@ SketchUpImporter:
     lODScreenPercentages: []
     globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

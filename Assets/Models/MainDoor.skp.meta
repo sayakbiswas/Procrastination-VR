@@ -69,6 +69,14 @@ SketchUpImporter:
     4300002: Mesh Group 5
     4300004: Mesh Group 9
     4300006: Mesh Group 16
+    6400000: Group 12
+    6400002: Group 14
+    6400004: Group 16
+    6400006: Group 18
+    6400008: Group 3
+    6400010: Group 5
+    6400012: Group 7
+    6400014: Group 9
   materials:
     importMaterials: 1
     materialName: 2
@@ -95,7 +103,7 @@ SketchUpImporter:
     lODScreenPercentages: []
     globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

@@ -131,6 +131,27 @@ SketchUpImporter:
     4300010: Mesh WE _ Tilt Chair
     4300012: Mesh WE _ Terra _ Woven Braided Jute Bench Cushion
     4300014: Mesh WE _ Terra _ Bench
+    6400000: Component#1
+    6400002: Component#1 1
+    6400004: Component#1 2
+    6400006: Component#1 3
+    6400008: Component#2
+    6400010: Component#2 1
+    6400012: Component#2 2
+    6400014: Component#2 3
+    6400016: Tie
+    6400018: Tie 1
+    6400020: Tie 2
+    6400022: Tie 3
+    6400024: WE _ Terra _ Bench
+    6400026: WE _ Terra _ Bench 1
+    6400028: WE _ Terra _ Dining Table
+    6400030: WE _ Terra _ Woven Braided Jute Bench Cushion
+    6400032: WE _ Terra _ Woven Braided Jute Bench Cushion 1
+    6400034: WE _ Tilt _ Woven Seat no Straps
+    6400036: WE _ Tilt _ Woven Seat no Straps 1
+    6400038: WE _ Tilt Chair
+    6400040: WE _ Tilt Chair 1
   materials:
     importMaterials: 1
     materialName: 2
@@ -157,7 +178,7 @@ SketchUpImporter:
     lODScreenPercentages: []
     globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
