@@ -29,3 +29,7 @@
 3. Moved classroom and doctor's room assets into Models folder
 4. Deleted Salsa folder
 5. Added more stuff in the bedroom.
+
+# 04/15/2016
+1. Added CardboardReticle growth feature.
+2. Added ProcrastinationScript.cs
