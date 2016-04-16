@@ -31,5 +31,9 @@
 5. Added more stuff in the bedroom.
 
 # 04/15/2016
-1. Added CardboardReticle growth feature.
-2. Added ProcrastinationScript.cs
+1. Added animations to scene1
+2. Renamed few files.
+3. Added colliders to objects in Scene1.
+4. Revised Doctor's Room and added colliders
+5. Added CardboardReticle growth feature.
+6. Added ProcrastinationScript.cs

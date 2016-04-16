@@ -44,3 +44,5 @@ This repository holds the final project for the Virtual Reality course at the Un
 33. Ambient noise: https://www.youtube.com/watch?v=TlGr5AFZ0Y4
 34. CoD Audio: https://www.youtube.com/watch?v=zQmxRKrcK24
 35. CoD Screenshots: http://www.videogamer.com/xbox360/cod_mw3/
+36. Doctor's Room Base: https://3dwarehouse.sketchup.com/model.html?id=9646723bbf608fb871863225e6cc4ec5
+37. Dental Chair: https://3dwarehouse.sketchup.com/model.html?id=167dae7fbe0f9ea0504721639e19f609
