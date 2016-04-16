@@ -35,4 +35,5 @@
 2. Renamed few files.
 3. Added colliders to objects in Scene1.
 4. Revised Doctor's Room and added colliders
-
+5. Added CardboardReticle growth feature.
+6. Added ProcrastinationScript.cs
