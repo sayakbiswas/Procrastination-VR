@@ -34,4 +34,5 @@
 1. Added animations to scene1
 2. Renamed few files.
 3. Added colliders to objects in Scene1.
+4. Revised Doctor's Room and added colliders
 

@@ -42,3 +42,5 @@ This repository holds the final project for the Virtual Reality course at the Un
 31. Pile of Clothes: https://3dwarehouse.sketchup.com/model.html?id=u0d7ce1a0-bf47-4afd-90a0-27b9403a2009
 32. School Bag: https://3dwarehouse.sketchup.com/model.html?id=9296663dcefe3f6d9830ee784de3bbf2
 33. Ambient noise: https://www.youtube.com/watch?v=TlGr5AFZ0Y4
+34. Doctor's Room Base: https://3dwarehouse.sketchup.com/model.html?id=9646723bbf608fb871863225e6cc4ec5
+35. Dental Chair: https://3dwarehouse.sketchup.com/model.html?id=167dae7fbe0f9ea0504721639e19f609
