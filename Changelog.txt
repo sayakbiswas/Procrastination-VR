@@ -42,3 +42,5 @@
 1. Added iTween.
 2. Added flying images during gaming.
 3. Added animated Square and Circle button popups for choices.
+4. Added animated social media images.
+5. Screen darkens when procrastinating.
