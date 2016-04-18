@@ -37,3 +37,7 @@
 4. Revised Doctor's Room and added colliders
 5. Added CardboardReticle growth feature.
 6. Added ProcrastinationScript.cs
+
+# 04/28/2016
+1. Added iTween.
+2. Added flying images during gaming.
