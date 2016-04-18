@@ -41,3 +41,4 @@
 # 04/28/2016
 1. Added iTween.
 2. Added flying images during gaming.
+3. Added animated Square and Circle button popups for choices.

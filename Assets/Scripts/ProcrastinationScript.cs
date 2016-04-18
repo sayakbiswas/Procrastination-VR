@@ -51,6 +51,8 @@ public class ProcrastinationScript : MonoBehaviour {
 					} else {
 						StopGaming ();
 					}
+				} else if(hitObject.name.Contains ("laptop") || hitObject.name.Contains ("paper")) {
+					
 				}
 			}
 		}

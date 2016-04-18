@@ -46,3 +46,5 @@ This repository holds the final project for the Virtual Reality course at the Un
 35. CoD Screenshots: http://www.videogamer.com/xbox360/cod_mw3/
 36. Doctor's Room Base: https://3dwarehouse.sketchup.com/model.html?id=9646723bbf608fb871863225e6cc4ec5
 37. Dental Chair: https://3dwarehouse.sketchup.com/model.html?id=167dae7fbe0f9ea0504721639e19f609
+38. Square Button: http://www.shopto.net/themes/shopto/images/dlcSoft/new/square-button.png
+39. Circle Button: http://www.shopto.net/themes/shopto/images/dlcSoft/new/circle-button.png
