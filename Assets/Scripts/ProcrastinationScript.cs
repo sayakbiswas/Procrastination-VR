@@ -51,6 +51,8 @@ public class ProcrastinationScript : MonoBehaviour {
 					} else {
 						StopGaming ();
 					}
+				} else if(hitObject.name.Contains ("laptop") || hitObject.name.Contains ("paper")) {
+					
 				}
 			}
 		}
@@ -70,14 +72,14 @@ public class ProcrastinationScript : MonoBehaviour {
 				gameScreen2.transform.localPosition = screen2OriginalPosition;
 			}
 
-			gameScreen3.transform.Translate (0, Time.deltaTime * 1.4f, -Time.deltaTime * 1.4f);
+			gameScreen3.transform.Translate (0, Time.deltaTime * 1.4f, 0);
 			if(gameScreen3.transform.localPosition.z <= -0.1f) {
 				screen3textureChangeCount += 1;
 				gameScreen3.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen3textureChangeCount % gameTextures.Length)];
 				gameScreen3.transform.localPosition = screen3OriginalPosition;
 			}
 
-			gameScreen4.transform.Translate (0, Time.deltaTime * 1.4f, -Time.deltaTime * 1.4f);
+			gameScreen4.transform.Translate (0, Time.deltaTime * 1.4f, 0);
 			if(gameScreen4.transform.localPosition.z <= -0.1f) {
 				screen4textureChangeCount += 1;
 				gameScreen4.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen4textureChangeCount % gameTextures.Length)];
