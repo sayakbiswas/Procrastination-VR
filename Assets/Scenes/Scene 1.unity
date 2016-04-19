@@ -1201,14 +1201,9 @@ MonoBehaviour:
     bones: []
     emotion: Eyebrows Up
     verified: 0
-  - blendShapes: 
-    weights: []
-    bones: []
-    emotion: Shocked
-    verified: 0
-  playOnAwake: 1
+  playOnAwake: 0
   loop: 0
-  defaultClip: {fileID: 11400000, guid: 15eb6201ff40aa34f91dd4ec98db4e08, type: 2}
+  defaultClip: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d, type: 2}
   defaultDelay: 0
   scaleAudioSpeed: 1
   restTime: 0.2
@@ -1238,8 +1233,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d6ab83ca3b88d4ac8b158ab7cca1ccda, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 38dda909d4cc4774c989f6bdf7b96537, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1771,6 +1766,7 @@ GameObject:
   - 54: {fileID: 724156137}
   - 82: {fileID: 724156136}
   - 114: {fileID: 724156135}
+  - 114: {fileID: 724156140}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Untagged
@@ -2012,6 +2008,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &724156140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 724156133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4292c23f99ad6489613f8221857efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theProfessor: {fileID: 494165116}
+  profLipSyncData: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d, type: 2}
 --- !u!1 &800802200 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: f43895422c5b6cc46bd4dee3435e38f1, type: 3}
@@ -3790,6 +3799,59 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16289307, y: 0.13013819, z: 0.03367924}
   m_Center: {x: 0, y: 0, z: -0.000000029802322}
+--- !u!1 &1365901446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1365901448}
+  - 114: {fileID: 1365901447}
+  m_Layer: 0
+  m_Name: Ambient Noise
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1365901447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1365901446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbca64e524ea44f9b26142ec59aca8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directivityAlpha: 0
+  directivitySharpness: 1
+  gainDb: 0
+  occlusionEnabled: 0
+  playOnAwake: 1
+  rolloffMode: 0
+  sourceClip: {fileID: 8300000, guid: 9465719f4e823824e83f59e7c70c7599, type: 3}
+  sourceLoop: 1
+  sourceMute: 0
+  sourcePitch: 1
+  sourceVolume: 1
+  sourceMaxDistance: 500
+  sourceMinDistance: 0
+  hrtfEnabled: 1
+--- !u!4 &1365901448
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1365901446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.46, z: 3.36}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 34
 --- !u!1 &1369430804 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5a02f97198f821d4faebc27bb7445b68, type: 3}
