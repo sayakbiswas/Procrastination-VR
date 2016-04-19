@@ -6,7 +6,7 @@ using UnityEditor;
 namespace RogoDigital {
 	internal static class ContinuationManager
 	{
-		private class Job
+		public class Job
 		{
 			public Job(Func<bool> completed, Action continueWith)
 			{
@@ -19,12 +19,18 @@ namespace RogoDigital {
 		
 		private static readonly List<Job> jobs = new List<Job>();
 		
-		public static void Add(Func<bool> completed, Action continueWith)
+		public static Job Add(Func<bool> completed, Action continueWith)
 		{
 			if (!jobs.Any()) EditorApplication.update += Update;
-			jobs.Add(new Job(completed, continueWith));
+			Job job = new Job(completed, continueWith);
+			jobs.Add(job);
+			return job;
 		}
-		
+
+		public static void Cancel(Job job) {
+			jobs.Remove(job);
+		}
+
 		private static void Update()
 		{
 			for (int i = 0; i >= 0; --i)

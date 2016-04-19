@@ -206,7 +206,8 @@ namespace RogoDigital{
 				// Auto Target
 				if(autoTarget) {
 					try {
-						float targetDistance = Mathf.Infinity;
+						float targetDistance = autoTargetDistance;
+						target = null;
 						for(int i = 0 ; i < markedTargets.Length ; i++) {
 							if(Vector3.Distance(transform.position , markedTargets[i].position) < targetDistance) {
 								targetDistance = Vector3.Distance(transform.position , markedTargets[i].position);

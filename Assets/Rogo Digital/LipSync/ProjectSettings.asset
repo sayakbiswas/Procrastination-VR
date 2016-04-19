@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Name: ProjectSettings
   m_EditorClassIdentifier: 
   emotions:
-  - Happy
-  - Sad
-  - Serious
-  - Eyebrows Up
-  - Shocked
+  - 4861707079
+  - 536164
+  - 536572696f7573
+  - 45796562726f7773205570
   emotionColors:
   - {r: 1, g: 0.6827586, b: 0, a: 1}
   - {r: 0, g: 0.5448277, b: 1, a: 1}
   - {r: 0.31617647, g: 0.31617647, b: 0.31617647, a: 1}
-  - {r: 0.5212982, g: 1, b: 0.13235295, a: 1}
-  - {r: 1, g: 0.1102941, b: 0.1102941, a: 1}
+  - {r: 0.7440759, g: 0.9044118, b: 0.29260382, a: 1}
   gestures: []

@@ -10,7 +10,7 @@ using System.Collections.Generic;
 public class EyeControllerEditor : Editor {
 	private EyeController myTarget;
 
-	private Texture2D logo = Resources.Load<Texture2D>("Eye Controller/Dark/eyecontroller_logo");
+	private Texture2D logo;
 
 	private SerializedObject serializedTarget;
 
@@ -58,7 +58,9 @@ public class EyeControllerEditor : Editor {
 
 	void OnEnable () {
 		if(!EditorGUIUtility.isProSkin){
-			logo = Resources.Load<Texture2D>("Eye Controller/Light/eyecontroller_logo");
+			logo = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Eye Controller/Light/EyeController_logo.png");
+		} else {
+			logo = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Eye Controller/Dark/EyeController_logo.png");
 		}
 
 		myTarget = (EyeController)target;

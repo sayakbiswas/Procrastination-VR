@@ -49,7 +49,7 @@ namespace RogoDigital.Lipsync
 		/// <param name="value">Value.</param>
 		public override void SetBlendableValue (int blendable, float value)
 		{
-			if(!isReady)
+			if(!isReady  || characterMesh == null)
 				return;
 			
 			characterMesh.SetBlendShapeWeight(blendable , value);
@@ -61,7 +61,7 @@ namespace RogoDigital.Lipsync
 			
 		public override string[] GetBlendables ()
 		{
-			if(!isReady)
+			if(!isReady || characterMesh == null)
 				return null;
 			
 			bool setInternal = false;
@@ -85,13 +85,15 @@ namespace RogoDigital.Lipsync
 		//Editor Buttons
 		[BlendSystemButton("Toggle Wireframe")]
 		public void ToggleWireframe () {
-			wireframeVisible = !wireframeVisible;
-			#if UNITY_EDITOR
-			EditorUtility.SetSelectedWireframeHidden(characterMesh , !wireframeVisible);
-			foreach(SkinnedMeshRenderer renderer in optionalOtherMeshes) {
-				EditorUtility.SetSelectedWireframeHidden(renderer , !wireframeVisible);
+			if(characterMesh != null){
+				wireframeVisible = !wireframeVisible;
+				#if UNITY_EDITOR
+				EditorUtility.SetSelectedWireframeHidden(characterMesh , !wireframeVisible);
+				foreach(SkinnedMeshRenderer renderer in optionalOtherMeshes) {
+					EditorUtility.SetSelectedWireframeHidden(renderer , !wireframeVisible);
+				}
+				#endif
 			}
-			#endif
 		}
 	}
 }

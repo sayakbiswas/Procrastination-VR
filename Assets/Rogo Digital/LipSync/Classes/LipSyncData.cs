@@ -12,14 +12,33 @@ namespace RogoDigital.Lipsync{
 		[SerializeField]
 		public GestureMarker[] gestureData;
 
-		public LipSyncData () {
+        [SerializeField]
+        public float version;
+		[SerializeField]
+		public float length;
+		[SerializeField]
+		public string transcript;
+
+		public LipSyncData ()
+		{
 		}
 
-		public LipSyncData (AudioClip eClip , PhonemeMarker[] pData , EmotionMarker[] eData , GestureMarker[] gData) {
-			clip = eClip;
+		public LipSyncData(AudioClip clip, PhonemeMarker[] pData, EmotionMarker[] eData, GestureMarker[] gData)
+		{
+			this.clip = clip;
 			phonemeData = pData;
 			emotionData = eData;
 			gestureData = gData;
+			length = clip.length;
+		}
+
+		public LipSyncData (AudioClip clip , PhonemeMarker[] pData , EmotionMarker[] eData , GestureMarker[] gData , float length)
+		{
+			this.clip = clip;
+			phonemeData = pData;
+			emotionData = eData;
+			gestureData = gData;
+			this.length = length;
 		}
 	}
 }

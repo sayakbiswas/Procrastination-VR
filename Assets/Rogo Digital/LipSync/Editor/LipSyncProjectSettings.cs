@@ -6,7 +6,7 @@ using RogoDigital.Lipsync;
 
 [CustomEditor(typeof(LipSyncProject))]
 public class LipSyncProjectSettings : Editor {
-	private Texture2D logo = Resources.Load<Texture2D>("Lipsync/Dark/logo_component");
+	private Texture2D logo = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Dark/logo_component.png");
 
 	private LipSyncProject myTarget;
 	private SerializedObject serializedTarget;
@@ -16,7 +16,7 @@ public class LipSyncProjectSettings : Editor {
 		serializedTarget = new SerializedObject(target);
 
 		if(!EditorGUIUtility.isProSkin){
-			logo = Resources.Load<Texture2D>("Lipsync/Light/logo_component");
+			logo = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Light/logo_component.png");
 		}
 	}
 
@@ -191,29 +191,30 @@ public class LipSyncProjectSettings : Editor {
 		GUILayout.EndHorizontal();
 		GUILayout.Space(20);
 
-		EditorGUILayout.HelpBox("Thank you for buying LipSync! If you are finding it useful, please help us out by leaving a review on the Asset Store." , MessageType.Info);
+		EditorGUILayout.HelpBox("Thank you for buying LipSync Pro! If you are finding it useful, please help us out by leaving a review on the Asset Store." , MessageType.Info);
 
 		if(GUILayout.Button("Get LipSync Extensions")){
-			RDExtensionWindow.ShowWindow("LipSync");
+			RDExtensionWindow.ShowWindow("LipSync_Pro");
 		}
 		EditorGUILayout.BeginHorizontal();
 		if(GUILayout.Button("Asset Store")){
-			Application.OpenURL("https://www.assetstore.unity3d.com/en/#!/content/32117");
+			Application.OpenURL("http://u3d.as/cag");
 		}
 		if(GUILayout.Button("Forum Thread")){
-			Application.OpenURL("http://forum.unity3d.com/threads/alpha-lipsync-a-phoneme-based-lipsyncing-system-for-unity.309324/");
+			Application.OpenURL("http://forum.unity3d.com/threads/released-lipsync-and-eye-controller-lipsyncing-and-facial-animation-tools.309324/");
 		}
 		if(GUILayout.Button("Email Support")){
 			Application.OpenURL("mailto:contact@rogodigital.com");
 		}
 		if(GUILayout.Button("Website")){
-			Application.OpenURL("http://www.rogodigital.com/");
+			Application.OpenURL("http://lipsync.rogodigital.com/");
 		}
 		EditorGUILayout.EndHorizontal();
 		serializedTarget.ApplyModifiedProperties();
 	}
 
-	[MenuItem("Edit/Project Settings/LipSync")][MenuItem("Window/Rogo Digital/LipSync Project Settings" , false , 12)]
+	[MenuItem("Edit/Project Settings/LipSync")]
+	[MenuItem("Window/Rogo Digital/LipSync Pro/LipSync Project Settings", false, 12)]
 	public static void ShowWindow () {
 		LipSyncProject settings = (LipSyncProject)AssetDatabase.LoadAssetAtPath("Assets/Rogo Digital/LipSync/ProjectSettings.asset" , typeof(LipSyncProject));
 		if(settings == null){

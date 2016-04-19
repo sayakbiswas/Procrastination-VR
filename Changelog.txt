@@ -47,3 +47,5 @@
 
 # 04/19/2016
 1. Fixed animated social media images to be relative to user.
+2. Changed shadows in Scene1 from Soft to No Shadows.
+3. Upgraded LipSync to 1.0 and added language model.

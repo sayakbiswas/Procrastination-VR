@@ -19,16 +19,25 @@ namespace RogoDigital.Lipsync {
 		[SerializeField]
 		public bool blendFromMarker;
 		[SerializeField]
+		public bool customBlendIn;
+		[SerializeField]
+		public bool customBlendOut;
+		[SerializeField]
 		public float intensity = 1;
 
-		public EmotionMarker (string eEmotion , float eStartTime , float eEndTime , float eBlendInTime , float eBlendOutTime , bool eBlendToMarker , bool eBlendFromMarker) {
-			emotion = eEmotion;
-			startTime = eStartTime;
-			endTime = eEndTime;
-			blendInTime = eBlendInTime;
-			blendOutTime = eBlendOutTime;
-			blendToMarker = eBlendToMarker;
-			blendFromMarker = eBlendFromMarker;
+		// Editor Only
+		public bool invalid = false;
+
+		public EmotionMarker (string emotion , float startTime , float endTime , float blendInTime , float blendOutTime , bool blendToMarker , bool blendFromMarker, bool customBlendIn, bool customBlendOut) {
+			this.emotion = emotion;
+			this.startTime = startTime;
+			this.endTime = endTime;
+			this.blendInTime = blendInTime;
+			this.blendOutTime = blendOutTime;
+			this.blendToMarker = blendToMarker;
+			this.blendFromMarker = blendFromMarker;
+			this.customBlendIn = customBlendIn;
+			this.customBlendOut = customBlendOut;
 		}
 	}
 }

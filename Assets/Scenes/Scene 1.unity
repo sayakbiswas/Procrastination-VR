@@ -1072,8 +1072,9 @@ MonoBehaviour:
     at least one Skinned Mesh Renderer.
   blendRangeLow: 0
   blendRangeHigh: 100
-  useReferences: 0
   isReady: 1
+  users:
+  - {fileID: 494165118}
   characterMesh: {fileID: 1840547693}
   optionalOtherMeshes: []
 --- !u!114 &494165118
@@ -1093,13 +1094,11 @@ MonoBehaviour:
   boneUpdateAnimation: 0
   phonemes:
   - blendShapes: 23000000
-    referenceBlendables: []
     weights:
     - 42.7
     bones: []
     phoneme: 0
   - blendShapes: 23000000290000002a0000002d0000001e0000002f000000
-    referenceBlendables: []
     weights:
     - 24.4
     - 42.9
@@ -1110,7 +1109,6 @@ MonoBehaviour:
     bones: []
     phoneme: 1
   - blendShapes: 2300000021000000220000001d0000002f000000
-    referenceBlendables: []
     weights:
     - 24.8
     - 42.7
@@ -1120,7 +1118,6 @@ MonoBehaviour:
     bones: []
     phoneme: 2
   - blendShapes: 230000002100000022000000
-    referenceBlendables: []
     weights:
     - 61.7
     - 72
@@ -1128,13 +1125,11 @@ MonoBehaviour:
     bones: []
     phoneme: 3
   - blendShapes: 16000000
-    referenceBlendables: []
     weights:
     - 14.6
     bones: []
     phoneme: 4
   - blendShapes: 160000001c000000290000002a0000002f000000
-    referenceBlendables: []
     weights:
     - 0
     - 100
@@ -1144,7 +1139,6 @@ MonoBehaviour:
     bones: []
     phoneme: 5
   - blendShapes: 230000002d00000027000000
-    referenceBlendables: []
     weights:
     - 31.5
     - 100
@@ -1152,7 +1146,6 @@ MonoBehaviour:
     bones: []
     phoneme: 6
   - blendShapes: 200000001c0000002e000000
-    referenceBlendables: []
     weights:
     - 12.6
     - 69.4
@@ -1160,7 +1153,6 @@ MonoBehaviour:
     bones: []
     phoneme: 7
   - blendShapes: 21000000220000001d000000
-    referenceBlendables: []
     weights:
     - 89.6
     - 89.8
@@ -1168,13 +1160,11 @@ MonoBehaviour:
     bones: []
     phoneme: 8
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 9
   emotions:
   - blendShapes: 290000002a0000002b0000002c0000000800000009000000
-    referenceBlendables: []
     weights:
     - 55.3
     - 56.4
@@ -1184,9 +1174,8 @@ MonoBehaviour:
     - 17.8
     bones: []
     emotion: Happy
-    verified: 1
+    verified: 0
   - blendShapes: 200000000e0000000f0000000600000007000000
-    referenceBlendables: []
     weights:
     - 18.9
     - 43.2
@@ -1195,17 +1184,15 @@ MonoBehaviour:
     - 60.3
     bones: []
     emotion: Sad
-    verified: 1
+    verified: 0
   - blendShapes: 0200000003000000
-    referenceBlendables: []
     weights:
     - 50.1
     - 49.9
     bones: []
     emotion: Serious
-    verified: 1
+    verified: 0
   - blendShapes: 08000000090000000700000006000000
-    referenceBlendables: []
     weights:
     - 27.5
     - 28.1
@@ -1213,19 +1200,21 @@ MonoBehaviour:
     - 22.6
     bones: []
     emotion: Eyebrows Up
-    verified: 1
+    verified: 0
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     emotion: Shocked
-    verified: 1
+    verified: 0
   playOnAwake: 1
-  defaultClip: {fileID: 11400000, guid: 190b9e8be4f4774499c5beb89061c7b9, type: 2}
+  loop: 0
+  defaultClip: {fileID: 11400000, guid: 15eb6201ff40aa34f91dd4ec98db4e08, type: 2}
   defaultDelay: 0
   scaleAudioSpeed: 1
   restTime: 0.2
   restHoldTime: 0.1
+  phonemeCurveGenerationMode: 1
+  emotionCurveGenerationMode: 0
   gesturesAnimator: {fileID: 0}
   gesturesLayer: 0
   gestures: []
@@ -1239,7 +1228,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  lastUsedVersion: 0.61
+  lastUsedVersion: 1
 --- !u!82 &494165119
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1249,7 +1238,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f76da67edf29e6f4699ca1a8a934478b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d6ab83ca3b88d4ac8b158ab7cca1ccda, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1302,7 +1291,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2374,7 +2363,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -4326,8 +4315,9 @@ MonoBehaviour:
     at least one Skinned Mesh Renderer.
   blendRangeLow: 0
   blendRangeHigh: 100
-  useReferences: 0
   isReady: 1
+  users:
+  - {fileID: 1572661901}
   characterMesh: {fileID: 690961152}
   optionalOtherMeshes: []
 --- !u!114 &1572661901
@@ -4347,92 +4337,80 @@ MonoBehaviour:
   boneUpdateAnimation: 0
   phonemes:
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 0
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 1
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 2
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 3
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 4
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 5
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 6
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 7
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 8
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     phoneme: 9
   emotions:
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     emotion: Happy
     verified: 1
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     emotion: Sad
     verified: 1
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     emotion: Serious
     verified: 1
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     emotion: Eyebrows Up
     verified: 1
   - blendShapes: 
-    referenceBlendables: []
     weights: []
     bones: []
     emotion: Shocked
     verified: 1
   playOnAwake: 1
+  loop: 0
   defaultClip: {fileID: 0}
   defaultDelay: 0
   scaleAudioSpeed: 1
   restTime: 0.2
   restHoldTime: 0.1
+  phonemeCurveGenerationMode: 1
+  emotionCurveGenerationMode: 0
   gesturesAnimator: {fileID: 0}
   gesturesLayer: 0
   gestures: []

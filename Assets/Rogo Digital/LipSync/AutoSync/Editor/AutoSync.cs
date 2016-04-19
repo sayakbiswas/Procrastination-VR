@@ -1,88 +1,156 @@
 ﻿using UnityEngine;
 using UnityEditor;
+
 using System;
-using System.Runtime.InteropServices;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace RogoDigital.Lipsync {
 	public class AutoSync {
-		public static List<string> sOutput;
 
-		public static List<PhonemeMarker> ProcessAudio (AudioClip clip) {
-			return ProcessAudio(clip , null);
-		}
+		public static bool CheckSoX() {
+			string soXPath = EditorPrefs.GetString("LipSync_SoXPath");
+			bool gotOutput = false;
 
-		public static List<PhonemeMarker> ProcessAudio (AudioClip clip , TextAsset text) {
-			sOutput = new List<string>();
+			if (string.IsNullOrEmpty(soXPath)) return false;
 
-			string audioPath = AssetDatabase.GetAssetPath(clip);
-			Uri fromUri = new Uri(Application.dataPath+"/Rogo Digital/LipSync/AutoSync/SAPI/sapi_lipsync.exe");
-			Uri toUri = new Uri(Application.dataPath+audioPath.Substring(6));
-
-			if (fromUri.Scheme == toUri.Scheme) {
-				Uri relativeUri = fromUri.MakeRelativeUri(toUri);
-				audioPath = Uri.UnescapeDataString(relativeUri.ToString());
-			}
-
-			string textPath = "";
-
-			if(text != null){
-				textPath = AssetDatabase.GetAssetPath(text);
-				toUri = new Uri(Application.dataPath+textPath.Substring(6));
-				
-				if (fromUri.Scheme == toUri.Scheme) {
-					Uri relativeUri = fromUri.MakeRelativeUri(toUri);
-					textPath = Uri.UnescapeDataString(relativeUri.ToString());
-				}
-			}
-
-			Process process = new Process();
-			process.StartInfo.FileName = Application.dataPath+"/Rogo Digital/LipSync/AutoSync/SAPI/sapi_lipsync.exe";
-			process.StartInfo.Arguments = audioPath + " " + textPath;
-
+			System.Diagnostics.Process process = new System.Diagnostics.Process();
+			process.StartInfo.FileName = soXPath;
 			process.StartInfo.UseShellExecute = false;
 			process.StartInfo.CreateNoWindow = true;
-			process.StartInfo.WorkingDirectory = Application.dataPath+"/Rogo Digital/LipSync/AutoSync/SAPI/";
-			process.StartInfo.RedirectStandardError = true;
 			process.StartInfo.RedirectStandardOutput = true;
+			process.OutputDataReceived += (object e, System.Diagnostics.DataReceivedEventArgs outLine) => {
+				if (!string.IsNullOrEmpty(outLine.Data)) {
+					if (outLine.Data.Contains("SoX")) gotOutput = true;
+				}
+			};
 
-			process.OutputDataReceived += new DataReceivedEventHandler(RecievedData);
-			process.ErrorDataReceived += new DataReceivedEventHandler(RecievedError);
-
-			EditorUtility.DisplayProgressBar("Analyzing Audio File" , "Please wait, analyzing file" , 0.33333f);
-
-			process.Start();
+			try {
+				process.Start();
+			} catch {
+				return false;
+			}
+			
 			process.BeginOutputReadLine();
-			process.BeginErrorReadLine();
-
 			process.WaitForExit();
 
-			EditorUtility.DisplayProgressBar("Generating Data" , "Please wait, generating LipSync data" , 0.66666f);
-
-			List<PhonemeMarker> output = ParseOutput (sOutput , clip);
-
-			EditorUtility.ClearProgressBar();
-			return output;
-
+			return gotOutput;
 		}
 
-		public static void RecievedData(object e, DataReceivedEventArgs outLine) {
-			sOutput.Add(outLine.Data);
-		}
+		public static void ProcessAudio(AudioClip clip, string languageModel, AutoSyncDataReady callback, string progressPrefix, bool enableConversion) {
+			if (clip == null) return;
+			EditorUtility.DisplayProgressBar(progressPrefix + " - Analysing Audio File", "Please wait, analysing file " + progressPrefix, 0.1f);
+			
+			bool converted = false;
+			string audioPath = AssetDatabase.GetAssetPath(clip).Substring("/Assets".Length);
 
-		public static void RecievedError(object e, DataReceivedEventArgs outLine) {
-			if(outLine.Data.StartsWith("Phoneme label not found")){
-				UnityEngine.Debug.LogError("SAPI error: " + outLine.Data);
+			if (audioPath != null) {
+				// Get absolute path
+				audioPath = Application.dataPath + "/" + audioPath;
+
+				bool failed = false;
+				// Convert to acceptable format
+				if (enableConversion) {
+					if (CheckSoX()) {
+						EditorUtility.DisplayProgressBar(progressPrefix + " - Converting Audio File", "Please wait, converting file " + progressPrefix, 0.2f);
+						converted = true;
+
+						string newAudioPath = Application.dataPath + "/" + Path.GetFileNameWithoutExtension(audioPath) + "_temp_converted.wav";
+						string soXPath = EditorPrefs.GetString("LipSync_SoXPath");
+
+						string soXArgs = "\"" + audioPath + "\" -c 1 -b 16 -e s -r 16k \"" + newAudioPath + "\"";
+						audioPath = newAudioPath;
+
+						System.Diagnostics.Process process = new System.Diagnostics.Process();
+						process.StartInfo.FileName = soXPath;
+						process.StartInfo.Arguments = soXArgs;
+						process.StartInfo.UseShellExecute = false;
+						process.StartInfo.CreateNoWindow = true;
+						process.StartInfo.RedirectStandardError = true;
+
+						process.ErrorDataReceived += (object e, System.Diagnostics.DataReceivedEventArgs outLine) => {
+							if (!string.IsNullOrEmpty(outLine.Data)) {
+								if (outLine.Data.Contains("FAIL")) {
+									Debug.LogError("AutoSync: SoX Conversion Failed: " + outLine.Data);
+									failed = true;
+									converted = false;
+									process.Close();
+								}
+							}
+						};
+
+						process.Start();
+						process.BeginErrorReadLine();
+						process.WaitForExit(5000);
+					}
+				}
+
+				if (!File.Exists(audioPath) || failed) {
+					EditorUtility.ClearProgressBar();
+					return;
+				}
+
+				EditorUtility.DisplayProgressBar(progressPrefix + " - Preparing AutoSync", "Please wait, preparing AutoSync.", 0.3f);
+
+				// Load Language Model
+				AutoSyncLanguageModel model = AutoSyncLanguageModel.Load(languageModel);
+				if (model == null) return;
+
+				string basePath = model.GetBasePath();
+
+				string[] args = new string[16];
+				args[0] = "-infile"; args[1] = audioPath;
+				args[2] = "-hmm"; args[3] = basePath + model.hmmDir;
+				args[4] = "-allphone"; args[5] = basePath + model.allphoneFile;
+				args[6] = "-time"; args[7] = "yes";
+				args[8] = "-allphone_ci"; args[9] = "yes";
+				args[10] = "-beam"; args[11] = "1e-20";
+				args[12] = "-pbeam"; args[13] = "1e-20";
+				args[14] = "-lw"; args[15] = "2.5";
+
+				EditorUtility.DisplayProgressBar(progressPrefix + " - Recognising Phonemes", "Please wait, recognising phonemes.", 0.5f);
+
+				if (SphinxWrapper.Recognize(args, false) == "FAILED") {
+					EditorUtility.ClearProgressBar();
+					EditorUtility.DisplayDialog("AutoSync Failed", "AutoSync failed. Check the console for more information.", "OK");
+					return;
+				}
+
+				ContinuationManager.Add(() => SphinxWrapper.dataReady, () => {
+					EditorUtility.DisplayProgressBar(progressPrefix + " - Generating Data", "Please wait, generating LipSync data.", 0.85f);
+
+					callback.Invoke(
+						clip,
+						ParseOutput(
+							SphinxWrapper.result.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries),
+							model,
+							clip
+						)
+					);
+
+					if (converted) {
+						if (File.Exists(audioPath)) {
+							File.Delete(audioPath);
+							AssetDatabase.Refresh();
+						}
+					}
+				});
 			}
 		}
 
-		public static List<PhonemeMarker> ParseOutput (List<string> lines , AudioClip clip){
+		public static void ProcessAudio(AudioClip clip, string languageModel, AutoSyncDataReady callback, bool enableConversion) {
+			ProcessAudio(clip, languageModel, callback, "", enableConversion);
+		}
+
+		private static List<PhonemeMarker> ParseOutput (string[] lines , AutoSyncLanguageModel lm, AudioClip clip){
 			List<PhonemeMarker> results = new List<PhonemeMarker>();
 
-			//Phoneme Mapper - This can be edited for custom mapping
-			Dictionary<string , Phoneme> phonemeMapper = new Dictionary<string, Phoneme>() {
+			Dictionary<string, Phoneme> phonemeMapper = lm.phonemeMapper;
+
+			//Default Phoneme Mapper - Language Models have the ability to contain their own, but this is not yet functional
+			if(phonemeMapper == null)
+			phonemeMapper = new Dictionary<string, Phoneme>() {
 				//Vowels
 				{"IY"          , Phoneme.E},
 				{"IH" 		   , Phoneme.AI},
@@ -101,50 +169,56 @@ namespace RogoDigital.Lipsync {
 				{"ER"          , Phoneme.U},
 
 				//Consonants
-				{"l"           , Phoneme.L},
-				{"r"           , Phoneme.CDGKNRSThYZ},
-				{"y"           , Phoneme.CDGKNRSThYZ},
-				{"w"           , Phoneme.WQ},
-				{"m"           , Phoneme.MBP},
-				{"n"           , Phoneme.CDGKNRSThYZ},
+				{"JH"          , Phoneme.CDGKNRSThYZ},
+				{"L"           , Phoneme.L},
+				{"R"           , Phoneme.CDGKNRSThYZ},
+				{"Y"           , Phoneme.CDGKNRSThYZ},
+				{"W"           , Phoneme.WQ},
+				{"M"           , Phoneme.MBP},
+				{"N"           , Phoneme.CDGKNRSThYZ},
 				{"NG"          , Phoneme.CDGKNRSThYZ},
 				{"CH"          , Phoneme.CDGKNRSThYZ},
-				{"j"           , Phoneme.CDGKNRSThYZ},
+				{"J"           , Phoneme.CDGKNRSThYZ},
 				{"DH"          , Phoneme.CDGKNRSThYZ},
-				{"b"           , Phoneme.MBP},
-				{"d"           , Phoneme.CDGKNRSThYZ},
-				{"g"           , Phoneme.CDGKNRSThYZ},
-				{"p"           , Phoneme.MBP},
-				{"t"           , Phoneme.CDGKNRSThYZ},
-				{"k"           , Phoneme.CDGKNRSThYZ},
-				{"z"           , Phoneme.CDGKNRSThYZ},
+				{"B"           , Phoneme.MBP},
+				{"D"           , Phoneme.CDGKNRSThYZ},
+				{"G"           , Phoneme.CDGKNRSThYZ},
+				{"P"           , Phoneme.MBP},
+				{"T"           , Phoneme.CDGKNRSThYZ},
+				{"K"           , Phoneme.CDGKNRSThYZ},
+				{"Z"           , Phoneme.CDGKNRSThYZ},
 				{"ZH"          , Phoneme.CDGKNRSThYZ},
-				{"v"           , Phoneme.FV},
-				{"f"           , Phoneme.FV},
+				{"V"           , Phoneme.FV},
+				{"F"           , Phoneme.FV},
 				{"TH"          , Phoneme.CDGKNRSThYZ},
-				{"s"           , Phoneme.CDGKNRSThYZ},
+				{"S"           , Phoneme.CDGKNRSThYZ},
 				{"SH"          , Phoneme.CDGKNRSThYZ},
-				{"h"           , Phoneme.CDGKNRSThYZ},
-				{"etc"         , Phoneme.CDGKNRSThYZ},
+				{"HH"           , Phoneme.CDGKNRSThYZ},
 			};
 
 			foreach(string line in lines){
-				if(line == "" || line == null)break;
-				string[] tokens = line.Split(new string[]{" "} , StringSplitOptions.RemoveEmptyEntries);
+				if(string.IsNullOrEmpty(line))
+					break;
+				string[] tokens = line.Split(' ');
 
-				if(tokens.Length > 0){
-					if(tokens[0] == "phn"){
+				try {
+					if (tokens[0] != "SIL") {
+						Phoneme phoneme = phonemeMapper[tokens[0]];
 						float startTime = float.Parse(tokens[1]);
-						string phon = tokens[4].Remove(tokens[4].Length-1);
-
-						if(phonemeMapper.ContainsKey(phon)){
-							Phoneme phoneme = phonemeMapper[phon];
-							results.Add(new PhonemeMarker(phoneme , startTime/(clip.length * 1000)));
-						}
+						results.Add(new PhonemeMarker(phoneme, startTime / clip.length));
+						
 					}
+				} catch (ArgumentOutOfRangeException) {
+					Debug.Log("Phoneme Label missing from return data. Skipping this entry.");
+				} catch (KeyNotFoundException) {
+					Debug.Log("Phoneme Label \"" + tokens[0] + "\" not found in phoneme mapper. Skipping this entry.");
 				}
 			}
+
+			EditorUtility.ClearProgressBar();
 			return results;
 		}
+
+		public delegate void AutoSyncDataReady(AudioClip clip, List<PhonemeMarker> markers);
 	}
 }

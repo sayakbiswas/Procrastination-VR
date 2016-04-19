@@ -21,13 +21,15 @@ namespace RogoDigital.Lipsync {
 						new Vector3(
 							_posX.keys[k].value,
 							_posY.keys[k].value,
-							_posY.keys[k].value
+							_posZ.keys[k].value
 						) , new Quaternion(
 							_rotX.keys[k].value,
 							_rotY.keys[k].value,
 							_rotZ.keys[k].value,
 							_rotW.keys[k].value
-						)
+						),
+						_posX.keys[k].inTangent,
+						_posX.keys[k].outTangent
 					));
 				}
 
@@ -103,6 +105,19 @@ namespace RogoDigital.Lipsync {
 			return index;
 		}
 
+		public int AddKey(TransformKeyframe keyframe) {
+			int index = _posX.AddKey(new Keyframe(keyframe.time, keyframe.position.x, keyframe.inTangent, keyframe.outTangent));
+			_posY.AddKey(new Keyframe(keyframe.time, keyframe.position.y, keyframe.inTangent, keyframe.outTangent));
+			_posZ.AddKey(new Keyframe(keyframe.time, keyframe.position.z, keyframe.inTangent, keyframe.outTangent));
+
+			_rotX.AddKey(new Keyframe(keyframe.time, keyframe.rotation.x, keyframe.inTangent, keyframe.outTangent));
+			_rotY.AddKey(new Keyframe(keyframe.time, keyframe.rotation.y, keyframe.inTangent, keyframe.outTangent));
+			_rotZ.AddKey(new Keyframe(keyframe.time, keyframe.rotation.z, keyframe.inTangent, keyframe.outTangent));
+			_rotW.AddKey(new Keyframe(keyframe.time, keyframe.rotation.w, keyframe.inTangent, keyframe.outTangent));
+
+			return index;
+		}
+
 		public Vector3 EvaluatePosition (float time) {
 			float x = _posX.Evaluate(time);
 			float y = _posY.Evaluate(time);
@@ -135,11 +150,15 @@ namespace RogoDigital.Lipsync {
 			public float time;
 			public Quaternion rotation;
 			public Vector3 position;
+			public float inTangent;
+			public float outTangent;
 
-			public TransformKeyframe (float time , Vector3 position, Quaternion rotation) {
+			public TransformKeyframe (float time , Vector3 position, Quaternion rotation, float inTangent, float outTangent) {
 				this.time = time;
 				this.position = position;
 				this.rotation = rotation;
+				this.inTangent = inTangent;
+				this.outTangent = outTangent;
 			}
 		}
 	}

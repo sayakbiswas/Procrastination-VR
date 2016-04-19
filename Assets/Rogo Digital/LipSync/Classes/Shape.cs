@@ -13,12 +13,6 @@ namespace RogoDigital.Lipsync{
 		public List<int> blendShapes;
 
 		/// <summary>
-		/// The blendable objects. Used with reference-type blend systems.
-		/// </summary>
-		[SerializeField]
-		public List<Object> referenceBlendables;
-
-		/// <summary>
 		/// The associated weights.
 		/// </summary>
 		[SerializeField]

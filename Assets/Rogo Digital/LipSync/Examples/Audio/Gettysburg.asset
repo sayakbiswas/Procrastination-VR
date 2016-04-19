@@ -15,368 +15,389 @@ MonoBehaviour:
   phonemeData:
   - phoneme: 5
     time: .0121155633
-    intensity: 1
+    intensity: .45942384
   - phoneme: 4
     time: .0542697534
-    intensity: 1
+    intensity: .901914239
   - phoneme: 0
     time: .0965637267
-    intensity: 1
+    intensity: .5645684
   - phoneme: 4
     time: .103740759
-    intensity: 1
+    intensity: .5882442
   - phoneme: 1
     time: .116499931
-    intensity: 1
+    intensity: .871964693
   - phoneme: 5
     time: .12287952
-    intensity: 1
+    intensity: .579466581
   - phoneme: 4
     time: .130056545
-    intensity: 1
+    intensity: .578702509
   - phoneme: 4
     time: .143655226
-    intensity: 1
+    intensity: .634678543
   - phoneme: 1
     time: .149195313
-    intensity: 1
+    intensity: .714180946
   - phoneme: 4
     time: .157169789
-    intensity: 1
+    intensity: .59346813
   - phoneme: 0
     time: .163549379
-    intensity: 1
+    intensity: .701192021
   - phoneme: 4
     time: .171523854
-    intensity: 1
+    intensity: .577559888
   - phoneme: 3
     time: .179570839
-    intensity: 1
+    intensity: .702371597
   - phoneme: 8
     time: .188342765
-    intensity: 1
+    intensity: .925000012
   - phoneme: 2
     time: .233797297
-    intensity: 1
+    intensity: .672060728
   - phoneme: 8
     time: .240176886
-    intensity: 1
+    intensity: .767187595
   - phoneme: 5
     time: .248151377
     intensity: 1
   - phoneme: 0
     time: .258518189
-    intensity: 1
+    intensity: .666816354
   - phoneme: 4
     time: .268954515
-    intensity: 1
+    intensity: .531357348
   - phoneme: 1
     time: .27533713
-    intensity: 1
+    intensity: .590911746
   - phoneme: 4
     time: .283311605
-    intensity: 1
+    intensity: .661021233
   - phoneme: 7
     time: .296868205
-    intensity: 1
+    intensity: .573308527
   - phoneme: 2
     time: .307235032
-    intensity: 1
+    intensity: .888999999
   - phoneme: 4
     time: .316041499
-    intensity: 1
+    intensity: .488981694
   - phoneme: 5
     time: .323184013
-    intensity: 1
+    intensity: .550011277
   - phoneme: 2
     time: .328766137
-    intensity: 1
+    intensity: .82099998
   - phoneme: 4
     time: .340727836
-    intensity: 1
+    intensity: .556508005
   - phoneme: 0
     time: .354356974
-    intensity: 1
+    intensity: .602214754
   - phoneme: 4
     time: .363128901
-    intensity: 1
+    intensity: .561675549
   - phoneme: 4
     time: .379077882
-    intensity: 1
+    intensity: .459144861
   - phoneme: 3
-    time: .384660035
-    intensity: 1
+    time: .385605216
+    intensity: .824000001
   - phoneme: 4
     time: .394229412
-    intensity: 1
+    intensity: .544187427
   - phoneme: 1
     time: .403001308
-    intensity: 1
+    intensity: .544489741
   - phoneme: 4
     time: .412570685
-    intensity: 1
+    intensity: .544339418
   - phoneme: 0
     time: .432506889
-    intensity: 1
+    intensity: .491063267
   - phoneme: 4
     time: .439744622
-    intensity: 1
+    intensity: .540088058
   - phoneme: 3
     time: .447730929
-    intensity: 1
+    intensity: .615634322
   - phoneme: 4
     time: .464485228
-    intensity: 1
+    intensity: .536421835
   - phoneme: 8
     time: .455706298
-    intensity: 1
+    intensity: .594369769
   - phoneme: 0
     time: .472451806
-    intensity: 1
+    intensity: .595059872
   - phoneme: 4
     time: .479628861
-    intensity: 1
+    intensity: .701149523
   - phoneme: 4
     time: .489995658
-    intensity: 1
+    intensity: .496960461
   - phoneme: 4
     time: .525155902
-    intensity: 1
+    intensity: .520232201
   - phoneme: 2
     time: .530737996
-    intensity: 1
+    intensity: .543500781
   - phoneme: 4
     time: .54030329
-    intensity: 1
+    intensity: .884345233
   - phoneme: 1
     time: .548281908
-    intensity: 1
+    intensity: .582114935
   - phoneme: 5
     time: .557851255
     intensity: 1
   - phoneme: 4
     time: .564230859
-    intensity: 1
+    intensity: .519550264
   - phoneme: 0
     time: .576555014
-    intensity: 1
+    intensity: .58872813
   - phoneme: 4
     time: .581005573
-    intensity: 1
+    intensity: .561468303
   - phoneme: 6
     time: .588951707
-    intensity: 1
+    intensity: .593036413
   - phoneme: 0
     time: .59293896
-    intensity: 1
+    intensity: .60599649
   - phoneme: 7
     time: .596128762
-    intensity: 1
+    intensity: .534691453
   - phoneme: 2
     time: .602508366
-    intensity: 1
+    intensity: .547684968
   - phoneme: 1
     time: .615339994
-    intensity: 1
+    intensity: .741999984
   - phoneme: 4
     time: .60729301
-    intensity: 1
+    intensity: .522904634
   - phoneme: 0
     time: .650427759
-    intensity: 1
+    intensity: .558771968
   - phoneme: 4
     time: .657604754
-    intensity: 1
+    intensity: .554412127
   - phoneme: 4
     time: .668769062
-    intensity: 1
+    intensity: .604457557
   - phoneme: 1
     time: .672756255
-    intensity: 1
+    intensity: .640209854
   - phoneme: 0
     time: .678338468
-    intensity: 1
+    intensity: .667421341
   - phoneme: 4
     time: .683920562
-    intensity: 1
+    intensity: .489511907
   - phoneme: 0
     time: .691097617
-    intensity: 1
+    intensity: .587932825
   - phoneme: 4
     time: .695882261
-    intensity: 1
+    intensity: .601780057
   - phoneme: 1
     time: .703131855
-    intensity: 1
+    intensity: .679996252
   - phoneme: 4
     time: .707916498
-    intensity: 1
+    intensity: .49367851
   - phoneme: 4
     time: .717485905
-    intensity: 1
+    intensity: .565559626
   - phoneme: 2
     time: .720675647
-    intensity: 1
+    intensity: .546479166
   - phoneme: 4
     time: .728650153
-    intensity: 1
+    intensity: .47874108
   - phoneme: 7
     time: .735029757
-    intensity: 1
+    intensity: .963999987
   - phoneme: 4
     time: .740611851
-    intensity: 1
+    intensity: .529369235
   - phoneme: 3
     time: .746194005
-    intensity: 1
+    intensity: .514661193
   - phoneme: 0
     time: .763737857
-    intensity: 1
-  - phoneme: 4
-    time: .754189968
-    intensity: 1
+    intensity: .717648864
+  - phoneme: 7
+    time: .752299607
+    intensity: .763000011
   - phoneme: 4
     time: .770914912
-    intensity: 1
+    intensity: .595659494
   - phoneme: 2
     time: .781281769
-    intensity: 1
+    intensity: .592551589
   - phoneme: 4
     time: .790126145
-    intensity: 1
+    intensity: .547810137
   - phoneme: 0
     time: .796505809
-    intensity: 1
+    intensity: .50794214
   - phoneme: 4
     time: .800493002
-    intensity: 1
+    intensity: .493323833
   - phoneme: 0
     time: .814847052
-    intensity: 1
+    intensity: .878000021
   - phoneme: 0
     time: .822027147
-    intensity: 1
+    intensity: .611679494
   - phoneme: 0
     time: .827606261
-    intensity: 1
+    intensity: .578320026
   - phoneme: 6
     time: .832390964
-    intensity: 1
+    intensity: .55043745
   - phoneme: 6
     time: .838770449
-    intensity: 1
+    intensity: .571191847
   - phoneme: 7
     time: .848339856
-    intensity: 1
+    intensity: .907000005
   - phoneme: 1
     time: .853922009
-    intensity: 1
+    intensity: .618597209
   - phoneme: 4
     time: .862693906
-    intensity: 1
+    intensity: .512988329
   - phoneme: 0
-    time: .881107748
-    intensity: 1
+    time: .88488847
+    intensity: .497865438
   - phoneme: 4
-    time: .888284802
-    intensity: 1
+    time: .892065525
+    intensity: .515075028
   - phoneme: 4
     time: .899441361
-    intensity: 1
+    intensity: .500891745
   - phoneme: 1
     time: .902638853
-    intensity: 1
+    intensity: .509921551
   - phoneme: 0
     time: .912208259
-    intensity: 1
+    intensity: .630838633
   - phoneme: 4
     time: .920182705
-    intensity: 1
+    intensity: .586199224
   - phoneme: 4
     time: .92735976
-    intensity: 1
+    intensity: .617984474
   - phoneme: 8
     time: .95606786
-    intensity: 1
+    intensity: .466625988
   - phoneme: 1
     time: .944932163
-    intensity: 1
+    intensity: .992999971
   - phoneme: 2
     time: .963317394
-    intensity: 1
+    intensity: .478891075
   - phoneme: 6
     time: .970494449
-    intensity: 1
+    intensity: .472755432
   - phoneme: 4
     time: .0590582602
-    intensity: 1
+    intensity: .838887334
   - phoneme: 3
     time: .0678371936
-    intensity: 1
+    intensity: .783545375
   - phoneme: 4
     time: .078212291
-    intensity: 1
+    intensity: .676793218
   - phoneme: 4
     time: .0391061455
-    intensity: 1
+    intensity: .719178319
   - phoneme: 3
     time: .0272804759
-    intensity: 1
+    intensity: .723132133
   - phoneme: 5
     time: .017688252
-    intensity: 1
+    intensity: .532435358
   - phoneme: 0
     time: .368118614
-    intensity: 1
+    intensity: .582306147
   emotionData:
   - emotion: Serious
-    startTime: .0139186243
-    endTime: .168326691
-    blendInTime: .0399999991
-    blendOutTime: .0159362555
+    startTime: .014863804
+    endTime: .150236472
+    blendInTime: .0325138196
+    blendOutTime: -.0696796849
     blendToMarker: 1
     blendFromMarker: 0
-    intensity: 1
+    customBlendIn: 1
+    customBlendOut: 0
+    intensity: .52700001
+    invalid: 0
   - emotion: Eyebrows Up
-    startTime: .168326691
-    endTime: .222111553
-    blendInTime: 0
-    blendOutTime: .0268924236
+    startTime: .0805567876
+    endTime: .248576581
+    blendInTime: .0696796849
+    blendOutTime: -.0331227109
     blendToMarker: 0
     blendFromMarker: 1
-    intensity: 1
+    customBlendIn: 0
+    customBlendOut: 1
+    intensity: .713
+    invalid: 0
   - emotion: Eyebrows Up
     startTime: .384462118
-    endTime: .484462142
-    blendInTime: .0268924534
-    blendOutTime: .0213147402
+    endTime: .505776882
+    blendInTime: .0304723755
+    blendOutTime: -.0426294804
     blendToMarker: 1
     blendFromMarker: 0
+    customBlendIn: 1
+    customBlendOut: 0
     intensity: 1
+    invalid: 0
   - emotion: Serious
-    startTime: .484462142
-    endTime: .618525922
-    blendInTime: 0
-    blendOutTime: .0468127728
-    blendToMarker: 0
+    startTime: .463147402
+    endTime: .726276398
+    blendInTime: .0426294804
+    blendOutTime: -.0701302886
+    blendToMarker: 1
     blendFromMarker: 1
+    customBlendIn: 0
+    customBlendOut: 0
     intensity: 1
+    invalid: 0
   - emotion: Serious
-    startTime: .690172553
-    endTime: .812749028
-    blendInTime: .0400000103
-    blendOutTime: 0
+    startTime: .656146109
+    endTime: .826693237
+    blendInTime: .0701302886
+    blendOutTime: -.0278884172
     blendToMarker: 1
-    blendFromMarker: 0
-    intensity: 1
+    blendFromMarker: 1
+    customBlendIn: 0
+    customBlendOut: 0
+    intensity: .723999977
+    invalid: 0
   - emotion: Eyebrows Up
-    startTime: .812749028
+    startTime: .79880482
     endTime: .988047838
-    blendInTime: .0139442086
-    blendOutTime: .0866534114
+    blendInTime: .0278884172
+    blendOutTime: -.0447193086
     blendToMarker: 0
     blendFromMarker: 1
+    customBlendIn: 0
+    customBlendOut: 1
     intensity: 1
-  gestureData:
-  - gesture: Wave
-    time: .36253494
+    invalid: 0
+  gestureData: []
+  version: 1
+  length: 13.794467
+  transcript: Four score and seven years ago, our fathers brought forth on this continent
+    a new nation, conceived in liberty and dedicated to the proposition that all men
+    are created equal.
