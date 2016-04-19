@@ -54,4 +54,6 @@
 
 # 04/19/2016
 1. Added student character with blend shapes.
+2. Added another animation for professor.
+
 
