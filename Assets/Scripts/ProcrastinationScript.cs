@@ -98,9 +98,9 @@ public class ProcrastinationScript : MonoBehaviour {
 
 	private void StartGaming() {
 		directionalLight.enabled = false;
+		pointLight.GetComponent <Light>().enabled = true;
 		RenderSettings.ambientIntensity = 0.0f;
 		DynamicGI.UpdateEnvironment ();
-		pointLight.enabled = true;
 		gameScreen.SetActive (true);
 		CardboardAudioSource tvAudioSource = tv.GetComponent<CardboardAudioSource> ();
 		tvAudioSource.Play ();
@@ -114,7 +114,7 @@ public class ProcrastinationScript : MonoBehaviour {
 	private void StopGaming() {
 		CardboardAudioSource tvAudioSource = tv.GetComponent<CardboardAudioSource> ();
 		tvAudioSource.Stop ();
-		pointLight.enabled = false;
+		pointLight.GetComponent <Light>().enabled = false;
 		directionalLight.enabled = true;
 		RenderSettings.ambientIntensity = 1.0f;
 		DynamicGI.UpdateEnvironment ();
@@ -130,13 +130,14 @@ public class ProcrastinationScript : MonoBehaviour {
 		directionalLight.enabled = false;
 		RenderSettings.ambientIntensity = 0.0f;
 		DynamicGI.UpdateEnvironment ();
-		pointLight.enabled = true;
+		pointLight.GetComponent <Light>().enabled = true;
 		float i = 0.0f;
 		foreach(GameObject gameObject in procrastinationObjects) {
 			i++;
 			gameObject.SetActive (true);
-			iTween.MoveTo (gameObject, iTween.Hash ("path", iTweenPath.GetPath (gameObject.name + "Path"), "time", 3.0f+i, 
-				"looptype", iTween.LoopType.loop, "orientToPath", true, "easetype", iTween.EaseType.linear, "islocal", false));
+			iTween.MoveTo (gameObject, iTween.Hash ("path", iTweenPath.GetPath (gameObject.name + "Path"), "time", 5.0f+i, 
+				"looptype", iTween.LoopType.loop, "orientToPath", false, "easetype", iTween.EaseType.linear, 
+				"islocal", true));
 		}
 		isOnSocialMedia = true;
 	}
@@ -146,7 +147,7 @@ public class ProcrastinationScript : MonoBehaviour {
 			iTween.Stop (gameObject);
 			gameObject.SetActive (false);
 		}
-		pointLight.enabled = false;
+		pointLight.GetComponent <Light>().enabled = false;
 		directionalLight.enabled = true;
 		RenderSettings.ambientIntensity = 1.0f;
 		DynamicGI.UpdateEnvironment ();

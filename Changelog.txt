@@ -38,9 +38,12 @@
 5. Added CardboardReticle growth feature.
 6. Added ProcrastinationScript.cs
 
-# 04/28/2016
+# 04/18/2016
 1. Added iTween.
 2. Added flying images during gaming.
 3. Added animated Square and Circle button popups for choices.
 4. Added animated social media images.
 5. Screen darkens when procrastinating.
+
+# 04/19/2016
+1. Fixed animated social media images to be relative to user.
