@@ -49,3 +49,5 @@ This repository holds the final project for the Virtual Reality course at the Un
 38. Square Button: http://www.shopto.net/themes/shopto/images/dlcSoft/new/square-button.png
 39. Circle Button: http://www.shopto.net/themes/shopto/images/dlcSoft/new/circle-button.png
 40. Facebook, Twitter, Youtube, Instagram, Netflix images: Google Images.
+41. Classroom assets : https://www.assetstore.unity3d.com/en/#!/content/5977
+42. Characters and Animations in classroom scene : https://www.mixamo.com/
