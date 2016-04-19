@@ -20,6 +20,7 @@ public class LipSyncEditor : Editor {
 	private SerializedObject serializedTarget;
 	private int currentToggle = -1;
 	private int oldToggle = -1;
+	private int selectedBone = 0;
 	private int markerTab = 0;
 	private bool saving = false;
 	private string savingName = "";
@@ -30,8 +31,9 @@ public class LipSyncEditor : Editor {
 	private LipSyncProject settings;
 	private Editor blendSystemEditor;
 	private AnimatorController controller;
+	private bool regenGestures = false;
 
-	private int blendSystemNumber = 0;
+	private int blendSystemNumber = -1;
 	private List<System.Type> blendSystems;
 	private List<string> blendSystemNames;
 	private BlendSystemButton.Reference[] blendSystemButtons = new BlendSystemButton.Reference[0];
@@ -51,6 +53,7 @@ public class LipSyncEditor : Editor {
 	private Texture2D locked;
 	private Texture2D unlocked;
 	private Texture2D presetsIcon;
+	private Texture2D warningIcon;
 	private Texture2D delete;
 	private Texture2D lightToolbarTexture;
 
@@ -60,7 +63,10 @@ public class LipSyncEditor : Editor {
 	private SerializedProperty audioSource;
 	private SerializedProperty restTime;
 	private SerializedProperty restHoldTime;
+	private SerializedProperty phonemeCurveGenerationMode;
+	private SerializedProperty emotionCurveGenerationMode;
 	private SerializedProperty playOnAwake;
+    private SerializedProperty loop;
 	private SerializedProperty defaultClip;
 	private SerializedProperty defaultDelay;
 	private SerializedProperty scaleAudioSpeed;
@@ -69,34 +75,34 @@ public class LipSyncEditor : Editor {
 	private SerializedProperty onFinishedPlaying;
 	private SerializedProperty gesturesAnimator;
 
-	private float versionNumber = 0.61f;
+	private float versionNumber = 1.0f;
 	private List<Texture2D> guides; 
 
 	void OnEnable () {
-		logo = Resources.Load<Texture2D>("Lipsync/Dark/logo_component");
+		logo = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Dark/logo_component.png");
 
-		guideAI = Resources.Load<Texture2D>("Lipsync/Guides/AI");
-		guideE = Resources.Load<Texture2D>("Lipsync/Guides/E");
-		guideEtc = Resources.Load<Texture2D>("Lipsync/Guides/etc");
-		guideFV = Resources.Load<Texture2D>("Lipsync/Guides/FV");
-		guideL = Resources.Load<Texture2D>("Lipsync/Guides/L");
-		guideMBP = Resources.Load<Texture2D>("Lipsync/Guides/MBP");
-		guideO = Resources.Load<Texture2D>("Lipsync/Guides/O");
-		guideU = Resources.Load<Texture2D>("Lipsync/Guides/U");
-		guideWQ = Resources.Load<Texture2D>("Lipsync/Guides/WQ");
-		
-		locked = Resources.Load<Texture2D>("Lipsync/Dark/locked");
-		unlocked = Resources.Load<Texture2D>("Lipsync/Dark/unlocked");
-		presetsIcon = Resources.Load<Texture2D>("LipSync/Dark/presets");
-		delete = Resources.Load<Texture2D>("LipSync/Dark/bin");
-		lightToolbarTexture = Resources.Load<Texture2D>("Lipsync/light-toolbar");
+		guideAI = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/AI.png");
+		guideE = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/E.png");
+		guideEtc = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/etc.png");
+		guideFV = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/FV.png");
+		guideL = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/L.png");
+		guideMBP = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/MBP.png");
+		guideO = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/O.png");
+		guideU = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/U.png");
+		guideWQ = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Guides/WQ.png");
 
-		if(!EditorGUIUtility.isProSkin){ 
-			logo = Resources.Load<Texture2D>("Lipsync/Light/logo_component");
-			locked = Resources.Load<Texture2D>("Lipsync/Light/locked");
-			unlocked = Resources.Load<Texture2D>("Lipsync/Light/unlocked");
-			presetsIcon = Resources.Load<Texture2D>("LipSync/Light/presets");
-			delete = Resources.Load<Texture2D>("LipSync/Light/bin");
+		locked = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Dark/locked.png");
+		unlocked = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Dark/unlocked.png");
+		presetsIcon = (Texture2D)EditorGUIUtility.Load("Rogo Digital/LipSync/Dark/presets.png");
+		warningIcon = (Texture2D)EditorGUIUtility.Load("Rogo Digital/LipSync/emotion-error.png");
+		delete = (Texture2D)EditorGUIUtility.Load("Rogo Digital/LipSync/bin.png");
+		lightToolbarTexture = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/light-toolbar.png");
+
+		if(!EditorGUIUtility.isProSkin){
+			logo = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Light/logo_component.png");
+			locked = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Light/locked.png");
+			unlocked = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Lipsync/Light/unlocked.png");
+			presetsIcon = (Texture2D)EditorGUIUtility.Load("Rogo Digital/LipSync/Light/presets.png");
 		}
 
 		guides = new List<Texture2D>(){
@@ -126,17 +132,16 @@ public class LipSyncEditor : Editor {
 			controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(assetPath);
 		}
 
-		if(lsTarget.gestures == null) {
-			lsTarget.gestures = new List<GestureInstance>();
-		}
-
 		serializedTarget = new SerializedObject(target);
 		FindBlendSystems();
 
 		audioSource = serializedTarget.FindProperty("audioSource");
 		restTime = serializedTarget.FindProperty("restTime");
 		restHoldTime = serializedTarget.FindProperty("restHoldTime");
+		phonemeCurveGenerationMode = serializedTarget.FindProperty("phonemeCurveGenerationMode");
+		emotionCurveGenerationMode = serializedTarget.FindProperty("emotionCurveGenerationMode");
 		playOnAwake = serializedTarget.FindProperty("playOnAwake");
+        loop = serializedTarget.FindProperty("loop");
 		defaultClip = serializedTarget.FindProperty("defaultClip");
 		defaultDelay = serializedTarget.FindProperty("defaultDelay");
 		scaleAudioSpeed = serializedTarget.FindProperty("scaleAudioSpeed");
@@ -170,6 +175,22 @@ public class LipSyncEditor : Editor {
 			AssetDatabase.CreateAsset(settings , "Assets/Rogo Digital/LipSync/ProjectSettings.asset");
 			AssetDatabase.Refresh();
 			DestroyImmediate(newSettings);
+		}
+
+		if (lsTarget.gestures == null) {
+			lsTarget.gestures = new List<GestureInstance>();
+		}
+
+		if(controller != null){
+			if (lsTarget.gestures.Count != settings.gestures.Count) {
+				regenGestures = true;
+			} else {
+				foreach (GestureInstance gesture in lsTarget.gestures) {
+					if (string.IsNullOrEmpty(gesture.triggerName)) {
+						regenGestures = true;
+					}
+				}
+			}
 		}
 
 		if(lsTarget.phonemes == null || lsTarget.phonemes.Count < 9){
@@ -319,7 +340,7 @@ public class LipSyncEditor : Editor {
 
 		EditorGUILayout.Space();
 		if(lsTarget.blendSystem == null){
-			GUILayout.Label("No BlendSystem Selected");
+			EditorGUILayout.HelpBox("No BlendSystem Added", MessageType.Error);
 		}else{
 			if(blendSystemEditor == null) CreateBlendSystemEditor();
 			blendSystemEditor.OnInspectorGUI();
@@ -371,15 +392,11 @@ public class LipSyncEditor : Editor {
 
 				GUILayout.BeginHorizontal();
 				GUILayout.FlexibleSpace();
-				markerTab = GUILayout.Toolbar(markerTab , new string[]{"Phonemes" , "Emotions" , "Gestures"} , GUILayout.MaxWidth(400) , GUILayout.MinHeight(23));
+				markerTab = GUILayout.Toolbar(markerTab , new GUIContent[]{new GUIContent("Phonemes") , new GUIContent("Emotions") , new GUIContent("Gestures", regenGestures?warningIcon:null)} , GUILayout.MaxWidth(400) , GUILayout.MinHeight(23));
 
 				Rect presetRect = EditorGUILayout.BeginHorizontal();
 				if(GUILayout.Button(new GUIContent(presetsIcon , "Presets") , GUILayout.MaxWidth(32)  , GUILayout.MinHeight(23))){
 					GenericMenu menu = new GenericMenu();
-
-					if(!Directory.Exists(Application.dataPath + "/Rogo Digital/LipSync/Presets")){
-						Directory.CreateDirectory(Application.dataPath + "/Rogo Digital/LipSync/Presets");
-					}
 
 					string[] directories = Directory.GetDirectories(Application.dataPath , "Presets" , SearchOption.AllDirectories);
 
@@ -387,7 +404,7 @@ public class LipSyncEditor : Editor {
 					foreach(string directory in directories) {
 						foreach(string file in Directory.GetFiles(directory)){
 							if(Path.GetExtension(file).ToLower() == ".asset"){
-								BlendshapePreset preset = AssetDatabase.LoadAssetAtPath<BlendshapePreset>("Assets" + file.Substring((Application.dataPath).Length));
+								LipSyncPreset preset = AssetDatabase.LoadAssetAtPath<LipSyncPreset>("Assets" + file.Substring((Application.dataPath).Length));
 								if(preset != null){
 									noItems = false;
 									menu.AddItem(new GUIContent(Path.GetFileNameWithoutExtension(file)) , false , LoadPreset , file);
@@ -399,7 +416,7 @@ public class LipSyncEditor : Editor {
 						foreach(string subdirectory in subdirectories){
 							foreach(string file in Directory.GetFiles(subdirectory)){
 								if(Path.GetExtension(file).ToLower() == ".asset"){
-									BlendshapePreset preset = AssetDatabase.LoadAssetAtPath<BlendshapePreset>("Assets" + file.Substring((Application.dataPath).Length));
+									LipSyncPreset preset = AssetDatabase.LoadAssetAtPath<LipSyncPreset>("Assets" + file.Substring((Application.dataPath).Length));
 									if(preset != null){
 										noItems = false;
 										menu.AddItem(new GUIContent(Path.GetFileName(subdirectory)+"/"+Path.GetFileNameWithoutExtension(file)) , false , LoadPreset , file);
@@ -414,6 +431,10 @@ public class LipSyncEditor : Editor {
 
 					menu.AddSeparator("");
 					menu.AddItem(new GUIContent("Save New Preset") , false , NewPreset);
+					if (AssetDatabase.FindAssets("t:BlendShapePreset").Length > 0) {
+						menu.AddDisabledItem(new GUIContent("Old-style presets found. Convert them to use."));
+					}
+
 					menu.DropDown(presetRect);
 				}
 				EditorGUILayout.EndHorizontal();
@@ -471,7 +492,7 @@ public class LipSyncEditor : Editor {
 
 							for(int b = 0 ; b < phoneme.weights.Count ; b++){
 								Rect newBox = EditorGUILayout.BeginHorizontal();
-								GUI.Box(new Rect(newBox.x+5 , newBox.y , newBox.width-11 , newBox.height) , "" , EditorStyles.toolbarButton);
+								GUI.Box(new Rect(newBox.x + 5, newBox.y, newBox.width - 11, newBox.height), "", EditorStyles.toolbar);
 								GUILayout.Space(5);
 
 								int oldShape = 0;
@@ -487,7 +508,7 @@ public class LipSyncEditor : Editor {
 
 									phoneme.blendShapes.RemoveAt(b);
 									lsTarget.blendSystem.SetBlendableValue(oldShape , 0);
-
+									selectedBone = 0;
 									phoneme.weights.RemoveAt(b);
 									GetBlendShapes();
 									EditorUtility.SetDirty(lsTarget.gameObject);
@@ -508,10 +529,13 @@ public class LipSyncEditor : Editor {
 							if(EditorGUILayout.BeginFadeGroup(showBoneOptions.faded)){
 								for(int b = 0 ; b < phoneme.bones.Count ; b++){
 									Rect newBox = EditorGUILayout.BeginHorizontal();
-									GUI.Box(new Rect(newBox.x+5 , newBox.y , newBox.width-11 , newBox.height) , "" , EditorStyles.toolbarButton);
-									GUILayout.Space(5);
+									GUI.Box(new Rect(newBox.x+5 , newBox.y , newBox.width-11 , newBox.height) , "" , EditorStyles.toolbar);
+									GUILayout.Space(10);
+									bool selected = EditorGUILayout.ToggleLeft(new GUIContent("Bone Transform " + b.ToString(), EditorGUIUtility.FindTexture("Transform Icon"), "Show Transform Handles"), selectedBone == b, GUILayout.Width(170));
+									selectedBone = selected ? b : selectedBone;
+
 									Transform oldBone = phoneme.bones[b].bone;
-									phoneme.bones[b].bone = (Transform)EditorGUILayout.ObjectField("Bone Transform "+b.ToString() , phoneme.bones[b].bone , typeof(Transform)  , true);
+									phoneme.bones[b].bone = (Transform)EditorGUILayout.ObjectField("" , phoneme.bones[b].bone , typeof(Transform)  , true);
 
 									if(oldBone != phoneme.bones[b].bone){
 										if(phoneme.bones[b].bone != null){
@@ -542,6 +566,7 @@ public class LipSyncEditor : Editor {
 											phoneme.bones[b].bone.localEulerAngles = phoneme.bones[b].neutralRotation;
 										}
 										phoneme.bones.RemoveAt(b);
+										if (selectedBone >= phoneme.bones.Count) selectedBone -= 1;
 										EditorUtility.SetDirty(lsTarget.gameObject);
 										serializedTarget.SetIsDifferentCacheDirty();
 										return;
@@ -556,15 +581,22 @@ public class LipSyncEditor : Editor {
 
 									EditorGUI.BeginDisabledGroup(phoneme.bones[b].bone == null);
 									EditorGUI.BeginDisabledGroup(phoneme.bones[b].lockPosition);
-									phoneme.bones[b].endPosition = EditorGUILayout.Vector3Field("" , phoneme.bones[b].endPosition);
+									Vector3 newBonePosition = EditorGUILayout.Vector3Field("" , phoneme.bones[b].endPosition);
 									EditorGUI.EndDisabledGroup();
 									GUILayout.Space(10);
 									if(GUILayout.Button(phoneme.bones[b].lockPosition?locked:unlocked , GUILayout.Width(30) , GUILayout.Height(16))){
 										phoneme.bones[b].lockPosition = !phoneme.bones[b].lockPosition;
 									}
 									EditorGUI.EndDisabledGroup();
+
 									if(phoneme.bones[b].bone != null){
-										phoneme.bones[b].bone.localPosition = phoneme.bones[b].endPosition;
+										if (newBonePosition != phoneme.bones[b].endPosition) {
+											Undo.RecordObject(phoneme.bones[b].bone, "Move");
+											phoneme.bones[b].endPosition = newBonePosition;
+											phoneme.bones[b].bone.localPosition = phoneme.bones[b].endPosition;
+										} else if (phoneme.bones[b].bone.localPosition != phoneme.bones[b].endPosition) {
+											phoneme.bones[b].endPosition = phoneme.bones[b].bone.localPosition;
+										}
 									}
 
 									GUILayout.Space(10);
@@ -575,7 +607,7 @@ public class LipSyncEditor : Editor {
 
 									EditorGUI.BeginDisabledGroup(phoneme.bones[b].bone == null);
 									EditorGUI.BeginDisabledGroup(phoneme.bones[b].lockRotation);
-									phoneme.bones[b].endRotation = EditorGUILayout.Vector3Field("" , phoneme.bones[b].endRotation);
+									Vector3 newBoneRotation = EditorGUILayout.Vector3Field("" , phoneme.bones[b].endRotation);
 									EditorGUI.EndDisabledGroup();
 									GUILayout.Space(10);
 									if(GUILayout.Button(phoneme.bones[b].lockRotation?locked:unlocked , GUILayout.Width(30) , GUILayout.Height(16))){
@@ -583,7 +615,13 @@ public class LipSyncEditor : Editor {
 									}
 									EditorGUI.EndDisabledGroup();
 									if(phoneme.bones[b].bone != null){
-										phoneme.bones[b].bone.localEulerAngles = phoneme.bones[b].endRotation;
+										if (newBoneRotation != phoneme.bones[b].endRotation) {
+											Undo.RecordObject(phoneme.bones[b].bone, "Rotate");
+											phoneme.bones[b].endRotation = newBoneRotation;
+											phoneme.bones[b].bone.localEulerAngles = phoneme.bones[b].endRotation;
+										} else if (phoneme.bones[b].bone.localEulerAngles != phoneme.bones[b].endRotation) {
+											phoneme.bones[b].endRotation = phoneme.bones[b].bone.localEulerAngles;
+										}
 									}
 
 									GUILayout.Space(10);
@@ -608,18 +646,32 @@ public class LipSyncEditor : Editor {
 									EditorUtility.SetDirty(lsTarget);
 									serializedTarget.SetIsDifferentCacheDirty();
 								}
+								if (lsTarget.useBones) EditorGUILayout.Space();
 							}
-							EditorGUILayout.Space();
+
 							if(lsTarget.useBones){
 								if(GUILayout.Button("Add Bone Transform" , GUILayout.MaxWidth(240))){
 									Undo.RecordObject(lsTarget , "Add Bone Shape");
 									phoneme.bones.Add(new BoneShape());
+									selectedBone = phoneme.bones.Count - 1;
 									EditorUtility.SetDirty(lsTarget);
 									serializedTarget.SetIsDifferentCacheDirty();
 								}
+								GUILayout.FlexibleSpace();
+								GUILayout.EndHorizontal();
+								GUILayout.Space(5);
+								GUILayout.BeginHorizontal();
+								GUILayout.FlexibleSpace();
+								if (GUILayout.Button("Create Pose from AnimationClip", GUILayout.MaxWidth(240))) {
+									PoseExtractorWizard.ShowWindow(lsTarget , lsTarget.phonemes.IndexOf(phoneme), 0);
+								}
+								GUILayout.FlexibleSpace();
+								GUILayout.EndHorizontal();
+							} else {
+								GUILayout.FlexibleSpace();
+								GUILayout.EndHorizontal();
 							}
-							GUILayout.FlexibleSpace();
-							GUILayout.EndHorizontal();
+
 							if(lsTarget.blendSystem.blendableCount == 0 && !lsTarget.useBones){
 								GUILayout.BeginHorizontal();
 								GUILayout.Space(10);
@@ -634,6 +686,7 @@ public class LipSyncEditor : Editor {
 							Rect box = EditorGUILayout.BeginHorizontal();
 							if(GUI.Button(box , "" , EditorStyles.toolbarDropDown)){
 								currentToggle = a;
+								selectedBone = 0;
 							}
 							
 							GUILayout.Box(AddSpaces(phoneme.phoneme.ToString()) + " Phoneme" , EditorStyles.miniLabel , GUILayout.Width(250));
@@ -696,6 +749,7 @@ public class LipSyncEditor : Editor {
 										lsTarget.blendSystem.SetBlendableValue(blendable , 0);
 									}
 									lsTarget.emotions.Remove(emotion);
+									selectedBone = 0;
 									EditorUtility.SetDirty(lsTarget.gameObject);
 									serializedTarget.SetIsDifferentCacheDirty();
 									return;
@@ -746,9 +800,12 @@ public class LipSyncEditor : Editor {
 								for(int b = 0 ; b < emotion.bones.Count ; b++){
 									Rect newBox = EditorGUILayout.BeginHorizontal();
 									GUI.Box(new Rect(newBox.x+5 , newBox.y , newBox.width-11 , newBox.height) , "" , EditorStyles.toolbarButton);
-									GUILayout.Space(5);
+									GUILayout.Space(10);
+									bool selected = EditorGUILayout.ToggleLeft(new GUIContent("Bone Transform " + b.ToString(), EditorGUIUtility.FindTexture("Transform Icon"), "Show Transform Handles"), selectedBone == b, GUILayout.Width(170));
+									selectedBone = selected ? b : selectedBone;
+
 									Transform oldBone = emotion.bones[b].bone;
-									emotion.bones[b].bone = (Transform)EditorGUILayout.ObjectField("Bone Transform "+b.ToString() , emotion.bones[b].bone , typeof(Transform)  , true);
+									emotion.bones[b].bone = (Transform)EditorGUILayout.ObjectField("", emotion.bones[b].bone, typeof(Transform), true);
 									
 									if(oldBone != emotion.bones[b].bone){
 										if(emotion.bones[b].bone != null){
@@ -780,6 +837,7 @@ public class LipSyncEditor : Editor {
 										emotion.bones.RemoveAt(b);
 										EditorUtility.SetDirty(lsTarget.gameObject);
 										serializedTarget.SetIsDifferentCacheDirty();
+										if (selectedBone >= emotion.bones.Count) selectedBone -= 1;
 										return;
 									}
 									GUILayout.Space(4);
@@ -792,7 +850,7 @@ public class LipSyncEditor : Editor {
 									
 									EditorGUI.BeginDisabledGroup(emotion.bones[b].bone == null);
 									EditorGUI.BeginDisabledGroup(emotion.bones[b].lockPosition);
-									emotion.bones[b].endPosition = EditorGUILayout.Vector3Field("" , emotion.bones[b].endPosition);
+									Vector3 newBonePosition = EditorGUILayout.Vector3Field("", emotion.bones[b].endPosition);
 									EditorGUI.EndDisabledGroup();
 									GUILayout.Space(10);
 									if(GUILayout.Button(emotion.bones[b].lockPosition?locked:unlocked , GUILayout.Width(30) , GUILayout.Height(16))){
@@ -801,7 +859,13 @@ public class LipSyncEditor : Editor {
 									EditorGUI.EndDisabledGroup();
 									
 									if(emotion.bones[b].bone != null){
-										emotion.bones[b].bone.localPosition = emotion.bones[b].endPosition;
+										if (newBonePosition != emotion.bones[b].endPosition) {
+											Undo.RecordObject(emotion.bones[b].bone, "Move");
+											emotion.bones[b].endPosition = newBonePosition;
+											emotion.bones[b].bone.localPosition = emotion.bones[b].endPosition;
+										} else if (emotion.bones[b].bone.localPosition != emotion.bones[b].endPosition) {
+											emotion.bones[b].endPosition = emotion.bones[b].bone.localPosition;
+										}
 									}
 									
 									GUILayout.Space(10);
@@ -812,7 +876,7 @@ public class LipSyncEditor : Editor {
 									
 									EditorGUI.BeginDisabledGroup(emotion.bones[b].bone == null);
 									EditorGUI.BeginDisabledGroup(emotion.bones[b].lockRotation);
-									emotion.bones[b].endRotation = EditorGUILayout.Vector3Field("" , emotion.bones[b].endRotation);
+									Vector3 newBoneRotation = EditorGUILayout.Vector3Field("" , emotion.bones[b].endRotation);
 									EditorGUI.EndDisabledGroup();
 									GUILayout.Space(10);
 									if(GUILayout.Button(emotion.bones[b].lockRotation?locked:unlocked , GUILayout.Width(30) , GUILayout.Height(16))){
@@ -821,7 +885,13 @@ public class LipSyncEditor : Editor {
 									EditorGUI.EndDisabledGroup();
 									
 									if(emotion.bones[b].bone != null){
-										emotion.bones[b].bone.localEulerAngles = emotion.bones[b].endRotation;
+										if (newBoneRotation != emotion.bones[b].endRotation) {
+											Undo.RecordObject(emotion.bones[b].bone, "Rotate");
+											emotion.bones[b].endRotation = newBoneRotation;
+											emotion.bones[b].bone.localEulerAngles = emotion.bones[b].endRotation;
+										} else if (emotion.bones[b].bone.localEulerAngles != emotion.bones[b].endRotation) {
+											emotion.bones[b].endRotation = emotion.bones[b].bone.localEulerAngles;
+										}
 									}
 									
 									GUILayout.Space(10);
@@ -845,18 +915,31 @@ public class LipSyncEditor : Editor {
 									EditorUtility.SetDirty(lsTarget);
 									serializedTarget.SetIsDifferentCacheDirty();
 								}
+								if (lsTarget.useBones) EditorGUILayout.Space();
 							}
-							EditorGUILayout.Space();
-							if(lsTarget.useBones){
-								if(GUILayout.Button("Add Bone Transform" , GUILayout.MaxWidth(240))){
-									Undo.RecordObject(lsTarget , "Add Bone Shape");
+							
+							if (lsTarget.useBones) {
+								if (GUILayout.Button("Add Bone Transform", GUILayout.MaxWidth(240))) {
+									Undo.RecordObject(lsTarget, "Add Bone Shape");
 									emotion.bones.Add(new BoneShape());
+									selectedBone = emotion.bones.Count - 1;
 									EditorUtility.SetDirty(lsTarget);
 									serializedTarget.SetIsDifferentCacheDirty();
 								}
+								GUILayout.FlexibleSpace();
+								GUILayout.EndHorizontal();
+								GUILayout.Space(5);
+								GUILayout.BeginHorizontal();
+								GUILayout.FlexibleSpace();
+								if (GUILayout.Button("Create Pose from AnimationClip", GUILayout.MaxWidth(240))) {
+									PoseExtractorWizard.ShowWindow(lsTarget, lsTarget.emotions.IndexOf(emotion), 1);
+								}
+								GUILayout.FlexibleSpace();
+								GUILayout.EndHorizontal();
+							} else {
+								GUILayout.FlexibleSpace();
+								GUILayout.EndHorizontal();
 							}
-							GUILayout.FlexibleSpace();
-							GUILayout.EndHorizontal();
 							if(lsTarget.blendSystem.blendableCount == 0 && !lsTarget.useBones){
 								GUILayout.BeginHorizontal();
 								GUILayout.Space(10);
@@ -884,7 +967,8 @@ public class LipSyncEditor : Editor {
 								}
 								
 								currentToggle = a;
-								
+								selectedBone = 0;
+
 								if(lsTarget.useBones){
 									foreach(BoneShape boneshape in lsTarget.emotions[a].bones){
 										if(boneshape.bone != null) {
@@ -997,6 +1081,23 @@ public class LipSyncEditor : Editor {
 						EditorGUILayout.HelpBox("Select an Animator component to enable gesture support." , MessageType.Warning);
 					}
 
+					// Double Check Gestures
+					if (controller != null) {
+						if (lsTarget.gestures.Count != settings.gestures.Count) {
+							regenGestures = true;
+						} else {
+							foreach (GestureInstance gesture in lsTarget.gestures) {
+								if (string.IsNullOrEmpty(gesture.triggerName)) {
+									regenGestures = true;
+								}
+							}
+						}
+					}
+
+					if (regenGestures) {
+						EditorGUILayout.HelpBox("Gestures need regenerating - run the Gesture Setup Wizard.", MessageType.Warning);
+					}
+
 					EditorGUILayout.Space();
 					EditorGUILayout.BeginHorizontal();
 					GUILayout.FlexibleSpace();
@@ -1013,15 +1114,20 @@ public class LipSyncEditor : Editor {
 				showPlayOnAwake.target = lsTarget.playOnAwake;
 				if(EditorGUILayout.BeginFadeGroup(showPlayOnAwake.faded)){
 					EditorGUILayout.PropertyField(defaultClip , new GUIContent ("Default Clip" , "The clip to play on awake."));
-					EditorGUILayout.PropertyField(defaultDelay , new GUIContent ("Default Delay" , "The audio delay to be used with the default clip. A value around 0.15f can improve results with files generated by AutoSync. If unsure, leave at 0."));
+					EditorGUILayout.PropertyField(defaultDelay , new GUIContent ("Default Delay" , "The delay between the scene starting and the clip playing."));
 				}
 				EditorGUILayout.EndFadeGroup();
+                EditorGUILayout.PropertyField(loop, new GUIContent("Loop Clip", "If true, will make any played clip loop when it finishes."));
 				EditorGUILayout.PropertyField(scaleAudioSpeed , new GUIContent ("Scale Audio Speed" , "Whether or not the speed of the audio will be slowed/sped up to match Time.timeScale."));
 				EditorGUILayout.Space();
 				GUILayout.Box("Phoneme Animation Settings" , EditorStyles.boldLabel);
 				EditorGUILayout.PropertyField(restTime , new GUIContent ("Rest Time" , "If there are no phonemes within this many seconds of the previous one, a rest will be inserted."));
 				EditorGUILayout.PropertyField(restHoldTime , new GUIContent ("Pre-Rest Hold Time" , "The time, in seconds, a shape will be held before blending when a rest is inserted."));
-
+				EditorGUILayout.PropertyField(phonemeCurveGenerationMode, new GUIContent("Phoneme Curve Generation Mode", "How tangents are generated for animations. Tight is more accurate, Loose is more natural."));
+				EditorGUILayout.Space();
+				GUILayout.Box("Emotion Animation Settings", EditorStyles.boldLabel);
+				EditorGUILayout.PropertyField(emotionCurveGenerationMode, new GUIContent("Emotion Curve Generation Mode", "How tangents are generated for animations. Tight is more accurate, Loose is more natural."));
+				
 				GUILayout.Space(20);
 
 				EditorGUILayout.PropertyField(onFinishedPlaying);
@@ -1042,7 +1148,7 @@ public class LipSyncEditor : Editor {
 							}
 						}
 
-						if(oldToggle > -1){
+						if(oldToggle > -1 && lsTarget.useBones){
 							foreach(BoneShape boneshape in lsTarget.phonemes[oldToggle].bones){
 								if(boneshape.bone != null) {
 									boneshape.bone.localPosition = boneshape.neutralPosition;
@@ -1051,7 +1157,7 @@ public class LipSyncEditor : Editor {
 							}
 						}
 
-						if(currentToggle > -1){
+						if (currentToggle > -1 && lsTarget.useBones) {
 							foreach(BoneShape boneshape in lsTarget.phonemes[currentToggle].bones){
 								if(boneshape.bone != null) {
 									boneshape.bone.localPosition = boneshape.endPosition;
@@ -1078,14 +1184,14 @@ public class LipSyncEditor : Editor {
 						serializedTarget.SetIsDifferentCacheDirty();
 					}
 
-					if(oldToggle != currentToggle){
+					if (oldToggle != currentToggle) {
 						foreach(EmotionShape emotion in lsTarget.emotions){
 							foreach(int shape in emotion.blendShapes){
 								lsTarget.blendSystem.SetBlendableValue(shape , 0);
 							}
 						}
 
-						if(oldToggle > -1){
+						if (oldToggle > -1 && lsTarget.useBones) {
 							foreach(BoneShape boneshape in lsTarget.emotions[oldToggle].bones){
 								if(boneshape.bone != null){
 									boneshape.bone.localPosition = boneshape.neutralPosition;
@@ -1143,24 +1249,87 @@ public class LipSyncEditor : Editor {
 					savingName = Path.GetDirectoryName(savingName)+"/"+Path.GetFileNameWithoutExtension(savingName)+".asset";
 				}
 
-				BlendshapePreset preset = ScriptableObject.CreateInstance<BlendshapePreset>();
-				preset.phonemeShapes = new List<PhonemeShape>();
-				preset.emotionShapes = new List<EmotionShape>();
+				LipSyncPreset preset = ScriptableObject.CreateInstance<LipSyncPreset>();
+				preset.phonemeShapes = new LipSyncPreset.PhonemeShapeInfo[lsTarget.phonemes.Count];
+				preset.emotionShapes = new LipSyncPreset.EmotionShapeInfo[lsTarget.emotions.Count];
 
-				foreach(PhonemeShape ps in lsTarget.phonemes){
-					PhonemeShape newPhoneme = new PhonemeShape(ps.phoneme);
-					newPhoneme.blendShapes = new List<int>(ps.blendShapes);
-					newPhoneme.weights = new List<float>(ps.weights);
+				// Add phonemes
+				for (int p = 0; p < lsTarget.phonemes.Count; p ++){
+					LipSyncPreset.PhonemeShapeInfo phonemeInfo = new LipSyncPreset.PhonemeShapeInfo();
+					phonemeInfo.phoneme = lsTarget.phonemes[p].phoneme;
+					phonemeInfo.blendables = new LipSyncPreset.BlendableInfo[lsTarget.phonemes[p].blendShapes.Count];
+					phonemeInfo.bones = new LipSyncPreset.BoneInfo[lsTarget.phonemes[p].bones.Count];
 
-					preset.phonemeShapes.Add(newPhoneme);
+					// Add blendables
+					for (int b = 0; b < lsTarget.phonemes[p].blendShapes.Count; b++) {
+						LipSyncPreset.BlendableInfo blendable = new LipSyncPreset.BlendableInfo();
+						blendable.blendableNumber = lsTarget.phonemes[p].blendShapes[b];
+						blendable.blendableName = blendables[lsTarget.phonemes[p].blendShapes[b]];
+						blendable.weight = lsTarget.phonemes[p].weights[b];
+
+						phonemeInfo.blendables[b] = blendable;
+					}
+
+					// Add bones
+					for (int b = 0; b < lsTarget.phonemes[p].bones.Count; b++) {
+						LipSyncPreset.BoneInfo bone = new LipSyncPreset.BoneInfo();
+						bone.name = lsTarget.phonemes[p].bones[b].bone.name;
+						bone.localPosition = lsTarget.phonemes[p].bones[b].endPosition;
+						bone.localRotation = lsTarget.phonemes[p].bones[b].endRotation;
+						bone.lockPosition = lsTarget.phonemes[p].bones[b].lockPosition;
+						bone.lockRotation = lsTarget.phonemes[p].bones[b].lockRotation;
+
+						string path = "";
+						Transform level = lsTarget.phonemes[p].bones[b].bone.parent;
+						while (level != null) {
+							path += level.name+"/";
+							level = level.parent;
+						}
+						bone.path = path;
+
+						phonemeInfo.bones[b] = bone;
+					}
+
+					preset.phonemeShapes[p] = phonemeInfo;
 				}
 
-				foreach(EmotionShape es in lsTarget.emotions){
-					EmotionShape newEmotion = new EmotionShape(es.emotion);
-					newEmotion.blendShapes = new List<int>(es.blendShapes);
-					newEmotion.weights = new List<float>(es.weights);;
-					
-					preset.emotionShapes.Add(newEmotion);
+				// Add emotions
+				for (int e = 0; e < lsTarget.emotions.Count; e++) {
+					LipSyncPreset.EmotionShapeInfo emotionInfo = new LipSyncPreset.EmotionShapeInfo();
+					emotionInfo.emotion = lsTarget.emotions[e].emotion;
+					emotionInfo.blendables = new LipSyncPreset.BlendableInfo[lsTarget.emotions[e].blendShapes.Count];
+					emotionInfo.bones = new LipSyncPreset.BoneInfo[lsTarget.emotions[e].bones.Count];
+
+					// Add blendables
+					for (int b = 0; b < lsTarget.emotions[e].blendShapes.Count; b++) {
+						LipSyncPreset.BlendableInfo blendable = new LipSyncPreset.BlendableInfo();
+						blendable.blendableNumber = lsTarget.emotions[e].blendShapes[b];
+						blendable.blendableName = blendables[lsTarget.emotions[e].blendShapes[b]];
+						blendable.weight = lsTarget.emotions[e].weights[b];
+
+						emotionInfo.blendables[b] = blendable;
+					}
+
+					// Add bones
+					for (int b = 0; b < lsTarget.emotions[e].bones.Count; b++) {
+						LipSyncPreset.BoneInfo bone = new LipSyncPreset.BoneInfo();
+						bone.name = lsTarget.emotions[e].bones[b].bone.name;
+						bone.localPosition = lsTarget.emotions[e].bones[b].endPosition;
+						bone.localRotation = lsTarget.emotions[e].bones[b].endRotation;
+						bone.lockPosition = lsTarget.emotions[e].bones[b].lockPosition;
+						bone.lockRotation = lsTarget.emotions[e].bones[b].lockRotation;
+
+						string path = "";
+						Transform level = lsTarget.emotions[e].bones[b].bone.parent;
+						while (level != null) {
+							path += level.name + "/";
+							level = level.parent;
+						}
+						bone.path = path;
+
+						emotionInfo.bones[b] = bone;
+					}
+					preset.emotionShapes[e] = emotionInfo;
 				}
 
 				AssetDatabase.CreateAsset(preset , "Assets/" + savingName);
@@ -1209,53 +1378,114 @@ public class LipSyncEditor : Editor {
 	}
 
 	void OnSceneGUI () {
-		if(markerTab == 0){
-			if(currentToggle >= 0){
-				Handles.BeginGUI();
-				GUILayout.BeginArea(new Rect(Screen.width - 256 , Screen.height - 246 , 256, 256));
+		if(markerTab == 0 && currentToggle >= 0){
+			Handles.BeginGUI();
+			GUI.Box(new Rect(Screen.width - 256 , Screen.height - 246 , 256, 256), guides[currentToggle] , GUIStyle.none);
+			Handles.EndGUI();
+		}
 
-				GUILayout.Box(guides[currentToggle] , GUIStyle.none);
-				GUILayout.EndArea();
-				Handles.EndGUI();
+		// Bone Handles
+		if (lsTarget.useBones && currentToggle >= 0) {
+			BoneShape bone = null;
+			if (markerTab == 0) {
+				if (selectedBone < lsTarget.phonemes[currentToggle].bones.Count && lsTarget.phonemes[currentToggle].bones.Count > 0) {
+					bone = lsTarget.phonemes[currentToggle].bones[selectedBone];
+				} else {
+					return;
+				}
+			} else if (markerTab == 1) {
+				if (selectedBone < lsTarget.emotions[currentToggle].bones.Count && lsTarget.emotions[currentToggle].bones.Count > 0) {
+					bone = lsTarget.emotions[currentToggle].bones[selectedBone];
+				} else {
+					return;
+				}
 			}
+			if (bone.bone == null)
+				return;
+
+			if (Tools.current == Tool.Move) {
+				Undo.RecordObject(bone.bone, "Move");
+
+				Vector3 change = Handles.PositionHandle(bone.bone.position, bone.bone.rotation);
+				if (change != bone.bone.position) {
+					bone.bone.position = change;
+					bone.endPosition = bone.bone.localPosition;
+				}
+			} else if (Tools.current == Tool.Rotate) {
+				Undo.RecordObject(bone.bone, "Rotate");
+				Quaternion change = Handles.RotationHandle(bone.bone.rotation, bone.bone.position);
+				if (change != bone.bone.rotation) {
+					bone.bone.rotation = change;
+					bone.endRotation = bone.bone.localEulerAngles;
+				}
+			} else if (Tools.current == Tool.Scale) {
+				Undo.RecordObject(bone.bone, "Scale");
+				Vector3 change = Handles.ScaleHandle(bone.bone.localScale, bone.bone.position, bone.bone.rotation, HandleUtility.GetHandleSize(bone.bone.position));
+				if (change != bone.bone.localScale) {
+					bone.bone.localScale = change;
+				}
+			}
+			
 		}
 	}
 
 	void LoadPreset (object data) {
 		string file = (string)data;
 		if(file.EndsWith(".asset" , true , null)){
-			BlendshapePreset preset = AssetDatabase.LoadAssetAtPath<BlendshapePreset>("Assets" + file.Substring((Application.dataPath).Length));
+			LipSyncPreset preset = AssetDatabase.LoadAssetAtPath<LipSyncPreset>("Assets" + file.Substring((Application.dataPath).Length));
 
 			if(preset != null){
 				List<PhonemeShape> newPhonemes = new List<PhonemeShape>();
 				List<EmotionShape> newEmotions = new List<EmotionShape>();
 
-				foreach(PhonemeShape ps in preset.phonemeShapes){
-					PhonemeShape newPhoneme = new PhonemeShape(ps.phoneme);
-					newPhoneme.blendShapes = new List<int>(ps.blendShapes);
-					newPhoneme.weights = new List<float>(ps.weights);
+				// Phonemes
+				for (int shape = 0; shape < preset.phonemeShapes.Length; shape++) {
+					newPhonemes.Add(new PhonemeShape(preset.phonemeShapes[shape].phoneme));
 
-					foreach(int bs in ps.blendShapes){
-						if(bs >= lsTarget.blendSystem.blendableCount){
-							return;
+					for (int blendable = 0; blendable < preset.phonemeShapes[shape].blendables.Length; blendable++) {
+						int finalBlendable = preset.FindBlendable(preset.phonemeShapes[shape].blendables[blendable], lsTarget.blendSystem);
+						if (finalBlendable >= 0) {
+							newPhonemes[shape].blendShapes.Add(finalBlendable);
+							newPhonemes[shape].weights.Add(preset.phonemeShapes[shape].blendables[blendable].weight);
 						}
 					}
 
-					newPhonemes.Add(newPhoneme);
+					for (int bone = 0; bone < preset.phonemeShapes[shape].bones.Length; bone++) {
+						BoneShape newBone = new BoneShape();
+						newBone.bone = preset.FindBone(preset.phonemeShapes[shape].bones[bone] , lsTarget.transform);
+						newBone.SetNeutral();
+						newBone.endPosition = preset.phonemeShapes[shape].bones[bone].localPosition;
+						newBone.endRotation = preset.phonemeShapes[shape].bones[bone].localRotation;
+						newBone.lockPosition = preset.phonemeShapes[shape].bones[bone].lockPosition;
+						newBone.lockRotation = preset.phonemeShapes[shape].bones[bone].lockRotation;
+
+						newPhonemes[shape].bones.Add(newBone);
+					}
 				}
-				
-				foreach(EmotionShape es in preset.emotionShapes){
-					EmotionShape newEmotion = new EmotionShape(es.emotion);
-					newEmotion.blendShapes = new List<int>(es.blendShapes);
-					newEmotion.weights = new List<float>(es.weights);;
 
-					foreach(int bs in es.blendShapes){
-						if(bs >= lsTarget.blendSystem.blendableCount){
-							return;
+				// Emotion
+				for (int shape = 0; shape < preset.emotionShapes.Length; shape++) {
+					newEmotions.Add(new EmotionShape(preset.emotionShapes[shape].emotion));
+
+					for (int blendable = 0; blendable < preset.emotionShapes[shape].blendables.Length; blendable++) {
+						int finalBlendable = preset.FindBlendable(preset.emotionShapes[shape].blendables[blendable], lsTarget.blendSystem);
+						if (finalBlendable >= 0) {
+							newEmotions[shape].blendShapes.Add(finalBlendable);
+							newEmotions[shape].weights.Add(preset.emotionShapes[shape].blendables[blendable].weight);
 						}
 					}
 
-					newEmotions.Add(newEmotion);
+					for (int bone = 0; bone < preset.emotionShapes[shape].bones.Length; bone++) {
+						BoneShape newBone = new BoneShape();
+						newBone.bone = preset.FindBone(preset.emotionShapes[shape].bones[bone], lsTarget.transform);
+						newBone.SetNeutral();
+						newBone.endPosition = preset.emotionShapes[shape].bones[bone].localPosition;
+						newBone.endRotation = preset.emotionShapes[shape].bones[bone].localRotation;
+						newBone.lockPosition = preset.emotionShapes[shape].bones[bone].lockPosition;
+						newBone.lockRotation = preset.emotionShapes[shape].bones[bone].lockRotation;
+
+						newEmotions[shape].bones.Add(newBone);
+					}
 				}
 
 				lsTarget.phonemes = newPhonemes;

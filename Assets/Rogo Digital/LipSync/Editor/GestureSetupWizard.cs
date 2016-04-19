@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using UnityEditor.Animations;
-using UnityEditor.AnimatedValues;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -87,12 +86,20 @@ public class GestureSetupWizard : WizardWindow {
 			break;
 		case 2:
 			if(newLayerChoice == 0){
+				for (int l = 0; l < controller.layers.Length; l++) {
+					if (controller.layers[l].name == newLayerName) controller.RemoveLayer(l);
+				}
+
 				controller.AddLayer(newLayerName);
 				layerSelected = controller.layers.Length-1;
 			}
 
 			// Create Triggers
 			for(int a = 0 ; a < settings.gestures.Count ; a ++) {
+				for (int p = 0; p < controller.parameters.Length; p++) {
+					if (controller.parameters[p].name == triggerNames[a]) controller.RemoveParameter(p);
+				}
+
 				controller.AddParameter(triggerNames[a] , AnimatorControllerParameterType.Trigger);
 			}
 				

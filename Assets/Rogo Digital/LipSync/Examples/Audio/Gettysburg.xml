@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Exported from RogoDigital LipSync Beta 0.4. Exported at 10/15/2015 1:32:00 PM-->
+<!--Exported from RogoDigital LipSync Pro 1.0. Exported at 2/27/2016 5:13:09 PM-->
 <!--Note: This format cannot directly reference the linked AudioClip like a LipSyncData asset can. It is advised that you use that format instead unless you need to process the data further outside of Unity.-->
 <LipSyncData>
+	<version>1</version>
+	<transcript />
+	<length>13.79447</length>
 	<phonemes>
-		<marker time="0.2420082" phoneme="FV" />
+		<marker time="0.1671277" phoneme="FV" />
 		<marker time="0.7486223" phoneme="CDGKNRSThYZ" />
 		<marker time="1.332045" phoneme="AI" />
 		<marker time="1.431049" phoneme="CDGKNRSThYZ" />
@@ -104,9 +107,10 @@
 		<marker time="0.8146772" phoneme="CDGKNRSThYZ" />
 		<marker time="0.9357779" phoneme="O" />
 		<marker time="1.078897" phoneme="CDGKNRSThYZ" />
-		<marker time="0.2972471" phoneme="O" />
-		<marker time="0.3740127" phoneme="U" />
 		<marker time="0.5394484" phoneme="CDGKNRSThYZ" />
+		<marker time="0.3763196" phoneme="O" />
+		<marker time="0.244" phoneme="FV" />
+		<marker time="5.078" phoneme="AI" />
 	</phonemes>
 	<emotions>
 		<marker start="0.192" end="2.321977" blendFromMarker="false" blendToMarker="true" blendIn="0.04" blendOut="0.01593626" emotion="Serious" />
@@ -115,5 +119,6 @@
 		<marker start="6.682897" end="8.532235" blendFromMarker="true" blendToMarker="false" blendIn="0" blendOut="0.04681277" emotion="Serious" />
 		<marker start="9.520562" end="11.21144" blendFromMarker="false" blendToMarker="true" blendIn="0.04000001" blendOut="0" emotion="Serious" />
 		<marker start="11.21144" end="13.62959" blendFromMarker="true" blendToMarker="false" blendIn="0.01394421" blendOut="0.08665341" emotion="Eyebrows Up" />
+		<gestures />
 	</emotions>
 </LipSyncData>

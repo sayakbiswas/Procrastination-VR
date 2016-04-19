@@ -16,9 +16,6 @@ namespace RogoDigital.Lipsync{
 		public float blendRangeLow = 0;
 		public float blendRangeHigh = 100;
 
-		[Obsolete("Reference BlendSystems are no longer supported as of 0.6. They should be replaced by standard blend systems that work with a custom component to report blendables.")]
-		public bool useReferences = false;
-
 		/// <summary>
 		/// Is the Blend System ready to use?
 		/// </summary>
@@ -27,7 +24,7 @@ namespace RogoDigital.Lipsync{
 		/// <summary>
 		/// The LipSync component using this BlendSystem.
 		/// </summary>
-		private BlendSystemUser[] users;
+		public BlendSystemUser[] users;
 
 		/// <summary>
 		/// Gets the number of blendables associated with this Blend System.
@@ -45,10 +42,17 @@ namespace RogoDigital.Lipsync{
 		public virtual void OnEnable () {
 			this.hideFlags = HideFlags.HideInInspector;
 			users = GetComponents<BlendSystemUser>();
+
 			if(users == null){
 				if(Application.isPlaying){
 					Destroy(this);
 				}else{
+					DestroyImmediate(this);
+				}
+			} else if(users.Length == 0){
+				if (Application.isPlaying) {
+					Destroy(this);
+				} else {
 					DestroyImmediate(this);
 				}
 			}
@@ -78,6 +82,12 @@ namespace RogoDigital.Lipsync{
 		/// Called when a BlendSystem variable is changed in the LipSync editor.
 		/// </summary>
 		public virtual void OnVariableChanged () {
+		}
+
+		/// <summary>
+		/// Called just before a Blend System is removed from the GameObject.
+		/// </summary>
+		public virtual void OnBlendSystemRemoved () {
 		}
 
 		/// <summary>

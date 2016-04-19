@@ -8,129 +8,191 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d4496b7ba5d8c4e9bd6b8f950dd9e5, type: 3}
+  m_Script: {fileID: 11500000, guid: db07302a52ae0d84f8f0c1bf5a629241, type: 3}
   m_Name: Standard
   m_EditorClassIdentifier: 
   phonemeShapes:
-  - blendShapes: 23000000
-    referenceBlendables: []
-    weights:
-    - 42.7000008
+  - phoneme: 0
+    blendables:
+    - blendableNumber: 35
+      blendableName: 
+      weight: 42.7000008
     bones: []
-    phoneme: 0
-  - blendShapes: 23000000290000002a0000002d0000001e0000002f000000
-    referenceBlendables: []
-    weights:
-    - 24.3999996
-    - 42.9000015
-    - 41.0999985
-    - 2.20000005
-    - 11.3000002
-    - 20.8999996
+  - phoneme: 1
+    blendables:
+    - blendableNumber: 35
+      blendableName: 
+      weight: 24.3999996
+    - blendableNumber: 41
+      blendableName: 
+      weight: 42.9000015
+    - blendableNumber: 42
+      blendableName: 
+      weight: 41.0999985
+    - blendableNumber: 45
+      blendableName: 
+      weight: 2.20000005
+    - blendableNumber: 30
+      blendableName: 
+      weight: 11.3000002
+    - blendableNumber: 47
+      blendableName: 
+      weight: 20.8999996
     bones: []
-    phoneme: 1
-  - blendShapes: 2300000021000000220000001d0000002f000000
-    referenceBlendables: []
-    weights:
-    - 24.7999992
-    - 42.7000008
-    - 43.7000008
-    - 55.7000008
-    - 70.4000015
+  - phoneme: 2
+    blendables:
+    - blendableNumber: 35
+      blendableName: 
+      weight: 24.7999992
+    - blendableNumber: 33
+      blendableName: 
+      weight: 42.7000008
+    - blendableNumber: 34
+      blendableName: 
+      weight: 43.7000008
+    - blendableNumber: 29
+      blendableName: 
+      weight: 55.7000008
+    - blendableNumber: 47
+      blendableName: 
+      weight: 70.4000015
     bones: []
-    phoneme: 2
-  - blendShapes: 230000002100000022000000
-    referenceBlendables: []
-    weights:
-    - 61.7000008
-    - 72
-    - 72
+  - phoneme: 3
+    blendables:
+    - blendableNumber: 35
+      blendableName: 
+      weight: 61.7000008
+    - blendableNumber: 33
+      blendableName: 
+      weight: 72
+    - blendableNumber: 34
+      blendableName: 
+      weight: 72
     bones: []
-    phoneme: 3
-  - blendShapes: 16000000
-    referenceBlendables: []
-    weights:
-    - 14.6000004
+  - phoneme: 4
+    blendables:
+    - blendableNumber: 22
+      blendableName: 
+      weight: 14.6000004
     bones: []
-    phoneme: 4
-  - blendShapes: 160000001c000000290000002a0000002f000000
-    referenceBlendables: []
-    weights:
-    - 0
-    - 100
-    - 22
-    - 36.9000015
-    - 100
+  - phoneme: 5
+    blendables:
+    - blendableNumber: 22
+      blendableName: 
+      weight: 0
+    - blendableNumber: 28
+      blendableName: 
+      weight: 100
+    - blendableNumber: 41
+      blendableName: 
+      weight: 22
+    - blendableNumber: 42
+      blendableName: 
+      weight: 36.9000015
+    - blendableNumber: 47
+      blendableName: 
+      weight: 100
     bones: []
-    phoneme: 5
-  - blendShapes: 230000002d00000027000000
-    referenceBlendables: []
-    weights:
-    - 31.5
-    - 100
-    - 16.1000004
+  - phoneme: 6
+    blendables:
+    - blendableNumber: 35
+      blendableName: 
+      weight: 31.5
+    - blendableNumber: 45
+      blendableName: 
+      weight: 100
+    - blendableNumber: 39
+      blendableName: 
+      weight: 16.1000004
     bones: []
-    phoneme: 6
-  - blendShapes: 200000001c0000002e000000
-    referenceBlendables: []
-    weights:
-    - 12.6000004
-    - 69.4000015
-    - 66.8000031
+  - phoneme: 7
+    blendables:
+    - blendableNumber: 32
+      blendableName: 
+      weight: 12.6000004
+    - blendableNumber: 28
+      blendableName: 
+      weight: 69.4000015
+    - blendableNumber: 46
+      blendableName: 
+      weight: 66.8000031
     bones: []
-    phoneme: 7
-  - blendShapes: 21000000220000001d000000
-    referenceBlendables: []
-    weights:
-    - 89.5999985
-    - 89.8000031
-    - 28.7000008
+  - phoneme: 8
+    blendables:
+    - blendableNumber: 33
+      blendableName: 
+      weight: 89.5999985
+    - blendableNumber: 34
+      blendableName: 
+      weight: 89.8000031
+    - blendableNumber: 29
+      blendableName: 
+      weight: 28.7000008
     bones: []
-    phoneme: 8
-  - blendShapes: 
-    referenceBlendables: []
-    weights: []
+  - phoneme: 9
+    blendables: []
     bones: []
-    phoneme: 9
   emotionShapes:
-  - blendShapes: 290000002a0000002b0000002c0000000800000009000000
-    referenceBlendables: []
-    weights:
-    - 55.2999992
-    - 56.4000015
-    - 35.2000008
-    - 35.2000008
-    - 20.5
-    - 17.7999992
+  - emotion: Happy
+    blendables:
+    - blendableNumber: 41
+      blendableName: 
+      weight: 55.2999992
+    - blendableNumber: 42
+      blendableName: 
+      weight: 56.4000015
+    - blendableNumber: 43
+      blendableName: 
+      weight: 35.2000008
+    - blendableNumber: 44
+      blendableName: 
+      weight: 35.2000008
+    - blendableNumber: 8
+      blendableName: 
+      weight: 20.5
+    - blendableNumber: 9
+      blendableName: 
+      weight: 17.7999992
     bones: []
-    emotion: Happy
-    verified: 1
-  - blendShapes: 200000000e0000000f0000000600000007000000
-    referenceBlendables: []
-    weights:
-    - 18.8999996
-    - 43.2000008
-    - 47.5
-    - 57.7000008
-    - 60.2999992
+  - emotion: Sad
+    blendables:
+    - blendableNumber: 32
+      blendableName: 
+      weight: 18.8999996
+    - blendableNumber: 14
+      blendableName: 
+      weight: 43.2000008
+    - blendableNumber: 15
+      blendableName: 
+      weight: 47.5
+    - blendableNumber: 6
+      blendableName: 
+      weight: 57.7000008
+    - blendableNumber: 7
+      blendableName: 
+      weight: 60.2999992
     bones: []
-    emotion: Sad
-    verified: 1
-  - blendShapes: 0200000003000000
-    referenceBlendables: []
-    weights:
-    - 50.0999985
-    - 49.9000015
+  - emotion: Serious
+    blendables:
+    - blendableNumber: 2
+      blendableName: 
+      weight: 50.0999985
+    - blendableNumber: 3
+      blendableName: 
+      weight: 49.9000015
     bones: []
-    emotion: Serious
-    verified: 1
-  - blendShapes: 08000000090000000700000006000000
-    referenceBlendables: []
-    weights:
-    - 27.5
-    - 28.1000004
-    - 21.7999992
-    - 22.6000004
+  - emotion: Eyebrows Up
+    blendables:
+    - blendableNumber: 8
+      blendableName: 
+      weight: 27.5
+    - blendableNumber: 9
+      blendableName: 
+      weight: 28.1000004
+    - blendableNumber: 7
+      blendableName: 
+      weight: 21.7999992
+    - blendableNumber: 6
+      blendableName: 
+      weight: 22.6000004
     bones: []
-    emotion: Eyebrows Up
-    verified: 1

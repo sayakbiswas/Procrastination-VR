@@ -14,6 +14,8 @@ namespace RogoDigital {
 
 			source = go.GetComponent<AudioSource>();
 			source.playOnAwake = false;
+			source.spatialBlend = 0;
+			source.volume = EditorPrefs.GetFloat("LipSync_Volume", 1f);
 		}
 
 		public static void PlayClip(AudioClip clip) {
@@ -40,6 +42,12 @@ namespace RogoDigital {
 			if(source == null) Initialize();
 
 			source.UnPause();
+		}
+
+		public static void SetVolume(float volume) {
+			if (source == null) Initialize();
+
+			source.volume = volume;
 		}
 
 		public static bool IsClipPlaying(AudioClip clip) {

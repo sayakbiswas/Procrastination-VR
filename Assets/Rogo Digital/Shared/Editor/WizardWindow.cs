@@ -6,8 +6,30 @@ using System.Collections;
 namespace RogoDigital {
 	public class WizardWindow : EditorWindow {
 
-		public int currentStep = 1;
-		public int totalSteps = 1;
+		public int currentStep {
+			get {
+				return _currentStep;
+			}
+
+			set {
+				_currentStep = value;
+				progressBar.target = (float)_currentStep / (float)_totalSteps;
+			}
+		}
+
+		public int totalSteps {
+			get {
+				return _totalSteps;
+			}
+			set {
+				_totalSteps = value;
+				progressBar.target = (float)_currentStep / (float)_totalSteps;
+			}
+		}
+
+		private int _currentStep = 1;
+		private int _totalSteps = 1;
+
 		public bool canContinue = true;
 		public string topMessage = "";
 
@@ -16,8 +38,8 @@ namespace RogoDigital {
 
 		void OnEnable () {
 			progressBar = new AnimFloat(0 , Repaint);
-			progressBar.speed = 3;
-			white = Resources.Load<Texture2D>("Lipsync/white");
+			progressBar.speed = 2;
+			white = (Texture2D)EditorGUIUtility.Load("Rogo Digital/Shared/white.png");
 		}
 
 		void OnGUI () {
@@ -31,8 +53,7 @@ namespace RogoDigital {
 			GUI.color = Color.grey;
 			GUI.DrawTexture(new Rect(0 , topbar.height , topbar.width , 3) , white);
 			GUI.color = new Color(1f , 0.77f, 0f);
-			progressBar.target = (topbar.width/totalSteps)*currentStep;
-			GUI.DrawTexture(new Rect(0 , topbar.height , progressBar.value , 3) , white);
+			GUI.DrawTexture(new Rect(0 , topbar.height , progressBar.value*topbar.width , 3) , white);
 			GUI.color = Color.white;
 			GUILayout.Space(20);
 
@@ -87,7 +108,7 @@ namespace RogoDigital {
 			EditorGUILayout.EndVertical();
 			EditorGUILayout.EndHorizontal();
 		}
-			
+
 		public virtual void OnContinuePressed () {
 		}
 

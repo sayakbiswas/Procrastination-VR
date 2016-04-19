@@ -9,7 +9,7 @@ namespace RogoDigital {
 		public void Show (ModalParent parent) {
 			this.parent = parent;
 			parent.currentModal = this;
-			base.Show();
+			base.ShowUtility();
 		}
 
 		private void OnDestroy () {

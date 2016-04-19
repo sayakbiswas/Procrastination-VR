@@ -15,15 +15,12 @@ namespace RogoDigital {
 		}
 		
 		void OnGUI () {
-			//EditorGUI.BeginDisabledGroup(currentModal != null);
+			EditorGUI.BeginDisabledGroup(currentModal != null);
 			if(currentModal != null){
-				GUI.color = new Color(0.6f , 0.6f , 0.6f);
-				GUI.Box(new Rect(0,0,position.width,position.height) ,"");
 				Event.current = null;
 			}
 			OnModalGUI();
-			GUI.color = Color.white;
-			//EditorGUI.EndDisabledGroup();
+			EditorGUI.EndDisabledGroup();
 		}
 
 		void OnFocus () {
