@@ -51,3 +51,7 @@
 3. Upgraded LipSync to 1.0 and added language model.
 4. Added classroom ambience noise.
 5. Added ClassroomScript.cs.
+
+# 04/19/2016
+1. Added student character with blend shapes.
+
