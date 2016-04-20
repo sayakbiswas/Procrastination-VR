@@ -55,7 +55,8 @@
 # 04/19/2016
 1. Added student character with blend shapes.
 2. Added another animation for professor.
-3. Added interaction events in classroom scene.
-4. Added ExitGame.cs to Scene1.
-
-
+3. Added Doctor character and animations.
+4. Added background sound for internet surfing scene.
+5. Added nurse character for scene3.
+6. Added interaction events in classroom scene.
+7. Added ExitGame.cs to Scene1.
