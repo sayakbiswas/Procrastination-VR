@@ -60,3 +60,5 @@
 5. Added nurse character for scene3.
 6. Added interaction events in classroom scene.
 7. Added ExitGame.cs to Scene1.
+8. Fixed issue with scene switch to Scene 2 happening before interaction with classmate.
+9. Changed Lighting in Scene 1 to Baked.

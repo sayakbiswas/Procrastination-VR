@@ -57,7 +57,7 @@ public class ClassroomScript : MonoBehaviour {
 							}
 						}
 					}
-					if(!theClassmate.GetComponent<LipSync> ().isPlaying) {
+					if(hasClassmateStartedTalking && !theClassmate.GetComponent<LipSync> ().isPlaying) {
 						if(waitBeforeSceneChange > 0.0f) {
 							waitBeforeSceneChange -= Time.deltaTime;
 						} else {
