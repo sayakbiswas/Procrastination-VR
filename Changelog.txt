@@ -55,5 +55,7 @@
 # 04/19/2016
 1. Added student character with blend shapes.
 2. Added another animation for professor.
+3. Added interaction events in classroom scene.
+4. Added ExitGame.cs to Scene1.
 
 

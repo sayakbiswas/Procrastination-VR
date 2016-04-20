@@ -154,7 +154,7 @@ GameObject:
   - 20: {fileID: 9317484}
   - 124: {fileID: 9317483}
   - 114: {fileID: 9317482}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,6 +626,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5a02f97198f821d4faebc27bb7445b68, type: 3}
   m_PrefabInternal: {fileID: 112595833}
+--- !u!114 &193202267 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11446276, guid: 60270cf52a5e94998a5a335989159738,
+    type: 2}
+  m_PrefabInternal: {fileID: 1615322080}
+  m_Script: {fileID: 11500000, guid: 66c63f8350cb04a2683f8606cc8d36f7, type: 3}
 --- !u!1 &260904278 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: f43895422c5b6cc46bd4dee3435e38f1, type: 3}
@@ -1767,7 +1773,8 @@ GameObject:
   - 82: {fileID: 724156136}
   - 114: {fileID: 724156135}
   - 114: {fileID: 724156140}
-  m_Layer: 0
+  - 114: {fileID: 724156141}
+  m_Layer: 2
   m_Name: FPSController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2021,6 +2028,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theProfessor: {fileID: 494165116}
   profLipSyncData: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d, type: 2}
+  theClassmate: {fileID: 1672681704}
+  classmateLipSyncData: {fileID: 11400000, guid: f604f0d4f271b8541ba3ca068cfe6c39,
+    type: 2}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  reticle: {fileID: 193202267}
+--- !u!114 &724156141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 724156133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fabecb828612a84b8404e5090f126a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &800802200 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: f43895422c5b6cc46bd4dee3435e38f1, type: 3}
@@ -2213,7 +2238,7 @@ GameObject:
   - 20: {fileID: 920150850}
   - 92: {fileID: 920150849}
   - 114: {fileID: 920150848}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PostRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3209,7 +3234,7 @@ GameObject:
   - 4: {fileID: 1204085986}
   - 20: {fileID: 1204085988}
   - 114: {fileID: 1204085987}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PreRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3371,7 +3396,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1242989481}
   - 114: {fileID: 1242989480}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CardboardMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4542,7 +4567,7 @@ GameObject:
   - 20: {fileID: 1590191246}
   - 124: {fileID: 1590191245}
   - 114: {fileID: 1590191244}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4877,7 +4902,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400146, guid: f9cb760f84ba34496a71c84e09279799, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400146, guid: f9cb760f84ba34496a71c84e09279799, type: 3}
       propertyPath: m_LocalScale.x
@@ -4916,8 +4941,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 37067203e2d5830499c7da2091978e68, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4969,7 +4994,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -5151,6 +5176,18 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   lastUsedVersion: 1
+--- !u!65 &1672681709
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1672681704}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.8676295, z: 1}
+  m_Center: {x: 0, y: 0.43381417, z: 0}
 --- !u!1 &1679542136 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5a02f97198f821d4faebc27bb7445b68, type: 3}
@@ -5175,7 +5212,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1702772953}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Stereo Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6009,7 +6046,7 @@ GameObject:
   - 114: {fileID: 2122026088}
   - 114: {fileID: 2122026087}
   - 45: {fileID: 2122026094}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
