@@ -71,3 +71,5 @@
 5. Added reunion banner in scene1.
 6. Changed Nurse animation.
 
+5. Added reunion banner.
+6. Added the character rotation script to make the virtual human always look at the FPS controller.
