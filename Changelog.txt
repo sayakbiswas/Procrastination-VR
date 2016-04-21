@@ -68,4 +68,6 @@
 2. Changed Lighting in Scene 3 to No Shadows from Soft and Ambient GI to Baked from Relatime.
 3. Removed extra audio files from assets.
 4. Added lipsync to Doctor character in scene3.
-5. Added reunion banner.
+5. Added reunion banner in scene1.
+6. Changed Nurse animation.
+
