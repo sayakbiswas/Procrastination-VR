@@ -69,3 +69,4 @@
 3. Removed extra audio files from assets.
 4. Added lipsync to Doctor character in scene3.
 5. Added reunion banner.
+6. Added the character rotation script to make the virtual human always look at the FPS controller.
