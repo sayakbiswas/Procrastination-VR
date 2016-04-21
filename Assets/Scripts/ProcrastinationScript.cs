@@ -41,6 +41,7 @@ public class ProcrastinationScript : MonoBehaviour {
 	private bool chooseBetweenGameAndPaper = false;
 	private bool hasSocialAndPaperAudioBeenPlayed = false;
 	private bool hasGameAndPaperAudioBeenPlayed = false;
+	public GameObject laptop;
 
 	// Use this for initialization
 	void Start () {
@@ -86,6 +87,7 @@ public class ProcrastinationScript : MonoBehaviour {
 
 		if(!playerAudioSource.isPlaying) {
 			if(hasStartPaperAudioBeenPlayed && !hasSocialAndPaperAudioBeenPlayed) {
+				pointLight.GetComponent <Light> ().enabled = true;
 				showWebSearchWindow = true;
 				webSearchWindow.SetActive (true);
 				Debug.Log ("Whatever topic I choose should be different than the rest of the class. " +
@@ -106,6 +108,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		}
 
 		if(showWebSearchWindow && !playerAudioSource.isPlaying && chooseBetweenSocialAndPaper) {
+			pointLight.GetComponent <Light> ().enabled = false;
 			showWebSearchWindow = false;
 			webSearchWindow.SetActive (false);
 			squareButton.SetActive (true);
@@ -115,7 +118,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		}
 
 		if(showWebSearchWindow && !playerAudioSource.isPlaying && chooseBetweenGameAndPaper) {
-			Debug.Log ("Enbling choices again");
+			pointLight.GetComponent <Light> ().enabled = false;
 			showWebSearchWindow = false;
 			webSearchWindow.SetActive (false);
 			squareButton.SetActive (true);
@@ -149,11 +152,13 @@ public class ProcrastinationScript : MonoBehaviour {
 				chosePaper = true;
 				chooseBetweenSocialAndPaper = false;
 				chooseBetweenGameAndPaper = true;
+				pointLight.GetComponent <Light>().enabled = true;
 				showWebSearchWindow = true;
 				webSearchWindow.SetActive (true);
 			} else if(chooseBetweenGameAndPaper) {
 				chosePaper = true;
 				chooseBetweenGameAndPaper = false;
+				pointLight.GetComponent <Light>().enabled = true;
 				showWebSearchWindow = true;
 				webSearchWindow.SetActive (true);
 			}
@@ -233,6 +238,8 @@ public class ProcrastinationScript : MonoBehaviour {
 				"looptype", iTween.LoopType.loop, "orientToPath", false, "easetype", iTween.EaseType.linear, 
 				"islocal", true));
 		}
+		CardboardAudioSource laptopAudioSource = laptop.GetComponent<CardboardAudioSource> ();
+		laptopAudioSource.Play ();
 		isOnSocialMedia = true;
 		hasChosenBetweenSocialAndPaper = true;
 	}
@@ -242,7 +249,9 @@ public class ProcrastinationScript : MonoBehaviour {
 			iTween.Stop (gameObject);
 			gameObject.SetActive (false);
 		}
-		pointLight.GetComponent <Light>().enabled = false;
+		CardboardAudioSource laptopAudioSource = laptop.GetComponent<CardboardAudioSource> ();
+		laptopAudioSource.Stop ();
+		pointLight.GetComponent <Light>().enabled = true;
 		directionalLight.enabled = true;
 		RenderSettings.ambientIntensity = 1.0f;
 		DynamicGI.UpdateEnvironment ();

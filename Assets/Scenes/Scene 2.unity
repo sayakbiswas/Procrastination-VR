@@ -1310,6 +1310,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2099998, y: 0.15115155, z: 0.29999986}
   m_Center: {x: 1.5986819, y: 0.07557539, z: 0.38146666}
+--- !u!114 &286609016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286609011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbca64e524ea44f9b26142ec59aca8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directivityAlpha: 0
+  directivitySharpness: 1
+  gainDb: 0
+  occlusionEnabled: 0
+  playOnAwake: 0
+  rolloffMode: 0
+  sourceClip: {fileID: 8300000, guid: e6d1dd8ed0df70c4e8c5c49bca7a9e23, type: 3}
+  sourceLoop: 0
+  sourceMute: 0
+  sourcePitch: 1
+  sourceVolume: 1
+  sourceMaxDistance: 500
+  sourceMinDistance: 0
+  hrtfEnabled: 1
 --- !u!1 &289350378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,7 +1959,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 407673985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.87}
+  m_LocalPosition: {x: 0.154, y: 0, z: 0.522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 929447586}
@@ -4177,6 +4202,7 @@ MonoBehaviour:
   circleButton: {fileID: 2029739534}
   squareButtonText: {fileID: 1990337683}
   circleButtonText: {fileID: 1521215498}
+  laptop: {fileID: 286609011}
 --- !u!114 &929447593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6888,8 +6914,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1721453552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.051, y: -0.119, z: 1.51}
-  m_LocalScale: {x: 2.6341228, y: 1.7591364, z: 1}
+  m_LocalPosition: {x: 0.214, y: -0.007, z: 0.989}
+  m_LocalScale: {x: 1.9654771, y: 1.1309378, z: 1}
   m_Children: []
   m_Father: {fileID: 929447586}
   m_RootOrder: 17
