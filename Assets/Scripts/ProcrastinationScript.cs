@@ -24,6 +24,24 @@ public class ProcrastinationScript : MonoBehaviour {
 	public Light directionalLight;
 	public Light pointLight;
 	private bool isOnSocialMedia = false;
+	public GameObject webSearchWindow;
+	public GameObject docWindow;
+	public GameObject squareButton;
+	public GameObject circleButton;
+	public GameObject squareButtonText;
+	public GameObject circleButtonText;
+	private bool showWebSearchWindow = false;
+	private CardboardAudioSource playerAudioSource;
+	private bool chooseBetweenSocialAndPaper = false;
+	private static bool choseSocial = false;
+	private static bool chosePaper = false;
+	private static bool choseGaming = false;
+	private bool hasStartPaperAudioBeenPlayed = false;
+	private bool hasChosenBetweenSocialAndPaper = false;
+	private bool chooseBetweenGameAndPaper = false;
+	private bool hasSocialAndPaperAudioBeenPlayed = false;
+	private bool hasGameAndPaperAudioBeenPlayed = false;
+	public GameObject laptop;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +49,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		screen2OriginalPosition = gameScreen2.transform.localPosition;
 		screen3OriginalPosition = gameScreen3.transform.localPosition;
 		screen4OriginalPosition = gameScreen4.transform.localPosition;
+		playerAudioSource = GetComponent <CardboardAudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -56,12 +75,92 @@ public class ProcrastinationScript : MonoBehaviour {
 						StopGaming ();
 					}
 				} else if(hitObject.name.Contains ("laptop") || hitObject.name.Contains ("paper")) {
-					if(!isOnSocialMedia) {
-						StartSocialMedia ();
-					} else {
+					Debug.Log ("I should get started on the paper. But what topic? I should google for some."); //TODO: Play audio.
+					hasStartPaperAudioBeenPlayed = true;
+					playerAudioSource.Play ();
+					if(isOnSocialMedia) {
 						StopSocialMedia ();
 					}
 				}
+			}
+		}
+
+		if(!playerAudioSource.isPlaying) {
+			if(hasStartPaperAudioBeenPlayed && !hasSocialAndPaperAudioBeenPlayed) {
+				pointLight.GetComponent <Light> ().enabled = true;
+				showWebSearchWindow = true;
+				webSearchWindow.SetActive (true);
+				Debug.Log ("Whatever topic I choose should be different than the rest of the class. " +
+					"I desperately need an A in this. Maybe I should check facebook for a bit and " +
+					"approach this with a fresh mind."); //TODO: Play audio.
+				playerAudioSource.Play ();
+				chooseBetweenSocialAndPaper = true;
+				hasSocialAndPaperAudioBeenPlayed = true;
+			}
+
+			if(hasSocialAndPaperAudioBeenPlayed && hasChosenBetweenSocialAndPaper  && !isOnSocialMedia 
+				&& !hasGameAndPaperAudioBeenPlayed) {
+				Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
+				playerAudioSource.Play ();
+				chooseBetweenGameAndPaper = true;
+				hasGameAndPaperAudioBeenPlayed = true;
+			}
+		}
+
+		if(showWebSearchWindow && !playerAudioSource.isPlaying && chooseBetweenSocialAndPaper) {
+			pointLight.GetComponent <Light> ().enabled = false;
+			showWebSearchWindow = false;
+			webSearchWindow.SetActive (false);
+			squareButton.SetActive (true);
+			squareButtonText.SetActive (true);
+			circleButton.SetActive (true);
+			circleButtonText.SetActive (true);
+		}
+
+		if(showWebSearchWindow && !playerAudioSource.isPlaying && chooseBetweenGameAndPaper) {
+			pointLight.GetComponent <Light> ().enabled = false;
+			showWebSearchWindow = false;
+			webSearchWindow.SetActive (false);
+			squareButton.SetActive (true);
+			squareButtonText.GetComponent <TextMesh>().text = "Play Game";
+			squareButtonText.SetActive (true);
+			circleButton.SetActive (true);
+			circleButtonText.SetActive (true);
+		}
+
+		if(Input.GetKeyDown (KeyCode.Z)) {
+			squareButton.SetActive (false);
+			squareButtonText.SetActive (false);
+			circleButton.SetActive (false);
+			circleButtonText.SetActive (false);
+			if(chooseBetweenSocialAndPaper) {
+				choseSocial = true;
+				chooseBetweenSocialAndPaper = false;
+				StartSocialMedia ();
+			} else if(chooseBetweenGameAndPaper) {
+				choseGaming = true;
+				chooseBetweenGameAndPaper = false;
+				Debug.Log ("Yes I should play on the XBOX for sometime! " +
+					"I will start working again with a fresh mind!"); //TODO: Play audio.
+			}
+		} else if(Input.GetKeyDown (KeyCode.C)) {
+			squareButton.SetActive (false);
+			squareButtonText.SetActive (false);
+			circleButton.SetActive (false);
+			circleButtonText.SetActive (false);
+			if(chooseBetweenSocialAndPaper) {
+				chosePaper = true;
+				chooseBetweenSocialAndPaper = false;
+				chooseBetweenGameAndPaper = true;
+				pointLight.GetComponent <Light>().enabled = true;
+				showWebSearchWindow = true;
+				webSearchWindow.SetActive (true);
+			} else if(chooseBetweenGameAndPaper) {
+				chosePaper = true;
+				chooseBetweenGameAndPaper = false;
+				pointLight.GetComponent <Light>().enabled = true;
+				showWebSearchWindow = true;
+				webSearchWindow.SetActive (true);
 			}
 		}
 
@@ -139,7 +238,10 @@ public class ProcrastinationScript : MonoBehaviour {
 				"looptype", iTween.LoopType.loop, "orientToPath", false, "easetype", iTween.EaseType.linear, 
 				"islocal", true));
 		}
+		CardboardAudioSource laptopAudioSource = laptop.GetComponent<CardboardAudioSource> ();
+		laptopAudioSource.Play ();
 		isOnSocialMedia = true;
+		hasChosenBetweenSocialAndPaper = true;
 	}
 
 	private void StopSocialMedia() {
@@ -147,10 +249,14 @@ public class ProcrastinationScript : MonoBehaviour {
 			iTween.Stop (gameObject);
 			gameObject.SetActive (false);
 		}
-		pointLight.GetComponent <Light>().enabled = false;
+		CardboardAudioSource laptopAudioSource = laptop.GetComponent<CardboardAudioSource> ();
+		laptopAudioSource.Stop ();
+		pointLight.GetComponent <Light>().enabled = true;
 		directionalLight.enabled = true;
 		RenderSettings.ambientIntensity = 1.0f;
 		DynamicGI.UpdateEnvironment ();
+		showWebSearchWindow = true;
+		webSearchWindow.SetActive (true);
 		isOnSocialMedia = false;
 	}
 }

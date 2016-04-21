@@ -70,6 +70,7 @@
 4. Added lipsync to Doctor character in scene3.
 5. Added reunion banner in scene1.
 6. Changed Nurse animation.
-
-5. Added reunion banner.
-6. Added the character rotation script to make the virtual human always look at the FPS controller.
+7. Added reunion banner.
+8. Added the character rotation script to make the virtual human always look at the FPS controller.
+9. Added images for paper.
+10. Changes to ProcrastinationScript.cs for events in Scene2.
