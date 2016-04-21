@@ -67,3 +67,5 @@
 1. Added roof, door and wall to Scene 3.
 2. Changed Lighting in Scene 3 to No Shadows from Soft and Ambient GI to Baked from Relatime.
 3. Removed extra audio files from assets.
+4. Added images for paper.
+5. Changes to ProcrastinationScript.cs for events in Scene2.
