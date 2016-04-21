@@ -30,6 +30,11 @@ ModelImporter:
     4300004: Doorway_Glass
     4300006: Poster_011
     4300008: Poster_012
+    6400000: Door
+    6400002: DoorWay
+    6400004: Doorway_Glass
+    6400006: Poster_011
+    6400008: Poster_012
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -57,7 +62,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

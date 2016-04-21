@@ -62,3 +62,8 @@
 7. Added ExitGame.cs to Scene1.
 8. Fixed issue with scene switch to Scene 2 happening before interaction with classmate.
 9. Changed Lighting in Scene 1 to Baked.
+
+# 04/21/2016
+1. Added roof, door and wall to Scene 3.
+2. Changed Lighting in Scene 3 to No Shadows from Soft and Ambient GI to Baked from Relatime.
+3. Removed extra audio files from assets.
