@@ -67,5 +67,10 @@
 1. Added roof, door and wall to Scene 3.
 2. Changed Lighting in Scene 3 to No Shadows from Soft and Ambient GI to Baked from Relatime.
 3. Removed extra audio files from assets.
-4. Added images for paper.
-5. Changes to ProcrastinationScript.cs for events in Scene2.
+4. Added lipsync to Doctor character in scene3.
+5. Added reunion banner in scene1.
+6. Changed Nurse animation.
+7. Added reunion banner.
+8. Added the character rotation script to make the virtual human always look at the FPS controller.
+9. Added images for paper.
+10. Changes to ProcrastinationScript.cs for events in Scene2.
