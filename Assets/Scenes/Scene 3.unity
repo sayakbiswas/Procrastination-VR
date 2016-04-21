@@ -2761,7 +2761,7 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.24009657
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -2987,6 +2987,18 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   lastUsedVersion: 1
+--- !u!114 &341660608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341660602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c64f11cb1439fe47ae8c2edf9a585ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1275717375}
 --- !u!1 &349355172
 GameObject:
   m_ObjectHideFlags: 0
@@ -8867,8 +8879,8 @@ Transform:
   m_PrefabParentObject: {fileID: 432574, guid: a177aba586fa54700a4ceaac810edae9, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1089689466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.19603173, z: 0, w: 0.98059756}
+  m_LocalPosition: {x: 0, y: 0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 721487309}
@@ -10231,8 +10243,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1275717374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.178, y: -0.3, z: 0.518}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.214, y: -0.518, z: 0.518}
+  m_LocalScale: {x: 0.70390904, y: 0.7039091, z: 0.7039091}
   m_Children:
   - {fileID: 1089689467}
   m_Father: {fileID: 661233162}
@@ -12467,15 +12479,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4493983
+      value: 3.515
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.219114e-16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.097259
+      value: -6.707
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12483,7 +12495,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.9902438
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_LocalRotation.z
@@ -12491,7 +12503,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00000016292068
+      value: 0.13934581
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_RootOrder
@@ -12501,6 +12513,14 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b688cacfd65d2469393ce7b9f1544838, type: 2}
+    - target: {fileID: 400006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 824364019f06147d784b2ea00f90e351, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 824364019f06147d784b2ea00f90e351, type: 3}
   m_IsPrefabParent: 0
