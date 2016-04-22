@@ -42,6 +42,8 @@ public class ProcrastinationScript : MonoBehaviour {
 	private bool hasSocialAndPaperAudioBeenPlayed = false;
 	private bool hasGameAndPaperAudioBeenPlayed = false;
 	public GameObject laptop;
+	//public GameObject mom;
+	//private Animator momAnimator;
 
 	// Use this for initialization
 	void Start () {
@@ -50,6 +52,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		screen3OriginalPosition = gameScreen3.transform.localPosition;
 		screen4OriginalPosition = gameScreen4.transform.localPosition;
 		playerAudioSource = GetComponent <CardboardAudioSource> ();
+		//momAnimator = mom.GetComponent <Animator> ();
 	}
 
 	// Update is called once per frame
@@ -57,7 +60,8 @@ public class ProcrastinationScript : MonoBehaviour {
 		RaycastHit hitInfo;
 		if(Physics.Raycast (Cardboard.SDK.GetComponentInChildren<CardboardHead> ().Gaze, out hitInfo, Mathf.Infinity, layerMask)) {
 			GameObject hitObject = hitInfo.transform.gameObject;
-			if(hitObject.name.Contains ("TV") || hitObject.name.Contains ("controller") || hitObject.name.Contains ("laptop")) {
+			if(hitObject.name.Contains ("TV") || hitObject.name.Contains ("controller") || hitObject.name.Contains ("laptop")
+				|| hitObject.name.Contains ("WebSearch") || hitObject.name.Contains ("Doc")) {
 				reticle.GetComponent<CardboardReticle> ().OnGazeStart (this.gameObject.GetComponentInChildren<Camera> (), 
 					hitObject, hitInfo.point);
 			} else {
@@ -126,6 +130,10 @@ public class ProcrastinationScript : MonoBehaviour {
 			squareButtonText.SetActive (true);
 			circleButton.SetActive (true);
 			circleButtonText.SetActive (true);
+		}
+
+		if(chooseBetweenGameAndPaper) {
+			
 		}
 
 		if(Input.GetKeyDown (KeyCode.Z)) {
