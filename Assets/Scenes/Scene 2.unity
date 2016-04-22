@@ -685,7 +685,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 139749796}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Stereo Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   - 64: {fileID: 272542512}
   - 23: {fileID: 272542511}
   - 114: {fileID: 272542514}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Instagram
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,7 +1485,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1581248638}
   - 114: {fileID: 319375902}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CardboardMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1945,7 +1945,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407673986}
   - 108: {fileID: 407673987}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2231,7 +2231,7 @@ GameObject:
   - 20: {fileID: 470332282}
   - 124: {fileID: 470332281}
   - 114: {fileID: 470332280}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2733,7 +2733,7 @@ GameObject:
   - 64: {fileID: 574805059}
   - 23: {fileID: 574805058}
   - 114: {fileID: 574805061}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Youtube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3239,6 +3239,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 69615e7f925dd41e1882ac86db6d53f6, type: 2}
+    - target: {fileID: 100144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_Name
+      value: Mom
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
   m_IsPrefabParent: 0
@@ -3522,7 +3526,7 @@ MonoBehaviour:
     - 17.8
     bones: []
     emotion: Happy
-    verified: 1
+    verified: 0
   - blendShapes: 200000000e0000000f0000000600000007000000
     weights:
     - 18.9
@@ -3532,14 +3536,14 @@ MonoBehaviour:
     - 60.3
     bones: []
     emotion: Sad
-    verified: 1
+    verified: 0
   - blendShapes: 0200000003000000
     weights:
     - 50.1
     - 49.9
     bones: []
     emotion: Serious
-    verified: 1
+    verified: 0
   - blendShapes: 08000000090000000700000006000000
     weights:
     - 27.5
@@ -3548,7 +3552,7 @@ MonoBehaviour:
     - 22.6
     bones: []
     emotion: Eyebrows Up
-    verified: 1
+    verified: 0
   playOnAwake: 0
   loop: 0
   defaultClip: {fileID: 0}
@@ -3642,7 +3646,7 @@ GameObject:
   - 64: {fileID: 718178431}
   - 23: {fileID: 718178430}
   - 114: {fileID: 718178433}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Facebook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3740,7 +3744,7 @@ GameObject:
   - 64: {fileID: 740055641}
   - 23: {fileID: 740055640}
   - 114: {fileID: 740055643}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Twitter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4213,7 +4217,7 @@ GameObject:
   - 114: {fileID: 929447587}
   - 114: {fileID: 929447592}
   - 114: {fileID: 929447593}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FPSController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4226,8 +4230,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 929447585}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: 3.8, y: 0, z: -6.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1852229843}
@@ -4554,7 +4558,7 @@ GameObject:
   - 33: {fileID: 943786226}
   - 65: {fileID: 943786225}
   - 23: {fileID: 943786224}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameScreen4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4629,7 +4633,7 @@ GameObject:
   - 33: {fileID: 957620480}
   - 65: {fileID: 957620479}
   - 23: {fileID: 957620478}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameScreen3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4912,7 +4916,7 @@ GameObject:
   - 64: {fileID: 993382997}
   - 23: {fileID: 993382996}
   - 114: {fileID: 993382999}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Facebook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5370,7 +5374,7 @@ GameObject:
   - 33: {fileID: 1083336868}
   - 65: {fileID: 1083336867}
   - 23: {fileID: 1083336866}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameScreen2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5556,7 +5560,7 @@ GameObject:
   - 64: {fileID: 1133171046}
   - 23: {fileID: 1133171045}
   - 114: {fileID: 1133171048}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Netflix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5912,7 +5916,7 @@ GameObject:
   - 33: {fileID: 1244921380}
   - 65: {fileID: 1244921379}
   - 23: {fileID: 1244921378}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameScreen1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6061,7 +6065,7 @@ GameObject:
   - 4: {fileID: 1345067821}
   - 20: {fileID: 1345067823}
   - 114: {fileID: 1345067822}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PreRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6279,7 +6283,7 @@ GameObject:
   - 64: {fileID: 1470478360}
   - 23: {fileID: 1470478359}
   - 114: {fileID: 1470478362}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Twitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6549,7 +6553,7 @@ GameObject:
   - 4: {fileID: 1521215499}
   - 23: {fileID: 1521215501}
   - 102: {fileID: 1521215500}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CircleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6772,7 +6776,7 @@ GameObject:
   - 64: {fileID: 1604580880}
   - 23: {fileID: 1604580879}
   - 95: {fileID: 1604580882}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SquareButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7865,7 +7869,7 @@ GameObject:
   - 20: {fileID: 1848420412}
   - 92: {fileID: 1848420411}
   - 114: {fileID: 1848420410}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PostRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7954,7 +7958,7 @@ GameObject:
   - 114: {fileID: 1852229845}
   - 114: {fileID: 1852229844}
   - 114: {fileID: 1852229850}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -8233,7 +8237,7 @@ GameObject:
   - 4: {fileID: 1990337686}
   - 23: {fileID: 1990337685}
   - 102: {fileID: 1990337684}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SquareButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8456,7 +8460,7 @@ GameObject:
   - 64: {fileID: 2029739537}
   - 23: {fileID: 2029739536}
   - 95: {fileID: 2029739540}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CircleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8646,7 +8650,7 @@ GameObject:
   - 20: {fileID: 2121799877}
   - 124: {fileID: 2121799876}
   - 114: {fileID: 2121799875}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
