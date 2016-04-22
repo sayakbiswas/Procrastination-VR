@@ -1067,7 +1067,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &272542509
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,7 +3010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &655923598
 Prefab:
   m_ObjectHideFlags: 0
@@ -3109,6 +3109,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: e9864a668efa48e4ca02bbdb96b41c08, type: 3}
   m_PrefabInternal: {fileID: 655923598}
+--- !u!137 &657848259 stripped
+SkinnedMeshRenderer:
+  m_PrefabParentObject: {fileID: 13700000, guid: 7ce00a53b9881419cb309f7ee0665e71,
+    type: 3}
+  m_PrefabInternal: {fileID: 672784758}
 --- !u!1001 &657863276
 Prefab:
   m_ObjectHideFlags: 0
@@ -3175,6 +3180,68 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400022, guid: 5a3d48a1a8fd68448ac245d1aa7d193d, type: 3}
   m_PrefabInternal: {fileID: 657863276}
+--- !u!1001 &672784758
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 13700000, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.123604
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.035833616
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.253
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 69615e7f925dd41e1882ac86db6d53f6, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1001 &673022430
 Prefab:
   m_ObjectHideFlags: 0
@@ -3257,6 +3324,254 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: e46968252eabfe84da0862a6e3329642, type: 3}
   m_PrefabInternal: {fileID: 673022430}
+--- !u!1 &679014954 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100144, guid: 7ce00a53b9881419cb309f7ee0665e71, type: 3}
+  m_PrefabInternal: {fileID: 672784758}
+--- !u!82 &679014955
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679014954}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &679014956
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679014954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9036ca68e4aa8924a9003edadadd85a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendableDisplayName: Blend Shape
+  blendableDisplayNamePlural: Blend Shapes
+  noBlendablesMessage: Your chosen Skinned Mesh Renderer has no Blend Shapes defined.
+  notReadyMessage: Skinned Mesh Renderer not set. The Blend Shape BlendSystem requires
+    at least one Skinned Mesh Renderer.
+  blendRangeLow: 0
+  blendRangeHigh: 100
+  isReady: 1
+  users:
+  - {fileID: 679014957}
+  characterMesh: {fileID: 657848259}
+  optionalOtherMeshes: []
+--- !u!114 &679014957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679014954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60953a4eedd70a246ab4eadbed9f0591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendSystem: {fileID: 679014956}
+  audioSource: {fileID: 679014955}
+  useBones: 0
+  boneUpdateAnimation: 0
+  phonemes:
+  - blendShapes: 23000000
+    weights:
+    - 42.7
+    bones: []
+    phoneme: 0
+  - blendShapes: 23000000290000002a0000002d0000001e0000002f000000
+    weights:
+    - 24.4
+    - 42.9
+    - 41.1
+    - 2.2
+    - 11.3
+    - 20.9
+    bones: []
+    phoneme: 1
+  - blendShapes: 2300000021000000220000001d0000002f000000
+    weights:
+    - 24.8
+    - 42.7
+    - 43.7
+    - 55.7
+    - 70.4
+    bones: []
+    phoneme: 2
+  - blendShapes: 230000002100000022000000
+    weights:
+    - 61.7
+    - 72
+    - 72
+    bones: []
+    phoneme: 3
+  - blendShapes: 16000000
+    weights:
+    - 14.6
+    bones: []
+    phoneme: 4
+  - blendShapes: 160000001c000000290000002a0000002f000000
+    weights:
+    - 0
+    - 100
+    - 22
+    - 36.9
+    - 100
+    bones: []
+    phoneme: 5
+  - blendShapes: 230000002d00000027000000
+    weights:
+    - 31.5
+    - 100
+    - 16.1
+    bones: []
+    phoneme: 6
+  - blendShapes: 200000001c0000002e000000
+    weights:
+    - 12.6
+    - 69.4
+    - 66.8
+    bones: []
+    phoneme: 7
+  - blendShapes: 21000000220000001d000000
+    weights:
+    - 89.6
+    - 89.8
+    - 28.7
+    bones: []
+    phoneme: 8
+  - blendShapes: 
+    weights: []
+    bones: []
+    phoneme: 9
+  emotions:
+  - blendShapes: 290000002a0000002b0000002c0000000800000009000000
+    weights:
+    - 55.3
+    - 56.4
+    - 35.2
+    - 35.2
+    - 20.5
+    - 17.8
+    bones: []
+    emotion: Happy
+    verified: 1
+  - blendShapes: 200000000e0000000f0000000600000007000000
+    weights:
+    - 18.9
+    - 43.2
+    - 47.5
+    - 57.7
+    - 60.3
+    bones: []
+    emotion: Sad
+    verified: 1
+  - blendShapes: 0200000003000000
+    weights:
+    - 50.1
+    - 49.9
+    bones: []
+    emotion: Serious
+    verified: 1
+  - blendShapes: 08000000090000000700000006000000
+    weights:
+    - 27.5
+    - 28.1
+    - 21.8
+    - 22.6
+    bones: []
+    emotion: Eyebrows Up
+    verified: 1
+  playOnAwake: 0
+  loop: 0
+  defaultClip: {fileID: 0}
+  defaultDelay: 0
+  scaleAudioSpeed: 1
+  restTime: 0.2
+  restHoldTime: 0.1
+  phonemeCurveGenerationMode: 1
+  emotionCurveGenerationMode: 0
+  gesturesAnimator: {fileID: 0}
+  gesturesLayer: 0
+  gestures: []
+  onFinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  reset:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  lastUsedVersion: 1
 --- !u!1001 &687087142
 Prefab:
   m_ObjectHideFlags: 0
@@ -3911,8 +4226,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 929447585}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: 3.8, y: 0, z: -6.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1852229843}
@@ -6444,7 +6759,7 @@ Transform:
   - {fileID: 139749796}
   - {fileID: 929447586}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1604580877
 GameObject:
   m_ObjectHideFlags: 0
@@ -7456,7 +7771,7 @@ Transform:
   - {fileID: 1646530296}
   - {fileID: 118229037}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1001 &1839912903
 Prefab:
   m_ObjectHideFlags: 0
