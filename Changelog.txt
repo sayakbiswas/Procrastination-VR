@@ -74,3 +74,4 @@
 8. Added the character rotation script to make the virtual human always look at the FPS controller.
 9. Added images for paper.
 10. Changes to ProcrastinationScript.cs for events in Scene2.
+11. Added Patient animations in scene2 and scene3
