@@ -52,3 +52,5 @@ This repository holds the final project for the Virtual Reality course at the Un
 41. Classroom assets : https://www.assetstore.unity3d.com/en/#!/content/5977
 42. Characters and Animations in classroom scene : https://www.mixamo.com/
 43. Classroom Ambience: https://www.youtube.com/watch?v=-ShjuAyUpqI
+44. Reunion Crowd Sound: http://www.freesfx.co.uk/download/?type=mp3&id=667
+45. Ambient music in reunion scene: https://www.youtube.com/watch?v=q59tVFKVOoE
