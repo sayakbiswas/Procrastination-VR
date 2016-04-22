@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ProcrastinationScript : MonoBehaviour {
 	public CardboardReticle reticle;
@@ -36,14 +37,19 @@ public class ProcrastinationScript : MonoBehaviour {
 	private static bool choseSocial = false;
 	private static bool chosePaper = false;
 	private static bool choseGaming = false;
+	private static bool choseDoctor = false;
 	private bool hasStartPaperAudioBeenPlayed = false;
 	private bool hasChosenBetweenSocialAndPaper = false;
 	private bool chooseBetweenGameAndPaper = false;
 	private bool hasSocialAndPaperAudioBeenPlayed = false;
 	private bool hasGameAndPaperAudioBeenPlayed = false;
 	public GameObject laptop;
-	//public GameObject mom;
-	//private Animator momAnimator;
+	public GameObject mom;
+	private Animator momAnimator;
+	private bool hasChosenBetweenGameAndPaper = false;
+	private bool medicalEmergencyStarted = false;
+	public GameObject chair;
+	private bool chooseBetweenDoctorAndPaper = false;
 
 	// Use this for initialization
 	void Start () {
@@ -52,7 +58,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		screen3OriginalPosition = gameScreen3.transform.localPosition;
 		screen4OriginalPosition = gameScreen4.transform.localPosition;
 		playerAudioSource = GetComponent <CardboardAudioSource> ();
-		//momAnimator = mom.GetComponent <Animator> ();
+		momAnimator = mom.GetComponent <Animator> ();
 	}
 
 	// Update is called once per frame
@@ -61,7 +67,8 @@ public class ProcrastinationScript : MonoBehaviour {
 		if(Physics.Raycast (Cardboard.SDK.GetComponentInChildren<CardboardHead> ().Gaze, out hitInfo, Mathf.Infinity, layerMask)) {
 			GameObject hitObject = hitInfo.transform.gameObject;
 			if(hitObject.name.Contains ("TV") || hitObject.name.Contains ("controller") || hitObject.name.Contains ("laptop")
-				|| hitObject.name.Contains ("WebSearch") || hitObject.name.Contains ("Doc")) {
+				|| hitObject.name.Contains ("WebSearch") || hitObject.name.Contains ("Document") 
+				|| hitObject.name.Contains ("Mom")) {
 				reticle.GetComponent<CardboardReticle> ().OnGazeStart (this.gameObject.GetComponentInChildren<Camera> (), 
 					hitObject, hitInfo.point);
 			} else {
@@ -84,6 +91,12 @@ public class ProcrastinationScript : MonoBehaviour {
 					playerAudioSource.Play ();
 					if(isOnSocialMedia) {
 						StopSocialMedia ();
+					}
+				} else if(hitObject.name.Contains ("Mom")) {
+					if(medicalEmergencyStarted) {
+						momAnimator.SetTrigger ("sit_talk");
+						mom.GetComponent <CharacterRotation> ().facePlayer ();
+						chooseBetweenDoctorAndPaper = true;
 					}
 				}
 			}
@@ -132,8 +145,17 @@ public class ProcrastinationScript : MonoBehaviour {
 			circleButtonText.SetActive (true);
 		}
 
-		if(chooseBetweenGameAndPaper) {
-			
+		if(hasChosenBetweenGameAndPaper && !medicalEmergencyStarted) {
+			Debug.Log ("Son! Son!"); //TODO: Play Audio.
+			medicalEmergencyStarted = true;
+		}
+
+		if(medicalEmergencyStarted && chooseBetweenDoctorAndPaper) {
+			squareButton.SetActive (true);
+			squareButtonText.GetComponent <TextMesh>().text = "Go to Doctor";
+			squareButtonText.SetActive (true);
+			circleButton.SetActive (true);
+			circleButtonText.SetActive (true);
 		}
 
 		if(Input.GetKeyDown (KeyCode.Z)) {
@@ -150,6 +172,10 @@ public class ProcrastinationScript : MonoBehaviour {
 				chooseBetweenGameAndPaper = false;
 				Debug.Log ("Yes I should play on the XBOX for sometime! " +
 					"I will start working again with a fresh mind!"); //TODO: Play audio.
+			} else if(chooseBetweenDoctorAndPaper) {
+				choseDoctor = true;
+				chooseBetweenDoctorAndPaper = false;
+				SceneManager.LoadScene ("Scene 3");
 			}
 		} else if(Input.GetKeyDown (KeyCode.C)) {
 			squareButton.SetActive (false);
@@ -163,12 +189,17 @@ public class ProcrastinationScript : MonoBehaviour {
 				pointLight.GetComponent <Light>().enabled = true;
 				showWebSearchWindow = true;
 				webSearchWindow.SetActive (true);
+				hasChosenBetweenSocialAndPaper = true;
 			} else if(chooseBetweenGameAndPaper) {
 				chosePaper = true;
 				chooseBetweenGameAndPaper = false;
 				pointLight.GetComponent <Light>().enabled = true;
 				showWebSearchWindow = true;
 				webSearchWindow.SetActive (true);
+				hasChosenBetweenGameAndPaper = true;
+			} else if(chooseBetweenDoctorAndPaper) {
+				chosePaper = true;
+				chooseBetweenDoctorAndPaper = false;
 			}
 		}
 
@@ -216,6 +247,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		gameScreen3.SetActive (true);
 		gameScreen4.SetActive (true);
 		isPlayingGame = true;
+		hasChosenBetweenGameAndPaper = true;
 	}
 
 	private void StopGaming() {
