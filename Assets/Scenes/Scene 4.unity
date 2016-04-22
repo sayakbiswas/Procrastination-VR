@@ -685,7 +685,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 83cd9bcc5df4b4fca8527ce8f3e0ee41, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 83cd9bcc5df4b4fca8527ce8f3e0ee41, type: 3}
       propertyPath: m_LocalScale.x
@@ -1109,7 +1109,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 0cb8df629d781441aaba3f0043e467aa, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: 0cb8df629d781441aaba3f0043e467aa, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2020,7 +2020,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: d0e4696c786dd44528ab6216bc9901ea, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: d0e4696c786dd44528ab6216bc9901ea, type: 3}
       propertyPath: m_LocalScale.x
@@ -2591,7 +2591,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 386303d7b31904fef97fb0e5af296f5c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 386303d7b31904fef97fb0e5af296f5c, type: 3}
       propertyPath: m_LocalScale.x
@@ -2694,7 +2694,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9a3071870a45e4882b589a21489befc2, type: 2}
+  - {fileID: 2100000, guid: c36b26208846b4cccb521060b0c9fede, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
