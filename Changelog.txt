@@ -75,3 +75,4 @@
 9. Added images for paper.
 10. Changes to ProcrastinationScript.cs for events in Scene2.
 11. Added Patient animations in scene2 and scene3
+12. Fixed few bugs in Scene 3 and adjusted height to match to the character
