@@ -81,3 +81,5 @@
 1. Added crowd audio and ambient music in Scene 4.
 2. Updated Readme.md.
 3. Added animation to Fan in Scene 2.
+4. Added images for paper and web search.
+5. Changes to ProcrastinationScript.cs [Not Working.]

@@ -50,6 +50,10 @@ public class ProcrastinationScript : MonoBehaviour {
 	private bool medicalEmergencyStarted = false;
 	public GameObject chair;
 	private bool chooseBetweenDoctorAndPaper = false;
+	private int paperCompletionStatus = 0;
+	public Texture[] paperImages;
+	public Texture[] webSearchImages;
+	private bool showDocWindow = false;
 
 	// Use this for initialization
 	void Start () {
@@ -76,7 +80,72 @@ public class ProcrastinationScript : MonoBehaviour {
 			}
 		}
 
+		if(!hasStartPaperAudioBeenPlayed) {
+			Debug.Log ("I should get started on the paper. But what topic? I should google for some."); //TODO: Play audio.
+			hasStartPaperAudioBeenPlayed = true;
+			playerAudioSource.Play ();
+		}
+
 		if(Input.GetButtonDown ("Fire1")) {
+			/*if(showDocWindow) {
+				showDocWindow = false;
+				docWindow.SetActive (false);
+			}*/
+
+			if(chooseBetweenGameAndPaper) {
+				pointLight.GetComponent <Light> ().enabled = false;
+				showDocWindow = false;
+				docWindow.SetActive (false);
+				squareButton.SetActive (true);
+				squareButtonText.GetComponent <TextMesh>().text = "Play Game";
+				squareButtonText.SetActive (true);
+				circleButton.SetActive (true);
+				circleButtonText.SetActive (true);
+			}
+
+			if(!playerAudioSource.isPlaying) {
+				if(showDocWindow && hasSocialAndPaperAudioBeenPlayed && hasChosenBetweenSocialAndPaper && !isOnSocialMedia 
+					&& !hasGameAndPaperAudioBeenPlayed) {
+					Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
+					playerAudioSource.Play ();
+					chooseBetweenGameAndPaper = true;
+					hasGameAndPaperAudioBeenPlayed = true;
+				}
+			}
+
+			if(showWebSearchWindow && chooseBetweenSocialAndPaper) {
+				pointLight.GetComponent <Light> ().enabled = false;
+				showWebSearchWindow = false;
+				webSearchWindow.SetActive (false);
+				squareButton.SetActive (true);
+				squareButtonText.SetActive (true);
+				circleButton.SetActive (true);
+				circleButtonText.SetActive (true);
+			}
+
+			if(showWebSearchWindow && paperCompletionStatus == 33 && chooseBetweenSocialAndPaper) {
+				showWebSearchWindow = false;
+				webSearchWindow.SetActive (false);
+				pointLight.GetComponent <Light> ().enabled = true;
+				showDocWindow = true;
+				docWindow.GetComponent <Renderer> ().material.mainTexture = paperImages [1];
+				docWindow.SetActive (true);
+			}
+
+			if(!playerAudioSource.isPlaying) {
+				if(hasStartPaperAudioBeenPlayed && !hasSocialAndPaperAudioBeenPlayed) {
+					pointLight.GetComponent <Light> ().enabled = true;
+					showWebSearchWindow = true;
+					webSearchWindow.SetActive (true);
+					Debug.Log ("Whatever topic I choose should be different than the rest of the class. " +
+						"I desperately need an A in this. Maybe I should check facebook for a bit and " +
+						"approach this with a fresh mind."); //TODO: Play audio.
+					playerAudioSource.Play ();
+					chooseBetweenSocialAndPaper = true;
+					hasSocialAndPaperAudioBeenPlayed = true;
+				}
+			}
+
 			if (Physics.Raycast (Cardboard.SDK.GetComponentInChildren<CardboardHead> ().Gaze, out hitInfo, Mathf.Infinity, layerMask)) {
 				GameObject hitObject = hitInfo.transform.gameObject;
 				if(hitObject.name.Contains ("TV") || hitObject.name.Contains ("controller")) {
@@ -86,9 +155,6 @@ public class ProcrastinationScript : MonoBehaviour {
 						StopGaming ();
 					}
 				} else if(hitObject.name.Contains ("laptop") || hitObject.name.Contains ("paper")) {
-					Debug.Log ("I should get started on the paper. But what topic? I should google for some."); //TODO: Play audio.
-					hasStartPaperAudioBeenPlayed = true;
-					playerAudioSource.Play ();
 					if(isOnSocialMedia) {
 						StopSocialMedia ();
 					}
@@ -100,49 +166,6 @@ public class ProcrastinationScript : MonoBehaviour {
 					}
 				}
 			}
-		}
-
-		if(!playerAudioSource.isPlaying) {
-			if(hasStartPaperAudioBeenPlayed && !hasSocialAndPaperAudioBeenPlayed) {
-				pointLight.GetComponent <Light> ().enabled = true;
-				showWebSearchWindow = true;
-				webSearchWindow.SetActive (true);
-				Debug.Log ("Whatever topic I choose should be different than the rest of the class. " +
-					"I desperately need an A in this. Maybe I should check facebook for a bit and " +
-					"approach this with a fresh mind."); //TODO: Play audio.
-				playerAudioSource.Play ();
-				chooseBetweenSocialAndPaper = true;
-				hasSocialAndPaperAudioBeenPlayed = true;
-			}
-
-			if(hasSocialAndPaperAudioBeenPlayed && hasChosenBetweenSocialAndPaper  && !isOnSocialMedia 
-				&& !hasGameAndPaperAudioBeenPlayed) {
-				Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
-				playerAudioSource.Play ();
-				chooseBetweenGameAndPaper = true;
-				hasGameAndPaperAudioBeenPlayed = true;
-			}
-		}
-
-		if(showWebSearchWindow && !playerAudioSource.isPlaying && chooseBetweenSocialAndPaper) {
-			pointLight.GetComponent <Light> ().enabled = false;
-			showWebSearchWindow = false;
-			webSearchWindow.SetActive (false);
-			squareButton.SetActive (true);
-			squareButtonText.SetActive (true);
-			circleButton.SetActive (true);
-			circleButtonText.SetActive (true);
-		}
-
-		if(showWebSearchWindow && !playerAudioSource.isPlaying && chooseBetweenGameAndPaper) {
-			pointLight.GetComponent <Light> ().enabled = false;
-			showWebSearchWindow = false;
-			webSearchWindow.SetActive (false);
-			squareButton.SetActive (true);
-			squareButtonText.GetComponent <TextMesh>().text = "Play Game";
-			squareButtonText.SetActive (true);
-			circleButton.SetActive (true);
-			circleButtonText.SetActive (true);
 		}
 
 		if(hasChosenBetweenGameAndPaper && !medicalEmergencyStarted) {
@@ -189,7 +212,10 @@ public class ProcrastinationScript : MonoBehaviour {
 				pointLight.GetComponent <Light>().enabled = true;
 				showWebSearchWindow = true;
 				webSearchWindow.SetActive (true);
+				showDocWindow = false;
+				docWindow.SetActive (false);
 				hasChosenBetweenSocialAndPaper = true;
+				paperCompletionStatus = 33;
 			} else if(chooseBetweenGameAndPaper) {
 				chosePaper = true;
 				chooseBetweenGameAndPaper = false;
