@@ -50,6 +50,10 @@ public class ProcrastinationScript : MonoBehaviour {
 	private bool medicalEmergencyStarted = false;
 	public GameObject chair;
 	private bool chooseBetweenDoctorAndPaper = false;
+	private int paperCompletionPercent = 0;
+	public Texture[] paperImages;
+	public Texture[] webSearchImages;
+	private bool showDocWindow = false;
 
 	// Use this for initialization
 	void Start () {
@@ -76,6 +80,12 @@ public class ProcrastinationScript : MonoBehaviour {
 			}
 		}
 
+		if(!hasStartPaperAudioBeenPlayed) {
+			Debug.Log ("I should get started on the paper. But what topic? I should google for some."); //TODO: Play audio.
+			playerAudioSource.Play ();
+			hasStartPaperAudioBeenPlayed = true;
+		}
+
 		if(Input.GetButtonDown ("Fire1")) {
 			if (Physics.Raycast (Cardboard.SDK.GetComponentInChildren<CardboardHead> ().Gaze, out hitInfo, Mathf.Infinity, layerMask)) {
 				GameObject hitObject = hitInfo.transform.gameObject;
@@ -86,11 +96,24 @@ public class ProcrastinationScript : MonoBehaviour {
 						StopGaming ();
 					}
 				} else if(hitObject.name.Contains ("laptop") || hitObject.name.Contains ("paper")) {
-					Debug.Log ("I should get started on the paper. But what topic? I should google for some."); //TODO: Play audio.
-					hasStartPaperAudioBeenPlayed = true;
-					playerAudioSource.Play ();
+					if(hasStartPaperAudioBeenPlayed && !hasSocialAndPaperAudioBeenPlayed) {
+						Debug.Log ("Displaying web search window.");
+						displayWebSearchWindow (paperCompletionPercent);
+						Debug.Log ("Whatever topic I choose should be different than the rest of the class. " +
+							"I desperately need an A in this. Maybe I should check facebook for a bit and " +
+							"approach this with a fresh mind."); //TODO: Play audio.
+						playerAudioSource.Play ();
+						chooseBetweenSocialAndPaper = true;
+						hasSocialAndPaperAudioBeenPlayed = true;
+					}
 					if(isOnSocialMedia) {
 						StopSocialMedia ();
+						Debug.Log ("Displaying web search window after social.");
+						displayWebSearchWindow (paperCompletionPercent);
+						Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
+						playerAudioSource.Play ();
+						chooseBetweenGameAndPaper = true;
+						hasGameAndPaperAudioBeenPlayed = true;
 					}
 				} else if(hitObject.name.Contains ("Mom")) {
 					if(medicalEmergencyStarted) {
@@ -102,135 +125,74 @@ public class ProcrastinationScript : MonoBehaviour {
 			}
 		}
 
-		if(!playerAudioSource.isPlaying) {
-			if(hasStartPaperAudioBeenPlayed && !hasSocialAndPaperAudioBeenPlayed) {
-				pointLight.GetComponent <Light> ().enabled = true;
-				showWebSearchWindow = true;
-				webSearchWindow.SetActive (true);
-				Debug.Log ("Whatever topic I choose should be different than the rest of the class. " +
-					"I desperately need an A in this. Maybe I should check facebook for a bit and " +
-					"approach this with a fresh mind."); //TODO: Play audio.
-				playerAudioSource.Play ();
-				chooseBetweenSocialAndPaper = true;
-				hasSocialAndPaperAudioBeenPlayed = true;
+		if(!playerAudioSource.isPlaying && chooseBetweenSocialAndPaper && hasSocialAndPaperAudioBeenPlayed) {
+			hideWebSearchWindow ();
+			displayChoiceButtons ("Check FB");
+			chooseBetweenSocialAndPaper = false;
+		}
+
+		if(!playerAudioSource.isPlaying && chooseBetweenGameAndPaper && hasGameAndPaperAudioBeenPlayed) {
+			if(showWebSearchWindow) {
+				hideWebSearchWindow ();
 			}
-
-			if(hasSocialAndPaperAudioBeenPlayed && hasChosenBetweenSocialAndPaper  && !isOnSocialMedia 
-				&& !hasGameAndPaperAudioBeenPlayed) {
-				Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
-				playerAudioSource.Play ();
-				chooseBetweenGameAndPaper = true;
-				hasGameAndPaperAudioBeenPlayed = true;
+			if(showDocWindow) {
+				hideWebSearchWindow ();
 			}
+			displayChoiceButtons ("Play Game");
+			chooseBetweenGameAndPaper = false;
 		}
 
-		if(showWebSearchWindow && !playerAudioSource.isPlaying && chooseBetweenSocialAndPaper) {
-			pointLight.GetComponent <Light> ().enabled = false;
-			showWebSearchWindow = false;
-			webSearchWindow.SetActive (false);
-			squareButton.SetActive (true);
-			squareButtonText.SetActive (true);
-			circleButton.SetActive (true);
-			circleButtonText.SetActive (true);
-		}
-
-		if(showWebSearchWindow && !playerAudioSource.isPlaying && chooseBetweenGameAndPaper) {
-			pointLight.GetComponent <Light> ().enabled = false;
-			showWebSearchWindow = false;
-			webSearchWindow.SetActive (false);
-			squareButton.SetActive (true);
-			squareButtonText.GetComponent <TextMesh>().text = "Play Game";
-			squareButtonText.SetActive (true);
-			circleButton.SetActive (true);
-			circleButtonText.SetActive (true);
-		}
-
-		if(hasChosenBetweenGameAndPaper && !medicalEmergencyStarted) {
+		if(!playerAudioSource.isPlaying && hasChosenBetweenGameAndPaper && !medicalEmergencyStarted) {
 			Debug.Log ("Son! Son!"); //TODO: Play Audio.
 			medicalEmergencyStarted = true;
 		}
 
-		if(medicalEmergencyStarted && chooseBetweenDoctorAndPaper) {
-			squareButton.SetActive (true);
-			squareButtonText.GetComponent <TextMesh>().text = "Go to Doctor";
-			squareButtonText.SetActive (true);
-			circleButton.SetActive (true);
-			circleButtonText.SetActive (true);
+		if(!playerAudioSource.isPlaying && medicalEmergencyStarted && chooseBetweenDoctorAndPaper) {
+			displayChoiceButtons ("Go to Doctor");
+			chooseBetweenDoctorAndPaper = false;
 		}
 
 		if(Input.GetKeyDown (KeyCode.Z)) {
-			squareButton.SetActive (false);
-			squareButtonText.SetActive (false);
-			circleButton.SetActive (false);
-			circleButtonText.SetActive (false);
-			if(chooseBetweenSocialAndPaper) {
+			hideChoiceButtons ();
+			if(squareButtonText.GetComponent <TextMesh>().text.Contains ("FB")) {
 				choseSocial = true;
-				chooseBetweenSocialAndPaper = false;
+				hasChosenBetweenSocialAndPaper = true;
 				StartSocialMedia ();
-			} else if(chooseBetweenGameAndPaper) {
+			} else if(squareButtonText.GetComponent <TextMesh>().text.Contains ("Game")) {
 				choseGaming = true;
-				chooseBetweenGameAndPaper = false;
+				hasChosenBetweenGameAndPaper = true;
 				Debug.Log ("Yes I should play on the XBOX for sometime! " +
 					"I will start working again with a fresh mind!"); //TODO: Play audio.
-			} else if(chooseBetweenDoctorAndPaper) {
+			} else if(squareButtonText.GetComponent <TextMesh>().text.Contains ("Doctor")) {
 				choseDoctor = true;
-				chooseBetweenDoctorAndPaper = false;
 				SceneManager.LoadScene ("Scene 3");
 			}
 		} else if(Input.GetKeyDown (KeyCode.C)) {
-			squareButton.SetActive (false);
-			squareButtonText.SetActive (false);
-			circleButton.SetActive (false);
-			circleButtonText.SetActive (false);
-			if(chooseBetweenSocialAndPaper) {
+			hideChoiceButtons ();
+			if(squareButtonText.GetComponent <TextMesh>().text.Contains ("FB")) {
 				chosePaper = true;
-				chooseBetweenSocialAndPaper = false;
-				chooseBetweenGameAndPaper = true;
-				pointLight.GetComponent <Light>().enabled = true;
-				showWebSearchWindow = true;
-				webSearchWindow.SetActive (true);
+				paperCompletionPercent = 33;
 				hasChosenBetweenSocialAndPaper = true;
-			} else if(chooseBetweenGameAndPaper) {
+				chooseBetweenGameAndPaper = true;
+				displayDocWindow (paperCompletionPercent);
+				Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
+				playerAudioSource.Play ();
+				chooseBetweenGameAndPaper = true;
+				hasGameAndPaperAudioBeenPlayed = true;
+			} else if(squareButtonText.GetComponent <TextMesh>().text.Contains ("Game")) {
 				chosePaper = true;
-				chooseBetweenGameAndPaper = false;
-				pointLight.GetComponent <Light>().enabled = true;
-				showWebSearchWindow = true;
-				webSearchWindow.SetActive (true);
+				paperCompletionPercent = 66;
 				hasChosenBetweenGameAndPaper = true;
+				displayDocWindow (paperCompletionPercent);
 			} else if(chooseBetweenDoctorAndPaper) {
 				chosePaper = true;
-				chooseBetweenDoctorAndPaper = false;
+				paperCompletionPercent = 100;
+				SceneManager.LoadScene ("Scene 1");
 			}
 		}
 
 		if(isPlayingGame) {
-			gameScreen1.transform.Translate (0, 0, -Time.deltaTime * 1.4f);
-			if(gameScreen1.transform.localPosition.z <= -0.1f) {
-				screen1textureChangeCount += 1;
-				gameScreen1.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen1textureChangeCount % gameTextures.Length)];
-				gameScreen1.transform.localPosition = screen1OriginalPosition;
-			}
-
-			gameScreen2.transform.Translate (0, 0, -Time.deltaTime * 1.4f);
-			if(gameScreen2.transform.localPosition.z <= -0.1f) {
-				screen2textureChangeCount += 1;
-				gameScreen2.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen2textureChangeCount % gameTextures.Length)];
-				gameScreen2.transform.localPosition = screen2OriginalPosition;
-			}
-
-			gameScreen3.transform.Translate (0, Time.deltaTime * 1.4f, 0);
-			if(gameScreen3.transform.localPosition.z <= -0.1f) {
-				screen3textureChangeCount += 1;
-				gameScreen3.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen3textureChangeCount % gameTextures.Length)];
-				gameScreen3.transform.localPosition = screen3OriginalPosition;
-			}
-
-			gameScreen4.transform.Translate (0, Time.deltaTime * 1.4f, 0);
-			if(gameScreen4.transform.localPosition.z <= -0.1f) {
-				screen4textureChangeCount += 1;
-				gameScreen4.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen4textureChangeCount % gameTextures.Length)];
-				gameScreen4.transform.localPosition = screen4OriginalPosition;
-			}
+			PlayGame ();
 		}
 	}
 
@@ -247,7 +209,39 @@ public class ProcrastinationScript : MonoBehaviour {
 		gameScreen3.SetActive (true);
 		gameScreen4.SetActive (true);
 		isPlayingGame = true;
-		hasChosenBetweenGameAndPaper = true;
+		if(hasChosenBetweenSocialAndPaper) {
+			hasChosenBetweenGameAndPaper = true;
+		}
+	}
+
+	private void PlayGame() {
+		gameScreen1.transform.Translate (0, 0, -Time.deltaTime * 1.4f);
+		if(gameScreen1.transform.localPosition.z <= -0.1f) {
+			screen1textureChangeCount += 1;
+			gameScreen1.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen1textureChangeCount % gameTextures.Length)];
+			gameScreen1.transform.localPosition = screen1OriginalPosition;
+		}
+
+		gameScreen2.transform.Translate (0, 0, -Time.deltaTime * 1.4f);
+		if(gameScreen2.transform.localPosition.z <= -0.1f) {
+			screen2textureChangeCount += 1;
+			gameScreen2.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen2textureChangeCount % gameTextures.Length)];
+			gameScreen2.transform.localPosition = screen2OriginalPosition;
+		}
+
+		gameScreen3.transform.Translate (0, Time.deltaTime * 1.4f, 0);
+		if(gameScreen3.transform.localPosition.z <= -0.1f) {
+			screen3textureChangeCount += 1;
+			gameScreen3.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen3textureChangeCount % gameTextures.Length)];
+			gameScreen3.transform.localPosition = screen3OriginalPosition;
+		}
+
+		gameScreen4.transform.Translate (0, Time.deltaTime * 1.4f, 0);
+		if(gameScreen4.transform.localPosition.z <= -0.1f) {
+			screen4textureChangeCount += 1;
+			gameScreen4.GetComponent<Renderer> ().material.mainTexture = gameTextures[(screen4textureChangeCount % gameTextures.Length)];
+			gameScreen4.transform.localPosition = screen4OriginalPosition;
+		}
 	}
 
 	private void StopGaming() {
@@ -298,5 +292,66 @@ public class ProcrastinationScript : MonoBehaviour {
 		showWebSearchWindow = true;
 		webSearchWindow.SetActive (true);
 		isOnSocialMedia = false;
+	}
+
+	private void displayWebSearchWindow(int paperCompletionPercent) {
+		pointLight.GetComponent <Light> ().enabled = true;
+		showWebSearchWindow = true;
+		Texture webSearchImage = webSearchWindow.GetComponent <Renderer>().material.mainTexture;
+		if(paperCompletionPercent == 0) {
+			webSearchImage = webSearchImages[0];
+		} else if(paperCompletionPercent == 33) {
+			webSearchImage = webSearchImages [1];
+		} else if(paperCompletionPercent == 66) {
+			webSearchImage = webSearchImages [2];
+		} else if(paperCompletionPercent == 100) {
+			webSearchImage = webSearchImages [3];
+		}
+		webSearchWindow.GetComponent <Renderer>().material.mainTexture = webSearchImage;
+		webSearchWindow.SetActive (true);
+	}
+
+	private void hideWebSearchWindow() {
+		pointLight.GetComponent <Light> ().enabled = false;
+		showWebSearchWindow = false;
+		webSearchWindow.SetActive (false);
+	}
+
+	private void displayDocWindow(int paperCompletionPercent) {
+		pointLight.GetComponent <Light> ().enabled = true;
+		showDocWindow = true;
+		Texture paperImage = docWindow.GetComponent <Renderer>().material.mainTexture;
+		if(paperCompletionPercent == 0) {
+			paperImage = paperImages [0];
+		} else if(paperCompletionPercent == 33) {
+			paperImage = paperImages [1];
+		} else if(paperCompletionPercent == 66) {
+			paperImage = paperImages [2];
+		} else if(paperCompletionPercent == 100) {
+			paperImage = paperImages [3];
+		}
+		docWindow.GetComponent <Renderer> ().material.mainTexture = paperImage;
+		docWindow.SetActive (true);
+	}
+
+	private void hideDocWindow() {
+		pointLight.GetComponent <Light> ().enabled = false;
+		showDocWindow = false;
+		docWindow.SetActive (false);
+	}
+
+	private void displayChoiceButtons(string choiceText) {
+		squareButton.SetActive (true);
+		squareButtonText.GetComponent <TextMesh>().text = choiceText;
+		squareButtonText.SetActive (true);
+		circleButton.SetActive (true);
+		circleButtonText.SetActive (true);
+	}
+
+	private void hideChoiceButtons() {
+		squareButton.SetActive (false);
+		squareButtonText.SetActive (false);
+		circleButton.SetActive (false);
+		circleButtonText.SetActive (false);
 	}
 }

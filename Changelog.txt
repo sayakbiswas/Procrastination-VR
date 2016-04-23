@@ -80,8 +80,11 @@
 # 04/22/2016
 1. Added crowd audio and ambient music in Scene 4.
 2. Updated Readme.md.
-<<<<<<< HEAD
-3. Added Doctor Room Script!
-=======
 3. Added animation to Fan in Scene 2.
->>>>>>> 7e94d2c2490c4c14da5598fceb2d0a1ff985e607
+4. Added images for paper and web search.
+5. Changes to ProcrastinationScript.cs [Not Working.]
+6. Added Doctor Room Script!
+
+# 04/23/2016
+1. Changes to ProcrastinationScript.cs.
+2. Removed some images from Assets/PaperImages.
