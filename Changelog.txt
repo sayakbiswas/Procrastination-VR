@@ -88,3 +88,5 @@
 # 04/23/2016
 1. Changes to ProcrastinationScript.cs.
 2. Removed some images from Assets/PaperImages.
+3. Added ambient audio to Scene 3.
+4. Added idle animation to Doctor and changes to DoctorRoom.cs.

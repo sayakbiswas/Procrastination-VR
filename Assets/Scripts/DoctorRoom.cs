@@ -47,7 +47,7 @@ public class DoctorRoom : MonoBehaviour {
                 GameObject hitObject = hitInfo.transform.gameObject;
                 if (hitObject.name.Contains("Doctor Talking"))
                 {
-                    doctorAnimator.enabled = true;
+					doctorAnimator.SetTrigger ("startTalking");
                     theDoctor.GetComponent<LipSync>().Play(doctorLipSyncData);
                     hasDoctorStartedTalking = true;
                 }
@@ -56,6 +56,7 @@ public class DoctorRoom : MonoBehaviour {
 
         if (hasDoctorStartedTalking && !theDoctor.GetComponent<LipSync>().isPlaying)
         {
+			doctorAnimator.SetTrigger ("stopTalking");
             if (waitBeforeSceneChange > 0.0f)
             {
                 waitBeforeSceneChange -= Time.deltaTime;
