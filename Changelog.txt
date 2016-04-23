@@ -84,3 +84,7 @@
 4. Added images for paper and web search.
 5. Changes to ProcrastinationScript.cs [Not Working.]
 6. Added Doctor Room Script!
+
+# 04/23/2016
+1. Changes to ProcrastinationScript.cs.
+2. Removed some images from Assets/PaperImages.

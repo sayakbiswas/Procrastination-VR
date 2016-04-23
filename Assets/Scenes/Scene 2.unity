@@ -4581,12 +4581,10 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 0bdb59158483ef04ab226c3be0e1830f, type: 3}
   - {fileID: 2800000, guid: 42ac56d3fbf87f04d8a2512238c28790, type: 3}
   webSearchImages:
-  - {fileID: 2800000, guid: 8088ac565ae376a4a8eaf62f3e8b98ff, type: 3}
   - {fileID: 2800000, guid: d9ae20e8249a48743aaa240e4ef0bc91, type: 3}
   - {fileID: 2800000, guid: 24636b218f91cb14caca5c1ec305c667, type: 3}
   - {fileID: 2800000, guid: 14695b17ee1d79b4cadfa1361af9f0cb, type: 3}
   - {fileID: 2800000, guid: 58e4f445544ae70438e78f0729dbabb0, type: 3}
-  - {fileID: 2800000, guid: 3182f7c244c995542a14c69486193824, type: 3}
 --- !u!114 &929447593
 MonoBehaviour:
   m_ObjectHideFlags: 0
