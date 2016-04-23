@@ -2803,7 +2803,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f2d6afe568dab594199362b87ce57820, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3014,7 +3014,7 @@ MonoBehaviour:
     bones: []
     emotion: Eyebrows Up
     verified: 0
-  playOnAwake: 1
+  playOnAwake: 0
   loop: 0
   defaultClip: {fileID: 11400000, guid: c003f5c3254331749915c80d6b3fdab4, type: 2}
   defaultDelay: 0
@@ -3645,6 +3645,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 419062014}
   m_Mesh: {fileID: 4300018, guid: 575bd7e8d9da29844ad3e9974d612b75, type: 3}
+--- !u!114 &423157025 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11446276, guid: 60270cf52a5e94998a5a335989159738,
+    type: 2}
+  m_PrefabInternal: {fileID: 1534517915}
+  m_Script: {fileID: 11500000, guid: 66c63f8350cb04a2683f8606cc8d36f7, type: 3}
 --- !u!1 &426585996
 GameObject:
   m_ObjectHideFlags: 0
@@ -7262,6 +7268,7 @@ GameObject:
   - 54: {fileID: 859662497}
   - 82: {fileID: 859662496}
   - 114: {fileID: 859662495}
+  - 114: {fileID: 859662493}
   m_Layer: 2
   m_Name: FPSController
   m_TagString: Untagged
@@ -7282,6 +7289,23 @@ Transform:
   - {fileID: 573384022}
   m_Father: {fileID: 1121086264}
   m_RootOrder: 1
+--- !u!114 &859662493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859662491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feedbfae43cc2834d8ce9cbddbb356e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theDoctor: {fileID: 341660602}
+  doctorLipSyncData: {fileID: 11400000, guid: f604f0d4f271b8541ba3ca068cfe6c39, type: 2}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  reticle: {fileID: 423157025}
 --- !u!114 &859662495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12551,6 +12575,10 @@ Prefab:
     - target: {fileID: 100006, guid: 824364019f06147d784b2ea00f90e351, type: 3}
       propertyPath: m_Name
       value: Doctor Talking
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 824364019f06147d784b2ea00f90e351, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 824364019f06147d784b2ea00f90e351, type: 3}
