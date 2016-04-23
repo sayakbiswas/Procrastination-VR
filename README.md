@@ -55,3 +55,4 @@ This repository holds the final project for the Virtual Reality course at the Un
 44. Reunion Crowd Sound: http://www.freesfx.co.uk/download/?type=mp3&id=667
 45. Ambient music in reunion scene: https://www.youtube.com/watch?v=q59tVFKVOoE
 46. Drinks : https://3dwarehouse.sketchup.com/model.html?id=7b6655969cdf4d90b46be6dbb71d6c56
+47. Hospital Ambience: https://www.youtube.com/watch?v=ewYDs5FRr8o
