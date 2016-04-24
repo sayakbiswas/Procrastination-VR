@@ -34,19 +34,19 @@ public class ProcrastinationScript : MonoBehaviour {
 	private bool showWebSearchWindow = false;
 	private CardboardAudioSource playerAudioSource;
 	private bool chooseBetweenSocialAndPaper = false;
-	private static bool choseSocial = false;
-	private static bool chosePaper = false;
-	private static bool choseGaming = false;
-	private static bool choseDoctor = false;
+	public static bool choseSocial = false;
+	public static bool chosePaper = false;
+	public static bool choseGaming = false;
+	public static bool choseDoctor = false;
 	private bool hasStartPaperAudioBeenPlayed = false;
-	private bool hasChosenBetweenSocialAndPaper = false;
+	public static bool hasChosenBetweenSocialAndPaper = false;
 	private bool chooseBetweenGameAndPaper = false;
 	private bool hasSocialAndPaperAudioBeenPlayed = false;
 	private bool hasGameAndPaperAudioBeenPlayed = false;
 	public GameObject laptop;
 	public GameObject mom;
 	private Animator momAnimator;
-	private bool hasChosenBetweenGameAndPaper = false;
+	public static bool hasChosenBetweenGameAndPaper = false;
 	private bool medicalEmergencyStarted = false;
 	public GameObject chair;
 	private bool chooseBetweenDoctorAndPaper = false;
@@ -97,7 +97,6 @@ public class ProcrastinationScript : MonoBehaviour {
 					}
 				} else if(hitObject.name.Contains ("laptop") || hitObject.name.Contains ("paper")) {
 					if(hasStartPaperAudioBeenPlayed && !hasSocialAndPaperAudioBeenPlayed) {
-						Debug.Log ("Displaying web search window.");
 						displayWebSearchWindow (paperCompletionPercent);
 						Debug.Log ("Whatever topic I choose should be different than the rest of the class. " +
 							"I desperately need an A in this. Maybe I should check facebook for a bit and " +
@@ -108,7 +107,6 @@ public class ProcrastinationScript : MonoBehaviour {
 					}
 					if(isOnSocialMedia) {
 						StopSocialMedia ();
-						Debug.Log ("Displaying web search window after social.");
 						displayWebSearchWindow (paperCompletionPercent);
 						Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
 						playerAudioSource.Play ();
