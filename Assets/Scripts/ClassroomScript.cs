@@ -16,6 +16,8 @@ public class ClassroomScript : MonoBehaviour {
 	public CardboardReticle reticle;
 	private bool hasClassmateStartedTalking = false;
 	private float waitBeforeSceneChange = 1.0f;
+	public LipSyncData classmatePositiveLipSyncData;
+	public LipSyncData classmateNegativeLipSyncData;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +31,7 @@ public class ClassroomScript : MonoBehaviour {
 		if(waitBeforeProfessorStarts > 0.0f) {
 			waitBeforeProfessorStarts -= Time.deltaTime;
 		} else {
-			if(!hasProfStartedSpeaking) {
+			if(!hasProfStartedSpeaking && !ProcrastinationScript.hasChosenBetweenSocialAndPaper && !ProcrastinationScript.hasChosenBetweenGameAndPaper) {
 				profAnimator.SetBool ("isTalking", true);
 				theProfessor.GetComponent<LipSync> ().Play (profLipSyncData);
 				hasProfStartedSpeaking = true;
@@ -52,8 +54,18 @@ public class ClassroomScript : MonoBehaviour {
 								layerMask)) {
 							GameObject hitObject = hitInfo.transform.gameObject;
 							if (hitObject.name.Contains ("Student_Blendshapes")) {
-								theClassmate.GetComponent<LipSync> ().Play (classmateLipSyncData);
-								hasClassmateStartedTalking = true;
+								if(!ProcrastinationScript.hasChosenBetweenSocialAndPaper && !ProcrastinationScript.hasChosenBetweenGameAndPaper) {
+									theClassmate.GetComponent<LipSync> ().Play (classmateLipSyncData);
+									hasClassmateStartedTalking = true;
+								} else {
+									if(ProcrastinationScript.choseSocial || ProcrastinationScript.choseGaming) {
+										theClassmate.GetComponent<LipSync> ().Play(classmatePositiveLipSyncData);
+									}
+
+									if(!ProcrastinationScript.choseSocial && !ProcrastinationScript.choseGaming) {
+										theClassmate.GetComponent<LipSync> ().Play(classmateNegativeLipSyncData);
+									}
+								}
 							}
 						}
 					}
@@ -61,7 +73,15 @@ public class ClassroomScript : MonoBehaviour {
 						if(waitBeforeSceneChange > 0.0f) {
 							waitBeforeSceneChange -= Time.deltaTime;
 						} else {
-							SceneManager.LoadScene ("Scene 2");
+							if(!ProcrastinationScript.hasChosenBetweenSocialAndPaper && !ProcrastinationScript.hasChosenBetweenGameAndPaper) {
+								SceneManager.LoadScene ("Scene 2");
+							} else {
+								if(ProcrastinationScript.choseDoctor) {
+									SceneManager.LoadScene ("Scene 4");
+								} else {
+									SceneManager.LoadScene ("Scene 3");
+								}
+							}
 						}
 					}
 				}

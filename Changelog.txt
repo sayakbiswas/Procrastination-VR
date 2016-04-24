@@ -90,3 +90,8 @@
 2. Removed some images from Assets/PaperImages.
 3. Added ambient audio to Scene 3.
 4. Added idle animation to Doctor and changes to DoctorRoom.cs.
+
+# 04/24/2016
+1. Changes to ClassroomScript.cs, DoctorRoom.cs.
+2. Added ReunionScript.cs.
+3. Lighting changes in Scene 4.

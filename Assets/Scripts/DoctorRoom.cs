@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class DoctorRoom : MonoBehaviour {
 
     public GameObject theDoctor;
-    public LipSyncData doctorLipSyncData;
+    public LipSyncData doctorPositiveLipSyncData;
+	public LipSyncData doctorNegativeLipSyncData;
     private Animator doctorAnimator;
     private bool hasDoctorStartedTalking = false;
     public LayerMask layerMask;
     public CardboardReticle reticle;
-    private float waitBeforeSceneChange = 2.0f;
+    private float waitBeforeSceneChange = 1.0f;
 
     // Use this for initialization
     void Start () {
@@ -48,8 +49,12 @@ public class DoctorRoom : MonoBehaviour {
                 if (hitObject.name.Contains("Doctor Talking"))
                 {
 					doctorAnimator.SetTrigger ("startTalking");
-                    theDoctor.GetComponent<LipSync>().Play(doctorLipSyncData);
-                    hasDoctorStartedTalking = true;
+					if(ProcrastinationScript.choseDoctor) {
+						theDoctor.GetComponent<LipSync>().Play(doctorPositiveLipSyncData);
+					} else {
+						theDoctor.GetComponent<LipSync>().Play(doctorNegativeLipSyncData);
+					}
+					hasDoctorStartedTalking = true;
                 }
             }
         }
@@ -63,7 +68,11 @@ public class DoctorRoom : MonoBehaviour {
             }
             else
             {
-                SceneManager.LoadScene("Scene 2");
+				if(ProcrastinationScript.choseDoctor) {
+					SceneManager.LoadScene("Scene 1");
+				} else {
+					SceneManager.LoadScene ("Scene 4");
+				}
             }
         }
 

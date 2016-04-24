@@ -34,7 +34,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
 --- !u!157 &3
@@ -7322,6 +7322,7 @@ GameObject:
   - 82: {fileID: 859662496}
   - 114: {fileID: 859662495}
   - 114: {fileID: 859662493}
+  - 114: {fileID: 859662494}
   m_Layer: 2
   m_Name: FPSController
   m_TagString: Untagged
@@ -7354,11 +7355,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theDoctor: {fileID: 341660602}
-  doctorLipSyncData: {fileID: 11400000, guid: f604f0d4f271b8541ba3ca068cfe6c39, type: 2}
+  doctorPositiveLipSyncData: {fileID: 11400000, guid: f604f0d4f271b8541ba3ca068cfe6c39,
+    type: 2}
+  doctorNegativeLipSyncData: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d,
+    type: 2}
   layerMask:
     serializedVersion: 2
     m_Bits: 51
   reticle: {fileID: 423157025}
+--- !u!114 &859662494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859662491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fabecb828612a84b8404e5090f126a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &859662495
 MonoBehaviour:
   m_ObjectHideFlags: 0
