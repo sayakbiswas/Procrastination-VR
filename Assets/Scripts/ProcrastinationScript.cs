@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using RogoDigital.Lipsync;
 
 public class ProcrastinationScript : MonoBehaviour {
 	public CardboardReticle reticle;
@@ -54,6 +55,9 @@ public class ProcrastinationScript : MonoBehaviour {
 	public Texture[] paperImages;
 	public Texture[] webSearchImages;
 	private bool showDocWindow = false;
+	public AudioClip[] momAudioClips;
+	private CardboardAudioSource momCardboardAudioSource;
+	public LipSyncData momLipSyncData;
 
 	// Use this for initialization
 	void Start () {
@@ -63,6 +67,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		screen4OriginalPosition = gameScreen4.transform.localPosition;
 		playerAudioSource = GetComponent <CardboardAudioSource> ();
 		momAnimator = mom.GetComponent <Animator> ();
+		momCardboardAudioSource = mom.GetComponent<CardboardAudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -115,7 +120,9 @@ public class ProcrastinationScript : MonoBehaviour {
 					}
 				} else if(hitObject.name.Contains ("Mom")) {
 					if(medicalEmergencyStarted) {
+						momCardboardAudioSource.Stop ();
 						momAnimator.SetTrigger ("sit_talk");
+						mom.GetComponent <LipSync> ().Play (momLipSyncData);
 						mom.GetComponent <CharacterRotation> ().facePlayer ();
 						chooseBetweenDoctorAndPaper = true;
 					}
@@ -141,11 +148,15 @@ public class ProcrastinationScript : MonoBehaviour {
 		}
 
 		if(!playerAudioSource.isPlaying && hasChosenBetweenGameAndPaper && !medicalEmergencyStarted) {
-			Debug.Log ("Son! Son!"); //TODO: Play Audio.
+			momCardboardAudioSource.clip = momAudioClips [0];
+			momCardboardAudioSource.volume = 1.0f;
+			momCardboardAudioSource.loop = true;
+			momCardboardAudioSource.Play ();
 			medicalEmergencyStarted = true;
 		}
 
-		if(!playerAudioSource.isPlaying && medicalEmergencyStarted && chooseBetweenDoctorAndPaper) {
+		if(!playerAudioSource.isPlaying && medicalEmergencyStarted && chooseBetweenDoctorAndPaper 
+				&& !mom.GetComponent<LipSync> ().isPlaying) {
 			displayChoiceButtons ("Go to Doctor");
 			chooseBetweenDoctorAndPaper = false;
 		}
