@@ -161,7 +161,7 @@ public class ProcrastinationScript : MonoBehaviour {
 			chooseBetweenDoctorAndPaper = false;
 		}
 
-		if(Input.GetKeyDown (KeyCode.Z)) {
+		if(Input.GetButtonDown ("Fire2")) {
 			hideChoiceButtons ();
 			if(squareButtonText.GetComponent <TextMesh>().text.Contains ("FB")) {
 				choseSocial = true;
@@ -176,7 +176,7 @@ public class ProcrastinationScript : MonoBehaviour {
 				choseDoctor = true;
 				SceneManager.LoadScene ("Scene 3");
 			}
-		} else if(Input.GetKeyDown (KeyCode.C)) {
+		} else if(Input.GetButtonDown ("Fire3")) {
 			hideChoiceButtons ();
 			if(squareButtonText.GetComponent <TextMesh>().text.Contains ("FB")) {
 				chosePaper = true;

@@ -59,7 +59,7 @@ public class ReunionScript : MonoBehaviour {
 				}
 
 				if(hasBossCalled && squareButton.activeSelf) {
-					if(Input.GetKeyDown (KeyCode.Z)) {
+					if(Input.GetButtonDown ("Fire2")) {
 						hideActionButton ();
 						playerAudioSource.clip = bossClip;
 						playerAudioSource.Play ();

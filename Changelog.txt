@@ -96,3 +96,7 @@
 2. Added ReunionScript.cs.
 3. Lighting changes in Scene 4.
 4. Added audio for mom and changes to ProcrastinationScript.cs.
+
+# 04/25/2016
+1. Added PS4 Square and Circle mappings in Scripts.
+2. Changed Quality to Fastest for Android.
