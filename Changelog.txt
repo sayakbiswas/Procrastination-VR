@@ -100,3 +100,4 @@
 # 04/25/2016
 1. Added PS4 Square and Circle mappings in Scripts.
 2. Changed Quality to Fastest for Android.
+3. Updated build settings.
