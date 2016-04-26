@@ -4590,6 +4590,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7b4a71597a5c89742a291f3ae909f3a5, type: 3}
   - {fileID: 8300000, guid: 0c2c04d043e6c2441afed38c7eb33f4a, type: 3}
   momLipSyncData: {fileID: 11400000, guid: e247f87db10c6cd42ba16dc98e3a1260, type: 2}
+  userAudioClips:
+  - {fileID: 8300000, guid: 45947c19dff1fd648a4c56c972a57725, type: 3}
+  - {fileID: 8300000, guid: 1d569e003dc99e64b8b70094ca12eb6b, type: 3}
+  - {fileID: 8300000, guid: 72e51b48167b16f44ba5411ff61c012f, type: 3}
+  - {fileID: 8300000, guid: f3b0f3797f521e9499ba7f96fb3fa1b6, type: 3}
+  - {fileID: 8300000, guid: db86611ed284518409aa602a1803624a, type: 3}
 --- !u!114 &929447593
 MonoBehaviour:
   m_ObjectHideFlags: 0

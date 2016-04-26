@@ -58,6 +58,7 @@ public class ProcrastinationScript : MonoBehaviour {
 	public AudioClip[] momAudioClips;
 	private CardboardAudioSource momCardboardAudioSource;
 	public LipSyncData momLipSyncData;
+	public AudioClip[] userAudioClips;
 
 	// Use this for initialization
 	void Start () {
@@ -86,7 +87,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		}
 
 		if(!hasStartPaperAudioBeenPlayed) {
-			Debug.Log ("I should get started on the paper. But what topic? I should google for some."); //TODO: Play audio.
+			playerAudioSource.clip = userAudioClips [0];
 			playerAudioSource.Play ();
 			hasStartPaperAudioBeenPlayed = true;
 		}
@@ -103,28 +104,31 @@ public class ProcrastinationScript : MonoBehaviour {
 				} else if(hitObject.name.Contains ("laptop") || hitObject.name.Contains ("paper")) {
 					if(hasStartPaperAudioBeenPlayed && !hasSocialAndPaperAudioBeenPlayed) {
 						displayWebSearchWindow (paperCompletionPercent);
-						Debug.Log ("Whatever topic I choose should be different than the rest of the class. " +
-							"I desperately need an A in this. Maybe I should check facebook for a bit and " +
-							"approach this with a fresh mind."); //TODO: Play audio.
-						playerAudioSource.Play ();
-						chooseBetweenSocialAndPaper = true;
-						hasSocialAndPaperAudioBeenPlayed = true;
+						Invoke ("decideToSocial", 2.0f);
 					}
 					if(isOnSocialMedia) {
 						StopSocialMedia ();
 						displayWebSearchWindow (paperCompletionPercent);
-						Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
-						playerAudioSource.Play ();
-						chooseBetweenGameAndPaper = true;
-						hasGameAndPaperAudioBeenPlayed = true;
+						Invoke ("decideToPlay", 2.0f);
 					}
 				} else if(hitObject.name.Contains ("Mom")) {
 					if(medicalEmergencyStarted) {
 						momCardboardAudioSource.Stop ();
+						playerAudioSource.clip = userAudioClips [4];
+						playerAudioSource.Play ();
 						momAnimator.SetTrigger ("sit_talk");
-						mom.GetComponent <LipSync> ().Play (momLipSyncData);
 						mom.GetComponent <CharacterRotation> ().facePlayer ();
-						chooseBetweenDoctorAndPaper = true;
+						Invoke ("startMomDialog", userAudioClips[4].length + 0.5f);
+					}
+				} else {
+					if(showDocWindow) {
+						showDocWindow = false;
+						hideDocWindow ();
+					}
+
+					if(showWebSearchWindow) {
+						showWebSearchWindow = false;
+						hideWebSearchWindow ();
 					}
 				}
 			}
@@ -141,13 +145,13 @@ public class ProcrastinationScript : MonoBehaviour {
 				hideWebSearchWindow ();
 			}
 			if(showDocWindow) {
-				hideWebSearchWindow ();
+				hideDocWindow ();
 			}
 			displayChoiceButtons ("Play Game");
 			chooseBetweenGameAndPaper = false;
 		}
 
-		if(!playerAudioSource.isPlaying && hasChosenBetweenGameAndPaper && !medicalEmergencyStarted) {
+		if(!playerAudioSource.isPlaying && hasChosenBetweenGameAndPaper && !medicalEmergencyStarted && !isPlayingGame) {
 			momCardboardAudioSource.clip = momAudioClips [0];
 			momCardboardAudioSource.volume = 1.0f;
 			momCardboardAudioSource.loop = true;
@@ -169,12 +173,12 @@ public class ProcrastinationScript : MonoBehaviour {
 				StartSocialMedia ();
 			} else if(squareButtonText.GetComponent <TextMesh>().text.Contains ("Game")) {
 				choseGaming = true;
-				hasChosenBetweenGameAndPaper = true;
-				Debug.Log ("Yes I should play on the XBOX for sometime! " +
-					"I will start working again with a fresh mind!"); //TODO: Play audio.
+				playerAudioSource.clip = userAudioClips [3];
+				playerAudioSource.Play ();
 			} else if(squareButtonText.GetComponent <TextMesh>().text.Contains ("Doctor")) {
 				choseDoctor = true;
-				SceneManager.LoadScene ("Scene 3");
+				displayDocWindow (paperCompletionPercent);
+				Invoke ("goToDoctor", 2.0f);
 			}
 		} else if(Input.GetButtonDown ("Fire3")) {
 			hideChoiceButtons ();
@@ -184,24 +188,32 @@ public class ProcrastinationScript : MonoBehaviour {
 				hasChosenBetweenSocialAndPaper = true;
 				chooseBetweenGameAndPaper = true;
 				displayDocWindow (paperCompletionPercent);
-				Debug.Log ("Maybe I should go and play for a bit!"); //TODO: Play audio.
-				playerAudioSource.Play ();
-				chooseBetweenGameAndPaper = true;
-				hasGameAndPaperAudioBeenPlayed = true;
+				Invoke ("decideToPlay", 2.0f);
 			} else if(squareButtonText.GetComponent <TextMesh>().text.Contains ("Game")) {
 				chosePaper = true;
-				paperCompletionPercent = 66;
+				if(paperCompletionPercent == 33) {
+					paperCompletionPercent = 66;
+				} else {
+					paperCompletionPercent = 33;
+				}
 				hasChosenBetweenGameAndPaper = true;
 				displayDocWindow (paperCompletionPercent);
-			} else if(chooseBetweenDoctorAndPaper) {
+			} else if(squareButtonText.GetComponent <TextMesh>().text.Contains ("Doctor")) {
 				chosePaper = true;
-				paperCompletionPercent = 100;
-				SceneManager.LoadScene ("Scene 1");
+				if(paperCompletionPercent == 0) {
+					paperCompletionPercent = 33;
+				} else if(paperCompletionPercent == 33) {
+					paperCompletionPercent = 66;
+				} else {
+					paperCompletionPercent = 100;
+				}
+				displayDocWindow (paperCompletionPercent);
+				Invoke ("backToSchool", 2.0f);
 			}
 		}
 
 		if(isPlayingGame) {
-			PlayGame ();
+			PlayGameEffects ();
 		}
 	}
 
@@ -223,7 +235,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		}
 	}
 
-	private void PlayGame() {
+	private void PlayGameEffects() {
 		gameScreen1.transform.Translate (0, 0, -Time.deltaTime * 1.4f);
 		if(gameScreen1.transform.localPosition.z <= -0.1f) {
 			screen1textureChangeCount += 1;
@@ -362,5 +374,32 @@ public class ProcrastinationScript : MonoBehaviour {
 		squareButtonText.SetActive (false);
 		circleButton.SetActive (false);
 		circleButtonText.SetActive (false);
+	}
+
+	private void decideToPlay() {
+		playerAudioSource.clip = userAudioClips [2];
+		playerAudioSource.Play ();
+		chooseBetweenGameAndPaper = true;
+		hasGameAndPaperAudioBeenPlayed = true;
+	}
+
+	private void decideToSocial() {
+		playerAudioSource.clip = userAudioClips [1];
+		playerAudioSource.Play ();
+		chooseBetweenSocialAndPaper = true;
+		hasSocialAndPaperAudioBeenPlayed = true;
+	}
+
+	private void backToSchool() {
+		SceneManager.LoadScene ("Scene 1");
+	}
+
+	private void goToDoctor() {
+		SceneManager.LoadScene ("Scene 3");
+	}
+
+	private void startMomDialog() {
+		mom.GetComponent <LipSync> ().Play (momLipSyncData);
+		chooseBetweenDoctorAndPaper = true;
 	}
 }

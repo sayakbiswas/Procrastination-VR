@@ -56,7 +56,6 @@ public class ClassroomScript : MonoBehaviour {
 							if (hitObject.name.Contains ("Student_Blendshapes")) {
 								if(!ProcrastinationScript.hasChosenBetweenSocialAndPaper && !ProcrastinationScript.hasChosenBetweenGameAndPaper) {
 									theClassmate.GetComponent<LipSync> ().Play (classmateLipSyncData);
-									hasClassmateStartedTalking = true;
 								} else {
 									if(ProcrastinationScript.choseSocial || ProcrastinationScript.choseGaming) {
 										theClassmate.GetComponent<LipSync> ().Play(classmatePositiveLipSyncData);
@@ -66,6 +65,7 @@ public class ClassroomScript : MonoBehaviour {
 										theClassmate.GetComponent<LipSync> ().Play(classmateNegativeLipSyncData);
 									}
 								}
+								hasClassmateStartedTalking = true;
 							}
 						}
 					}
