@@ -154,7 +154,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		if(!playerAudioSource.isPlaying && hasChosenBetweenGameAndPaper && !medicalEmergencyStarted && !isPlayingGame) {
 			momCardboardAudioSource.clip = momAudioClips [0];
 			momCardboardAudioSource.volume = 1.0f;
-			momCardboardAudioSource.loop = true;
+			momCardboardAudioSource.loop = false;
 			momCardboardAudioSource.Play ();
 			medicalEmergencyStarted = true;
 		}
