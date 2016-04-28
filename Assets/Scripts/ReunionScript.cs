@@ -14,7 +14,7 @@ public class ReunionScript : MonoBehaviour {
 	public LipSyncData classmatePositiveLipSyncData;
 	public LipSyncData classmateNegativeLipSyncData;
 	private bool hasBossCalled = false;
-	private AudioSource playerAudioSource;
+	private CardboardAudioSource playerAudioSource;
 	public AudioClip ringtoneClip;
 	public GameObject squareButton;
 	public GameObject squareButtonText;
@@ -24,7 +24,7 @@ public class ReunionScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		classmateAnimator = theClassmate.GetComponent<Animator> ();
-		playerAudioSource = gameObject.GetComponent<AudioSource> ();
+		playerAudioSource = gameObject.GetComponent<CardboardAudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -60,8 +60,10 @@ public class ReunionScript : MonoBehaviour {
 
 				if(hasBossCalled && squareButton.activeSelf) {
 					if(Input.GetButtonDown ("Fire2")) {
+						playerAudioSource.Stop ();
 						hideActionButton ();
 						playerAudioSource.clip = bossClip;
+						playerAudioSource.loop = false;
 						playerAudioSource.Play ();
 					}
 				}
@@ -99,6 +101,7 @@ public class ReunionScript : MonoBehaviour {
 
 	private void playBossCall() {
 		playerAudioSource.clip = ringtoneClip;
+		playerAudioSource.loop = true;
 		playerAudioSource.Play ();
 		displayActionButton ();
 	}
