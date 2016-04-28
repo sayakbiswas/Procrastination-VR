@@ -1102,16 +1102,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theClassmate: {fileID: 196200917}
-  classmateHelloLipSyncData: {fileID: 11400000, guid: f604f0d4f271b8541ba3ca068cfe6c39,
+  classmateHelloLipSyncData: {fileID: 11400000, guid: de80dab46352c8c4db17d6044abad46f,
     type: 2}
-  bossClip: {fileID: 8300000, guid: 38dda909d4cc4774c989f6bdf7b96537, type: 3}
+  bossClip: {fileID: 8300000, guid: 4202afd4f9ac3cf41ae17d00648cc53f, type: 3}
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967291
   reticle: {fileID: 1615322081}
-  classmatePositiveLipSyncData: {fileID: 11400000, guid: f604f0d4f271b8541ba3ca068cfe6c39,
+  classmatePositiveLipSyncData: {fileID: 11400000, guid: de80dab46352c8c4db17d6044abad46f,
     type: 2}
-  classmateNegativeLipSyncData: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d,
+  classmateNegativeLipSyncData: {fileID: 11400000, guid: ed292592f0d9ef34b80906dbdbed9ad7,
     type: 2}
   ringtoneClip: {fileID: 8300000, guid: 1d23a94eedda89842990980edcfcbe33, type: 3}
   squareButton: {fileID: 1163623269}

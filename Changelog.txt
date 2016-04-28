@@ -110,3 +110,5 @@
 1. Changed audio settings in scene 2.
 2. Added bottles models to scene 4.
 3. Changed mapping to XBOX controllers and created static lightmaps.
+4. Changed Rolloff mode of laptop noises to Linear and changed default rotation of Cardboardmain.
+5. Changes to scripts and added audio clips.
