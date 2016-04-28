@@ -109,3 +109,4 @@
 # 04/27/2016
 1. Changed audio settings in scene 2.
 2. Added bottles models to scene 4.
+3. Changed mapping to XBOX controllers and created static lightmaps.

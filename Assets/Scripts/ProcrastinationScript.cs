@@ -59,6 +59,7 @@ public class ProcrastinationScript : MonoBehaviour {
 	private CardboardAudioSource momCardboardAudioSource;
 	public LipSyncData momLipSyncData;
 	public AudioClip[] userAudioClips;
+	private bool areChoiceButtonsDisplayed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -160,12 +161,12 @@ public class ProcrastinationScript : MonoBehaviour {
 		}
 
 		if(!playerAudioSource.isPlaying && medicalEmergencyStarted && chooseBetweenDoctorAndPaper 
-				&& !mom.GetComponent<LipSync> ().isPlaying) {
+			&& !mom.GetComponent<LipSync> ().isPlaying) {
 			displayChoiceButtons ("Go to Doctor");
 			chooseBetweenDoctorAndPaper = false;
 		}
 
-		if(Input.GetButtonDown ("Fire2")) {
+		if(Input.GetButtonDown ("Fire2") && areChoiceButtonsDisplayed) {
 			hideChoiceButtons ();
 			if(squareButtonText.GetComponent <TextMesh>().text.Contains ("FB")) {
 				choseSocial = true;
@@ -180,7 +181,7 @@ public class ProcrastinationScript : MonoBehaviour {
 				displayDocWindow (paperCompletionPercent);
 				Invoke ("goToDoctor", 2.0f);
 			}
-		} else if(Input.GetButtonDown ("Fire3")) {
+		} else if(Input.GetButtonDown ("Fire3") && areChoiceButtonsDisplayed) {
 			hideChoiceButtons ();
 			if(squareButtonText.GetComponent <TextMesh>().text.Contains ("FB")) {
 				chosePaper = true;
@@ -367,6 +368,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		squareButtonText.SetActive (true);
 		circleButton.SetActive (true);
 		circleButtonText.SetActive (true);
+		areChoiceButtonsDisplayed = true;
 	}
 
 	private void hideChoiceButtons() {
@@ -374,6 +376,7 @@ public class ProcrastinationScript : MonoBehaviour {
 		squareButtonText.SetActive (false);
 		circleButton.SetActive (false);
 		circleButtonText.SetActive (false);
+		areChoiceButtonsDisplayed = false;
 	}
 
 	private void decideToPlay() {
