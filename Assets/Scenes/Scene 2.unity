@@ -1081,7 +1081,7 @@ MonoBehaviour:
   sourceLoop: 1
   sourceMute: 0
   sourcePitch: 1
-  sourceVolume: 0.3
+  sourceVolume: 0.6
   sourceMaxDistance: 500
   sourceMinDistance: 0
   hrtfEnabled: 1
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   gainDb: 0
   occlusionEnabled: 0
   playOnAwake: 0
-  rolloffMode: 0
+  rolloffMode: 1
   sourceClip: {fileID: 8300000, guid: e6d1dd8ed0df70c4e8c5c49bca7a9e23, type: 3}
   sourceLoop: 0
   sourceMute: 0
@@ -6965,7 +6965,7 @@ Transform:
   m_PrefabParentObject: {fileID: 432576, guid: a177aba586fa54700a4ceaac810edae9, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 319375901}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
   m_LocalPosition: {x: 28.4, y: 1.739, z: 21.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
