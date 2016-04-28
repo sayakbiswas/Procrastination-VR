@@ -18,6 +18,7 @@ public class ClassroomScript : MonoBehaviour {
 	private float waitBeforeSceneChange = 1.0f;
 	public LipSyncData classmatePositiveLipSyncData;
 	public LipSyncData classmateNegativeLipSyncData;
+	public AudioClip userMomDoctorClip;
 
 	// Use this for initialization
 	void Start () {
@@ -79,7 +80,10 @@ public class ClassroomScript : MonoBehaviour {
 								if(ProcrastinationScript.choseDoctor) {
 									SceneManager.LoadScene ("Scene 4");
 								} else {
-									SceneManager.LoadScene ("Scene 3");
+									AudioSource playerAudioSource = gameObject.GetComponent<AudioSource> ();
+									playerAudioSource.clip = userMomDoctorClip;
+									playerAudioSource.Play ();
+									Invoke ("loadDoctorScene", userMomDoctorClip.length + 0.5f);
 								}
 							}
 						}
@@ -87,5 +91,9 @@ public class ClassroomScript : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public void loadDoctorScene() {
+		SceneManager.LoadScene ("Scene 3");
 	}
 }

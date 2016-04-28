@@ -1210,7 +1210,7 @@ MonoBehaviour:
     verified: 0
   playOnAwake: 0
   loop: 0
-  defaultClip: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d, type: 2}
+  defaultClip: {fileID: 0}
   defaultDelay: 0
   scaleAudioSpeed: 1
   restTime: 0.2
@@ -1240,7 +1240,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 38dda909d4cc4774c989f6bdf7b96537, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 22eedb98fc2b3624e960b896b567dd86, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2028,17 +2028,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theProfessor: {fileID: 494165116}
-  profLipSyncData: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d, type: 2}
+  profLipSyncData: {fileID: 11400000, guid: 1e1bbb418ef4ae6489efb65723e0611d, type: 2}
   theClassmate: {fileID: 1672681704}
-  classmateLipSyncData: {fileID: 11400000, guid: f604f0d4f271b8541ba3ca068cfe6c39,
+  classmateLipSyncData: {fileID: 11400000, guid: a98b5032450966945ab3243570db0eaf,
     type: 2}
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967291
   reticle: {fileID: 193202267}
-  classmatePositiveLipSyncData: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d,
+  classmatePositiveLipSyncData: {fileID: 11400000, guid: f8766493607c12c439e54d90035259fb,
     type: 2}
-  classmateNegativeLipSyncData: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d,
+  classmateNegativeLipSyncData: {fileID: 11400000, guid: ed292592f0d9ef34b80906dbdbed9ad7,
     type: 2}
 --- !u!114 &724156141
 MonoBehaviour:

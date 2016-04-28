@@ -1,0 +1,509 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f44607bd270d4f4eaa8869ed9b5b85c, type: 3}
+  m_Name: Doctor (Negative)
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 338b8f9ae97350f469fae47afbd7cbf8, type: 3}
+  phonemeData:
+  - phoneme: 3
+    time: 0.01975057
+    intensity: 1
+  - phoneme: 4
+    time: 0.025559561
+    intensity: 1
+  - phoneme: 0
+    time: 0.030206753
+    intensity: 1
+  - phoneme: 6
+    time: 0.037177544
+    intensity: 1
+  - phoneme: 0
+    time: 0.040082037
+    intensity: 1
+  - phoneme: 4
+    time: 0.04472923
+    intensity: 1
+  - phoneme: 0
+    time: 0.051119123
+    intensity: 1
+  - phoneme: 4
+    time: 0.055185415
+    intensity: 1
+  - phoneme: 3
+    time: 0.058089912
+    intensity: 1
+  - phoneme: 4
+    time: 0.06273711
+    intensity: 1
+  - phoneme: 0
+    time: 0.0662225
+    intensity: 1
+  - phoneme: 5
+    time: 0.068546094
+    intensity: 1
+  - phoneme: 0
+    time: 0.07145059
+    intensity: 1
+  - phoneme: 4
+    time: 0.07493598
+    intensity: 1
+  - phoneme: 0
+    time: 0.080744974
+    intensity: 1
+  - phoneme: 4
+    time: 0.08248767
+    intensity: 1
+  - phoneme: 6
+    time: 0.091201164
+    intensity: 1
+  - phoneme: 3
+    time: 0.10107645
+    intensity: 1
+  - phoneme: 4
+    time: 0.105142735
+    intensity: 1
+  - phoneme: 2
+    time: 0.10862813
+    intensity: 1
+  - phoneme: 4
+    time: 0.113856226
+    intensity: 1
+  - phoneme: 2
+    time: 0.11908431
+    intensity: 1
+  - phoneme: 4
+    time: 0.1260551
+    intensity: 1
+  - phoneme: 4
+    time: 0.1295405
+    intensity: 1
+  - phoneme: 4
+    time: 0.13651128
+    intensity: 1
+  - phoneme: 3
+    time: 0.14290118
+    intensity: 1
+  - phoneme: 4
+    time: 0.15045287
+    intensity: 1
+  - phoneme: 4
+    time: 0.15393828
+    intensity: 1
+  - phoneme: 7
+    time: 0.16381355
+    intensity: 1
+  - phoneme: 0
+    time: 0.21551357
+    intensity: 1
+  - phoneme: 4
+    time: 0.22132257
+    intensity: 1
+  - phoneme: 0
+    time: 0.22306526
+    intensity: 1
+  - phoneme: 4
+    time: 0.22596976
+    intensity: 1
+  - phoneme: 4
+    time: 0.23003605
+    intensity: 1
+  - phoneme: 0
+    time: 0.23352145
+    intensity: 1
+  - phoneme: 7
+    time: 0.24397762
+    intensity: 1
+  - phoneme: 0
+    time: 0.24688213
+    intensity: 1
+  - phoneme: 4
+    time: 0.2515293
+    intensity: 1
+  - phoneme: 4
+    time: 0.2561765
+    intensity: 1
+  - phoneme: 4
+    time: 0.259081
+    intensity: 1
+  - phoneme: 1
+    time: 0.2619855
+    intensity: 1
+  - phoneme: 7
+    time: 0.2683754
+    intensity: 1
+  - phoneme: 4
+    time: 0.27302256
+    intensity: 1
+  - phoneme: 1
+    time: 0.27941248
+    intensity: 1
+  - phoneme: 7
+    time: 0.28231698
+    intensity: 1
+  - phoneme: 8
+    time: 0.28754506
+    intensity: 1
+  - phoneme: 2
+    time: 0.29567766
+    intensity: 1
+  - phoneme: 4
+    time: 0.29742035
+    intensity: 1
+  - phoneme: 2
+    time: 0.29974392
+    intensity: 1
+  - phoneme: 7
+    time: 0.30729562
+    intensity: 1
+  - phoneme: 1
+    time: 0.31194282
+    intensity: 1
+  - phoneme: 7
+    time: 0.31659
+    intensity: 1
+  - phoneme: 3
+    time: 0.3189136
+    intensity: 1
+  - phoneme: 7
+    time: 0.32239902
+    intensity: 1
+  - phoneme: 2
+    time: 0.3276271
+    intensity: 1
+  - phoneme: 4
+    time: 0.3305316
+    intensity: 1
+  - phoneme: 1
+    time: 0.33866417
+    intensity: 1
+  - phoneme: 4
+    time: 0.3450541
+    intensity: 1
+  - phoneme: 1
+    time: 0.34912038
+    intensity: 1
+  - phoneme: 2
+    time: 0.35260576
+    intensity: 1
+  - phoneme: 4
+    time: 0.35551026
+    intensity: 1
+  - phoneme: 6
+    time: 0.36073837
+    intensity: 1
+  - phoneme: 0
+    time: 0.37235633
+    intensity: 1
+  - phoneme: 4
+    time: 0.37526083
+    intensity: 1
+  - phoneme: 4
+    time: 0.38281253
+    intensity: 1
+  - phoneme: 0
+    time: 0.3868788
+    intensity: 1
+  - phoneme: 4
+    time: 0.39268783
+    intensity: 1
+  - phoneme: 5
+    time: 0.3961732
+    intensity: 1
+  - phoneme: 6
+    time: 0.40372488
+    intensity: 1
+  - phoneme: 5
+    time: 0.40895298
+    intensity: 1
+  - phoneme: 1
+    time: 0.41534287
+    intensity: 1
+  - phoneme: 0
+    time: 0.42521816
+    intensity: 1
+  - phoneme: 2
+    time: 0.4571676
+    intensity: 1
+  - phoneme: 7
+    time: 0.46065298
+    intensity: 1
+  - phoneme: 7
+    time: 0.46355748
+    intensity: 1
+  - phoneme: 0
+    time: 0.46878558
+    intensity: 1
+  - phoneme: 3
+    time: 0.4798227
+    intensity: 1
+  - phoneme: 1
+    time: 0.49957326
+    intensity: 1
+  - phoneme: 4
+    time: 0.5036395
+    intensity: 1
+  - phoneme: 0
+    time: 0.5094485
+    intensity: 1
+  - phoneme: 4
+    time: 0.5135148
+    intensity: 1
+  - phoneme: 6
+    time: 0.5175811
+    intensity: 1
+  - phoneme: 1
+    time: 0.5216474
+    intensity: 1
+  - phoneme: 4
+    time: 0.5251328
+    intensity: 1
+  - phoneme: 4
+    time: 0.52919906
+    intensity: 1
+  - phoneme: 3
+    time: 0.53384626
+    intensity: 1
+  - phoneme: 4
+    time: 0.53965527
+    intensity: 1
+  - phoneme: 2
+    time: 0.54662603
+    intensity: 1
+  - phoneme: 5
+    time: 0.54836875
+    intensity: 1
+  - phoneme: 0
+    time: 0.553016
+    intensity: 1
+  - phoneme: 4
+    time: 0.55998677
+    intensity: 1
+  - phoneme: 0
+    time: 0.56347215
+    intensity: 1
+  - phoneme: 4
+    time: 0.56811935
+    intensity: 1
+  - phoneme: 4
+    time: 0.57218564
+    intensity: 1
+  - phoneme: 6
+    time: 0.5762519
+    intensity: 1
+  - phoneme: 7
+    time: 0.5808991
+    intensity: 1
+  - phoneme: 0
+    time: 0.5855463
+    intensity: 1
+  - phoneme: 4
+    time: 0.5901935
+    intensity: 1
+  - phoneme: 4
+    time: 0.5977452
+    intensity: 1
+  - phoneme: 3
+    time: 0.60181147
+    intensity: 1
+  - phoneme: 7
+    time: 0.6058778
+    intensity: 1
+  - phoneme: 4
+    time: 0.60878223
+    intensity: 1
+  - phoneme: 4
+    time: 0.61517215
+    intensity: 1
+  - phoneme: 3
+    time: 0.62098116
+    intensity: 1
+  - phoneme: 6
+    time: 0.62504745
+    intensity: 1
+  - phoneme: 4
+    time: 0.627952
+    intensity: 1
+  - phoneme: 2
+    time: 0.63143736
+    intensity: 1
+  - phoneme: 4
+    time: 0.63434184
+    intensity: 1
+  - phoneme: 0
+    time: 0.6378272
+    intensity: 1
+  - phoneme: 4
+    time: 0.6413126
+    intensity: 1
+  - phoneme: 2
+    time: 0.6459598
+    intensity: 1
+  - phoneme: 7
+    time: 0.6488643
+    intensity: 1
+  - phoneme: 0
+    time: 0.6535115
+    intensity: 1
+  - phoneme: 4
+    time: 0.66222495
+    intensity: 1
+  - phoneme: 2
+    time: 0.73948455
+    intensity: 1
+  - phoneme: 3
+    time: 0.7423891
+    intensity: 1
+  - phoneme: 6
+    time: 0.7476172
+    intensity: 1
+  - phoneme: 1
+    time: 0.75633067
+    intensity: 1
+  - phoneme: 4
+    time: 0.76388234
+    intensity: 1
+  - phoneme: 3
+    time: 0.7673677
+    intensity: 1
+  - phoneme: 7
+    time: 0.7737576
+    intensity: 1
+  - phoneme: 0
+    time: 0.7784048
+    intensity: 1
+  - phoneme: 7
+    time: 0.7836329
+    intensity: 1
+  - phoneme: 4
+    time: 0.788861
+    intensity: 1
+  - phoneme: 0
+    time: 0.7969936
+    intensity: 1
+  - phoneme: 7
+    time: 0.80280256
+    intensity: 1
+  - phoneme: 3
+    time: 0.8068689
+    intensity: 1
+  - phoneme: 7
+    time: 0.8115161
+    intensity: 1
+  - phoneme: 4
+    time: 0.8144206
+    intensity: 1
+  - phoneme: 2
+    time: 0.82720035
+    intensity: 1
+  - phoneme: 2
+    time: 0.8341711
+    intensity: 1
+  - phoneme: 4
+    time: 0.8393992
+    intensity: 1
+  - phoneme: 4
+    time: 0.84578913
+    intensity: 1
+  - phoneme: 7
+    time: 0.8498554
+    intensity: 1
+  - phoneme: 0
+    time: 0.8545026
+    intensity: 1
+  - phoneme: 4
+    time: 0.8591498
+    intensity: 1
+  - phoneme: 3
+    time: 0.8661206
+    intensity: 1
+  - phoneme: 4
+    time: 0.87541497
+    intensity: 1
+  - phoneme: 4
+    time: 0.881224
+    intensity: 1
+  - phoneme: 1
+    time: 0.8864521
+    intensity: 1
+  - phoneme: 6
+    time: 0.8945846
+    intensity: 1
+  - phoneme: 5
+    time: 0.8969082
+    intensity: 1
+  - phoneme: 4
+    time: 0.90271723
+    intensity: 1
+  - phoneme: 2
+    time: 0.9056217
+    intensity: 1
+  - phoneme: 7
+    time: 0.90852624
+    intensity: 1
+  - phoneme: 0
+    time: 0.91259253
+    intensity: 1
+  - phoneme: 4
+    time: 0.9166588
+    intensity: 1
+  - phoneme: 4
+    time: 0.9242105
+    intensity: 1
+  - phoneme: 4
+    time: 0.9294386
+    intensity: 1
+  - phoneme: 2
+    time: 0.9317622
+    intensity: 1
+  - phoneme: 4
+    time: 0.9358285
+    intensity: 1
+  - phoneme: 3
+    time: 0.9398948
+    intensity: 1
+  - phoneme: 7
+    time: 0.9468655
+    intensity: 1
+  - phoneme: 6
+    time: 0.9509319
+    intensity: 1
+  - phoneme: 0
+    time: 0.9538364
+    intensity: 1
+  - phoneme: 4
+    time: 0.9584835
+    intensity: 1
+  - phoneme: 3
+    time: 0.9642925
+    intensity: 1
+  - phoneme: 4
+    time: 0.9706824
+    intensity: 1
+  - phoneme: 2
+    time: 0.9776532
+    intensity: 1
+  - phoneme: 0
+    time: 0.9828813
+    intensity: 1
+  - phoneme: 7
+    time: 0.9881094
+    intensity: 1
+  - phoneme: 4
+    time: 0.9921757
+    intensity: 1
+  - phoneme: 4
+    time: 0.9968229
+    intensity: 1
+  emotionData: []
+  gestureData: []
+  version: 1
+  length: 17.214693
+  transcript: 

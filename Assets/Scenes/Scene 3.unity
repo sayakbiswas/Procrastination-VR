@@ -7356,9 +7356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theDoctor: {fileID: 341660602}
-  doctorPositiveLipSyncData: {fileID: 11400000, guid: f604f0d4f271b8541ba3ca068cfe6c39,
+  doctorPositiveLipSyncData: {fileID: 11400000, guid: 7028d27f2dbc4114abc71ee3c2b374d5,
     type: 2}
-  doctorNegativeLipSyncData: {fileID: 11400000, guid: be3b3174283b59f4abf20b502f6e369d,
+  doctorNegativeLipSyncData: {fileID: 11400000, guid: 894f604a601f5364ea2c852720fb9eac,
     type: 2}
   layerMask:
     serializedVersion: 2
