@@ -19,6 +19,7 @@ public class ClassroomScript : MonoBehaviour {
 	public LipSyncData classmatePositiveLipSyncData;
 	public LipSyncData classmateNegativeLipSyncData;
 	public AudioClip userMomDoctorClip;
+	public bool momDoctorClipPlayed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -71,29 +72,40 @@ public class ClassroomScript : MonoBehaviour {
 						}
 					}
 					if(hasClassmateStartedTalking && !theClassmate.GetComponent<LipSync> ().isPlaying) {
-						if(waitBeforeSceneChange > 0.0f) {
+						/*if(waitBeforeSceneChange > 0.0f) {
 							waitBeforeSceneChange -= Time.deltaTime;
-						} else {
+						} else {*/
 							if(!ProcrastinationScript.hasChosenBetweenSocialAndPaper && !ProcrastinationScript.hasChosenBetweenGameAndPaper) {
-								SceneManager.LoadScene ("Scene 2");
+								Invoke ("loadScene2", 1.0f);
 							} else {
 								if(ProcrastinationScript.choseDoctor) {
-									SceneManager.LoadScene ("Scene 4");
+									Invoke ("loadScene4", 1.0f);
 								} else {
-									AudioSource playerAudioSource = gameObject.GetComponent<AudioSource> ();
-									playerAudioSource.clip = userMomDoctorClip;
-									playerAudioSource.Play ();
-									Invoke ("loadDoctorScene", userMomDoctorClip.length + 0.5f);
+									if(!momDoctorClipPlayed) {
+										CardboardAudioSource playerAudioSource = this.gameObject.GetComponent<CardboardAudioSource> ();
+										playerAudioSource.clip = userMomDoctorClip;
+										playerAudioSource.Play ();
+										momDoctorClipPlayed = true;
+										Invoke ("loadScene3", userMomDoctorClip.length + 0.5f);
+									}
 								}
 							}
-						}
+						/*}*/
 					}
 				}
 			}
 		}
 	}
 
-	public void loadDoctorScene() {
+	public void loadScene3() {
 		SceneManager.LoadScene ("Scene 3");
+	}
+
+	public void loadScene4() {
+		SceneManager.LoadScene ("Scene 4");
+	}
+
+	public void loadScene2() {
+		SceneManager.LoadScene ("Scene 2");
 	}
 }
