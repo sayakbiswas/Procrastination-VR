@@ -421,6 +421,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: a1b071d663ddd2c48b823c734ef1ee65, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1833d794a6cc7244c8bfa8b196174f5a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b071d663ddd2c48b823c734ef1ee65, type: 3}
   m_IsPrefabParent: 0
@@ -2042,6 +2046,7 @@ MonoBehaviour:
   classmateNegativeLipSyncData: {fileID: 11400000, guid: ed292592f0d9ef34b80906dbdbed9ad7,
     type: 2}
   userMomDoctorClip: {fileID: 8300000, guid: f0e48fcd4fd83154cb066f1d97750756, type: 3}
+  momDoctorClipPlayed: 0
 --- !u!114 &724156141
 MonoBehaviour:
   m_ObjectHideFlags: 0
