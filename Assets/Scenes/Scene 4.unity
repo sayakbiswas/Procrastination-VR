@@ -1109,9 +1109,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967291
   reticle: {fileID: 1615322081}
-  classmatePositiveLipSyncData: {fileID: 11400000, guid: de80dab46352c8c4db17d6044abad46f,
+  classmatePositiveLipSyncData: {fileID: 11400000, guid: c789fca326d4abb4cbb4d6ebf2cff864,
     type: 2}
-  classmateNegativeLipSyncData: {fileID: 11400000, guid: ed292592f0d9ef34b80906dbdbed9ad7,
+  classmateNegativeLipSyncData: {fileID: 11400000, guid: e83250482b375dc4dadd5d8d8239d855,
     type: 2}
   ringtoneClip: {fileID: 8300000, guid: 1d23a94eedda89842990980edcfcbe33, type: 3}
   squareButton: {fileID: 1163623269}
